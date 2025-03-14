@@ -1,0 +1,453 @@
+{
+   "questions": [
+     {
+       "id": 1,
+       "title": "What is React?",
+       "question": "What is React?",
+       "options": [
+         "A server-side programming language",
+         "React is an open-source JavaScript library for building user interfaces or UI components, developed by Facebook.",
+         "A database management system",
+         "A complete full-stack framework"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React is an open-source JavaScript library developed by Facebook (now Meta) in 2013 for building user interfaces. It uses a component-based architecture that allows developers to create reusable UI components. React implements a virtual DOM, which optimizes rendering performance by minimizing direct manipulation of the browser's DOM. It has become one of the most popular frontend libraries due to its declarative approach, efficiency, and robust ecosystem.",
+       "imageUrl": "/images/react-logo.png"
+     },
+     {
+       "id": 2,
+       "title": "Explain JSX",
+       "question": "What is JSX in React?",
+       "options": [
+         "A database query language",
+         "JSX (JavaScript XML) is a syntax extension for JavaScript recommended by React for describing what the UI should look like.",
+         "A type of CSS framework",
+         "JavaScript eXtension - a plugin system for React"
+       ],
+       "correctAnswer": 1,
+       "explanation": "JSX (JavaScript XML) is a syntax extension for JavaScript that looks similar to HTML or XML. It allows you to write HTML structures in the same file as your JavaScript code. JSX makes React code more readable and expressive by allowing developers to write what the UI should look like in a familiar HTML-like syntax. Behind the scenes, JSX is transformed into regular JavaScript function calls by tools like Babel. For example, `<div>Hello World</div>` gets compiled to `React.createElement('div', null, 'Hello World')`.",
+       "imageUrl": "/images/jsx-example.png"
+     },
+     {
+       "id": 3,
+       "title": "Virtual DOM",
+       "question": "What is the virtual DOM?",
+       "options": [
+         "A physical copy of the browser's DOM",
+         "The virtual DOM is a lightweight copy of the actual DOM in memory. React uses it to improve performance by updating only the changed parts of the actual DOM.",
+         "A special browser mode for React applications",
+         "The Document Object Model specification"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The virtual DOM is a lightweight JavaScript representation of the actual browser DOM kept in memory. When state changes in a React component, React first updates this virtual DOM instead of directly updating the browser's DOM. Then, React compares the updated virtual DOM with a snapshot of the previous virtual DOM (a process called 'diffing'), identifies the specific elements that need to change, and updates only those elements in the real DOM. This selective updating approach is significantly more efficient than re-rendering the entire DOM tree, resulting in better performance and user experience.",
+       "imageUrl": "/images/virtual-dom.png"
+     },
+     {
+       "id": 4,
+       "title": "Keys in React",
+       "question": "What is the significance of keys in React?",
+       "options": [
+         "They are used for encryption",
+         "Keys are used to uniquely identify and differentiate between components in React. They help React identify which items have changed, added, or removed.",
+         "They are required for all React components",
+         "They are used to style components"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Keys are special string attributes that help React identify which items in a list have changed, been added, or removed. When rendering a list of elements, React uses these keys to determine the most efficient way to update the DOM. Without keys, React would need to re-render the entire list when any item changes. Keys should be stable, predictable, and unique among siblings. Using array indices as keys is not recommended if the order of items may change, as this can cause performance issues and bugs with component state. A good practice is to use unique IDs from your data as keys.",
+       "imageUrl": "/images/react-keys.png"
+     },
+     {
+       "id": 5,
+       "title": "State and Props",
+       "question": "What are state and props in React?",
+       "options": [
+         "Both are the same thing with different names",
+         "State is an internal data store that belongs to a specific component, and it can be changed over time. Props are properties passed to a component from its parent, and they are immutable.",
+         "State is for class components, props are for functional components",
+         "Props are internal values, state values come from outside the component"
+       ],
+       "correctAnswer": 1,
+       "explanation": "State and props are both core concepts in React but serve different purposes. State is a JavaScript object that represents the internal data of a component that can change over time, typically due to user interactions or network responses. It's managed within the component using useState hook (in functional components) or this.setState() (in class components). Props, short for properties, are read-only data passed from parent to child components. They allow components to be dynamic and reusable. While a component can't modify its own props, it can decide what to do with them and how they affect the component's state and rendering.",
+       "imageUrl": "/images/state-props.png"
+     },
+     {
+       "id": 6,
+       "title": "Difference Between State and Props",
+       "question": "What is the difference between state and props?",
+       "options": [
+         "There is no difference",
+         "State is internal to a component and can be changed over time, while props are external and passed to a component.",
+         "Props can be modified, state cannot",
+         "State is used only in functional components"
+       ],
+       "correctAnswer": 1,
+       "explanation": "State and props differ in several important ways: 1) Ownership: State is owned and managed by the component itself, while props are owned by the parent component and passed down. 2) Mutability: State can be updated using setState() or state updater functions, whereas props are read-only and cannot be modified by the receiving component. 3) Purpose: State is used for data that changes over time within a component, while props are used to pass data and event handlers down the component tree. 4) Re-rendering: Changes to either state or props will trigger a re-render of the component. These distinctions are fundamental to the React data flow model, which is predominantly one-directional (from parent to child).",
+       "imageUrl": "/images/state-vs-props.png"
+     },
+     {
+       "id": 7,
+       "title": "Lifting State Up",
+       "question": "Explain the concept of lifting state up in React",
+       "options": [
+         "Moving state from a child component to a parent component",
+         "Lifting state up is a pattern where the state of a child component is moved to its parent component, allowing multiple child components to share the same state.",
+         "Using React context to avoid passing props",
+         "Using Redux for state management"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Lifting state up is a pattern in React where state management is moved from child components to a common ancestor (parent) component. This approach is used when multiple components need to share and use the same state data. Instead of keeping local state in each component, the state is lifted to their closest shared parent. The parent then passes this state down to the children as props, along with functions to update the state. This creates a single 'source of truth' for the shared data and ensures that all components using this data stay in sync. This pattern is fundamental to React's top-down data flow and is often used before introducing more complex state management solutions like Context API or Redux.",
+       "imageUrl": "/images/lifting-state-up.png"
+     },
+     {
+       "id": 8,
+       "title": "setState Purpose",
+       "question": "What is the purpose of setState in React?",
+       "options": [
+         "To create new components",
+         "setState is used to update the state of a component and trigger a re-render.",
+         "To pass data to a parent component",
+         "To define initial state values"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The setState method in React serves three critical purposes: 1) It updates the component's internal state with new values. 2) It marks the component and its children for re-rendering. 3) It does these updates asynchronously for performance reasons. setState should never be called inside the render method (which would create an infinite loop). It's important to treat state as immutable and avoid direct state mutations (like this.state.count++). Instead, always use setState to provide a new state object or an updater function. When state updates depend on previous state, the function form should be used: setState(prevState => ({ count: prevState.count + 1 })) to avoid race conditions caused by React's batching of multiple setState calls.",
+       "imageUrl": "/images/setstate-example.png"
+     },
+     {
+       "id": 9,
+       "title": "React Router",
+       "question": "What is React Router?",
+       "options": [
+         "A built-in React component",
+         "React Router is a library that enables navigation among views in a React application, allowing for the development of single-page applications.",
+         "A state management library",
+         "A React testing framework"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React Router is the most popular library for implementing navigation and routing in React applications. It enables the creation of single-page applications where the UI updates as users navigate without full page reloads. React Router provides components like BrowserRouter, Route, Link, and Switch that allow developers to define different views for different URL paths while maintaining the application state. It supports dynamic routing with URL parameters, nested routes, route guards for authentication, and programmatic navigation. React Router uses the HTML5 History API to keep the UI in sync with the URL, enabling browser features like bookmarking and the back/forward buttons to work naturally with your React application.",
+       "imageUrl": "/images/react-router.png"
+     },
+     {
+       "id": 10,
+       "title": "useEffect Hook",
+       "question": "Explain the useEffect hook",
+       "options": [
+         "It's used for styling React components",
+         "The useEffect hook in React is used for side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM.",
+         "It's used to create custom components",
+         "It's used to optimize React performance"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The useEffect hook allows you to perform side effects in functional components. Side effects include data fetching, subscriptions, manual DOM manipulations, logging, and any code that needs to interact with the world outside your component. The hook takes two arguments: a function containing the effect code, and an optional dependency array. The effect runs after render, and if a dependency array is provided, the effect will only re-run when one of the dependencies changes. If the dependency array is empty [], the effect runs only once after the initial render, similar to componentDidMount in class components. The effect function can return a cleanup function, which runs before the component unmounts or before the effect runs again, similar to componentWillUnmount. This is useful for cleaning up subscriptions, timers, or event listeners.",
+       "imageUrl": "/images/useeffect-hook.png"
+     },
+     {
+       "id": 11,
+       "title": "Controlled Components",
+       "question": "What are controlled components in React?",
+       "options": [
+         "Components that cannot be modified",
+         "Controlled components are components where the form data is controlled by React state. The input elements receive their current value from the state and have their value updated through a callback function.",
+         "Higher-order components",
+         "Components with validation"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Controlled components in React are form elements (like inputs, textareas, and selects) whose values are controlled by React state rather than the DOM. In a controlled component pattern: 1) The form element's value is set from the component's state. 2) When the user interacts with the form element, an event handler updates the state, which in turn updates the displayed value. This creates a two-way binding where React state becomes the 'single source of truth' for the form element's value. This approach gives you precise control over form validation, dynamic form fields, conditional disabling of submit buttons, and enforcing input formats. It also makes it easier to reset forms or pre-populate them with initial values. The alternative approach is 'uncontrolled components' which use refs to directly access DOM values.",
+       "imageUrl": "/images/controlled-components.png"
+     },
+     {
+       "id": 12,
+       "title": "Redux Purpose",
+       "question": "What is Redux, and why is it used?",
+       "options": [
+         "A testing framework for React",
+         "Redux is a state management library for JavaScript applications, commonly used with React. It helps manage the state of an application in a predictable way.",
+         "A React component library",
+         "A build tool for React applications"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Redux is a state management library for JavaScript applications that provides a predictable, centralized approach to managing application state. It's commonly used with React, though it can work with any UI library. Redux is especially valuable for larger applications where state is shared across many components. Key concepts in Redux include: 1) Store: A single source of truth that holds the entire application state tree. 2) Actions: Plain JavaScript objects that describe what happened (e.g., 'USER_LOGGED_IN'). 3) Reducers: Pure functions that specify how the state changes in response to actions. 4) Dispatch: The method used to send actions to the store. Benefits of Redux include predictable state updates, easier debugging, time-travel debugging, maintainable code for complex applications, and better testability. However, for simpler applications, Redux might add unnecessary complexity, and modern alternatives like Context API with useReducer can be more appropriate.",
+       "imageUrl": "/images/redux-flow.png"
+     },
+     {
+       "id": 13,
+       "title": "Higher-Order Components",
+       "question": "Explain the concept of higher-order components (HOC)",
+       "options": [
+         "Main components in a React application",
+         "Higher-order components are functions that take a component and return a new component with additional features or props.",
+         "Components with animations",
+         "Components with many child elements"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Higher-Order Components (HOCs) are an advanced pattern in React for reusing component logic. An HOC is a function that takes a component as an argument and returns a new enhanced component with additional props, state, or behavior. HOCs don't modify the input component; they compose a new component by wrapping the original one. Common use cases for HOCs include: 1) Code reuse for cross-cutting concerns like data fetching or authentication. 2) Adding additional props to a component. 3) State abstraction and manipulation. 4) Props manipulation. 5) Rendering hijacking (controlling what gets rendered). Classic examples include connect() from Redux or withRouter() from React Router. While still useful, HOCs have some downsides like prop collision and wrapper hell, which is why React introduced Hooks and the Render Props pattern as alternative composition strategies.",
+       "imageUrl": "/images/hoc-diagram.png"
+     },
+     {
+       "id": 14,
+       "title": "useReducer Hook",
+       "question": "What is the purpose of the useReducer hook?",
+       "options": [
+         "For handling component animations",
+         "The useReducer hook is used for managing complex state logic in React applications. It is an alternative to useState when state transitions are more complex.",
+         "For defining component styles",
+         "For creating context providers"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The useReducer hook provides a more powerful way to manage state in functional components, especially when the state logic is complex or when the next state depends on the previous state. It's inspired by Redux and works similarly. useReducer accepts a reducer function (state, action) => newState and an initial state, and returns the current state paired with a dispatch function to trigger state updates. The reducer pattern centralizes state update logic outside the component, making it easier to test and reason about state transitions. useReducer is preferable to useState when: 1) State involves multiple sub-values. 2) The next state depends on the previous state. 3) State updates are complex or involve deep nesting. 4) You need more predictable state transitions. It's like having a mini-Redux within a component without needing the full Redux library.",
+       "imageUrl": "/images/usereducer-example.png"
+     },
+     {
+       "id": 15,
+       "title": "Key Attribute in Lists",
+       "question": "What is the significance of the key attribute in React lists?",
+       "options": [
+         "It's required for styling list items",
+         "The key attribute is used to uniquely identify elements in a list. It helps React efficiently update the DOM when the list changes.",
+         "It defines the order of list items",
+         "It's used for list animations"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The key attribute is crucial when rendering lists in React for several reasons: 1) Performance: Keys help React identify which items have changed, been added, or removed, allowing it to update only what's necessary instead of re-rendering the entire list. 2) State preservation: With proper keys, React maintains component state across re-renders even when the position of an item in a list changes. 3) Reconciliation: During the diffing process, React uses keys to match elements in the previous and new render, minimizing DOM operations. Keys must be unique among siblings (but not globally unique), stable across renders, and predictable. Using index as a key is only safe if the list is static and never reordered. For dynamic lists, it's best to use stable IDs from your data. Missing keys or improperly implemented keys can lead to subtle bugs, performance issues, and unexpected behavior with component state.",
+       "imageUrl": "/images/key-attribute.png"
+     },
+     {
+       "id": 16,
+       "title": "Component Types",
+       "question": "What is the difference between class components and functional components?",
+       "options": [
+         "They are exactly the same",
+         "Class components use ES6 classes and have additional features like state and lifecycle methods, while functional components are simpler and are often used with hooks.",
+         "Functional components are deprecated",
+         "Class components are for mobile apps only"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Class and functional components represent two approaches to creating components in React. Class components: 1) Use ES6 class syntax that extends React.Component. 2) Have access to lifecycle methods like componentDidMount and componentDidUpdate. 3) Use this.state and this.setState() for state management. 4) Can use refs with createRef(). 5) Use this.props to access props. Functional components: 1) Are simpler JavaScript functions that take props as an argument. 2) Prior to React 16.8, could only be used for presentational purposes without state. 3) With the introduction of Hooks in React 16.8, can now use state, effects, context, and other React features. 4) Generally require less code and are easier to test and understand. Modern React development favors functional components with hooks because they're more concise, easier to test, and encourage better patterns like separating concerns. However, understanding class components remains important for maintaining legacy code.",
+       "imageUrl": "/images/component-types.png"
+     },
+     {
+       "id": 17,
+       "title": "Refs in React",
+       "question": "Explain the concept of refs in React",
+       "options": [
+         "References to external libraries",
+         "Refs are used to access the DOM directly or to reference a React element. They provide a way to interact with the underlying DOM nodes in React.",
+         "Special styling properties",
+         "A type of React component"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Refs in React provide a way to access DOM nodes or React component instances created in the render method. Unlike props and state, which follow React's unidirectional data flow, refs offer an escape hatch to directly interact with DOM elements or component instances. Common use cases for refs include: 1) Managing focus, text selection, or media playback. 2) Triggering imperative animations. 3) Integrating with third-party DOM libraries. In function components, refs are created with the useRef() hook, which returns a mutable ref object whose .current property is initialized to the passed argument. In class components, refs can be created with React.createRef(). Refs should be used sparingly, as excessive use breaks the declarative nature of React and can make code harder to understand and maintain. For most cases, try to find a declarative solution using props and state before resorting to refs.",
+       "imageUrl": "/images/refs-example.png"
+     },
+     {
+       "id": 18,
+       "title": "React Hooks",
+       "question": "What are React hooks?",
+       "options": [
+         "Special HTML tags for React",
+         "React hooks are functions that allow functional components to use state, lifecycle methods, and other React features.",
+         "Debugging tools for React",
+         "A version control system for React code"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React Hooks, introduced in React 16.8, are functions that allow functional components to use React features previously only available in class components. They let you use state, lifecycle methods, context, and other React features without writing a class. Core hooks include: 1) useState: Adds state to functional components. 2) useEffect: Handles side effects like data fetching, subscriptions, and DOM manipulations. 3) useContext: Accesses data from React Context. 4) useReducer: Manages complex state logic with a reducer pattern. 5) useRef: Creates mutable references that persist across renders. 6) useMemo and useCallback: Optimize performance by memoizing values and functions. Hooks follow two key rules: they can only be called at the top level of components (not inside loops, conditions, or nested functions), and they can only be called from React function components or custom hooks. Custom hooks allow you to extract component logic into reusable functions, enabling better separation of concerns and code reuse.",
+       "imageUrl": "/images/react-hooks.png"
+     },
+     {
+       "id": 19,
+       "title": "useContext Hook",
+       "question": "Explain the purpose of the useContext hook",
+       "options": [
+         "For creating global variables",
+         "The useContext hook is used to access the value of a React context within a functional component.",
+         "For implementing animations",
+         "For creating custom hooks"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The useContext hook provides a way to consume values from React's Context API within functional components without complex nesting. Context in React allows data to be passed through the component tree without having to pass props down manually at every level (prop drilling). The useContext hook makes this process cleaner and more straightforward. Using useContext involves: 1) First creating a context with React.createContext(). 2) Providing the context value at a higher level with Context.Provider. 3) Consuming the context in any descendent component with useContext(MyContext). This is particularly useful for values that are considered 'global' for a tree of components, such as the current authenticated user, theme, or preferred language. useContext always uses the value from the nearest Provider above it in the component tree. If there is no Provider, it uses the default value specified when creating the context.",
+       "imageUrl": "/images/usecontext-example.png"
+     },
+     {
+       "id": 20,
+       "title": "dangerouslySetInnerHTML",
+       "question": "What is the significance of the dangerouslySetInnerHTML property in React?",
+       "options": [
+         "It's used for high-performance rendering",
+         "dangerouslySetInnerHTML is used to inject HTML directly into a component, but it should be used with caution to avoid cross-site scripting (XSS) vulnerabilities.",
+         "It's for inserting CSS directly",
+         "It's used for server-side rendering"
+       ],
+       "correctAnswer": 1,
+       "explanation": "dangerouslySetInnerHTML is React's replacement for using innerHTML in the browser DOM. It allows you to insert HTML directly into your React components. The property name is intentionally verbose and alarming as a reminder that this approach is risky from a security perspective. When you use dangerouslySetInnerHTML, you must pass an object with a __html key containing the HTML string. This explicit format serves as a reminder that the content isn't being automatically sanitized. The primary security concern is Cross-Site Scripting (XSS) attacks, where malicious scripts are injected and executed in the context of your application. You should use this property sparingly and only with content you trust completely or have properly sanitized. For most cases, React's declarative approach using JSX and React components is safer and more maintainable than directly inserting HTML strings.",
+       "imageUrl": "/images/dangerously-set-inner-html.png"
+     },
+     {
+       "id": 21,
+       "title": "componentDidMount Lifecycle",
+       "question": "What is the purpose of the componentDidMount lifecycle method?",
+       "options": [
+         "To unmount components",
+         "componentDidMount is invoked immediately after a component is mounted, making it suitable for initial AJAX requests or setting up subscriptions.",
+         "To update component state",
+         "To prevent component rendering"
+       ],
+       "correctAnswer": 1,
+       "explanation": "componentDidMount is a lifecycle method in class components that runs immediately after a component has been mounted (inserted into the DOM tree). This makes it the perfect place for operations that need access to the DOM or that should only happen once in the component's life. Common uses include: 1) Data fetching from APIs or external sources. 2) Setting up subscriptions or event listeners. 3) Initializing third-party libraries that need access to DOM nodes. 4) Making direct DOM measurements or manipulations. componentDidMount is called during the 'commit' phase, meaning the DOM has been updated by the time this method is called. In the hooks paradigm, the equivalent functionality is achieved using the useEffect hook with an empty dependency array. Any setState() calls inside componentDidMount will trigger an extra rendering, but it happens before the browser updates the screen, so the user won't see the intermediate state.",
+       "imageUrl": "/images/component-did-mount.png"
+     },
+     {
+       "id": 27,
+       "title": "React Fragments",
+       "question": "Explain the significance of React Fragments",
+       "options": [
+         "They are used to split components",
+         "React Fragments allow developers to group multiple elements without adding an extra node to the DOM, helping to keep the structure clean.",
+         "They are special styling components",
+         "They are used for code splitting"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React Fragments provide a way to group multiple elements without adding an extra node to the DOM. Before Fragments, when returning multiple elements from a component, you had to wrap them in a parent div or span, which could lead to unnecessary DOM nodes and potential styling/layout issues. Fragments solve this problem by letting you group children without adding extra nodes to the DOM. They can be written as <React.Fragment>...</React.Fragment> or with the shorthand syntax <>...</> (which doesn't support keys or attributes). Fragments are particularly useful for: 1) Table layouts, where having an extra div inside a <tr> would be invalid HTML. 2) Lists where adding extra container elements would affect styling. 3) Component return values that need to have multiple elements at the top level. 4) Preventing unnecessary DOM bloat for performance and cleaner HTML output.",
+       "imageUrl": "/images/react-fragments.png"
+     },
+     {
+       "id": 28,
+       "title": "Router Key Prop",
+       "question": "What is the significance of the key prop in React Router?",
+       "options": [
+         "It's used for styling routes",
+         "The key prop in React Router is used to force the remounting of a component when the key changes, ensuring that the component is fully reinitialized.",
+         "It defines route priorities",
+         "It's required for all routes"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In React Router, the key prop serves a special purpose beyond React's regular use of keys for list rendering. When a key prop is added to a route's component and that key changes, it forces the component to unmount and remount completely, rather than just updating. This is particularly useful when you have the same route component rendering for different routes or parameters, and you want to ensure a complete reset of the component state, lifecycle methods, and effects. Common use cases include: 1) Form pages that should reset when navigating between different records. 2) Detail views that need to fully re-initialize when the ID parameter changes. 3) Tab interfaces where each tab should start fresh when selected. Without using a key, React would typically preserve the component instance and just update it with new props, which might not trigger the reset of internal state or re-execution of effects that you desire.",
+       "imageUrl": "/images/router-key-prop.png"
+     },
+     {
+       "id": 29,
+       "title": "forwardRef Function",
+       "question": "What is the purpose of the forwardRef function in React?",
+       "options": [
+         "To create references to components",
+         "forwardRef is used to forward refs through components, allowing parent components to interact with the child's DOM node.",
+         "To improve performance",
+         "To handle component errors"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The forwardRef function in React allows a component to take a ref received from its parent component and forward it to a child DOM element or another component. This is necessary because refs don't work like regular props—they cannot be passed through the regular props system. forwardRef is particularly useful when: 1) Creating reusable component libraries where the internal DOM structure is abstracted away, but access to specific elements is still needed. 2) Higher-order components need to forward refs to wrapped components. 3) Parent components need to imperatively access DOM elements or component methods inside a child component. The syntax involves wrapping your component with React.forwardRef(), which gives your component access to the ref as its second parameter after props. This feature enables better encapsulation while still allowing controlled access to internal elements when necessary.",
+       "imageUrl": "/images/forward-ref.png"
+     },
+     {
+       "id": 30,
+       "title": "Error Boundaries",
+       "question": "Explain the concept of error boundaries in React",
+       "options": [
+         "Components that prevent errors by validating props",
+         "Error boundaries are components that catch JavaScript errors anywhere in their child component tree and log those errors, display a fallback UI, or take other actions",
+         "Special try/catch blocks for async code in React",
+         "Testing utilities that identify potential errors"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the entire component tree. They work like a JavaScript catch block, but for components. A class component becomes an error boundary if it defines either the static getDerivedStateFromError() or componentDidCatch() lifecycle methods (or both). Error boundaries only catch errors in the components below them in the tree; they don't catch errors in event handlers, asynchronous code, or their own errors. Error boundaries are valuable for: 1) Preventing an entire application from crashing due to an error in one component. 2) Displaying user-friendly error messages instead of a broken UI. 3) Logging errors to monitoring services. As of React 18, error boundaries only exist as class components, though future React versions may provide a hook-based alternative. The recommended pattern is to create a reusable ErrorBoundary component and place it strategically around your application.",
+       "imageUrl": "/images/error-boundaries.png"
+     },
+     {
+       "id": 31,
+       "title": "memo Function",
+       "question": "What is the significance of the memo function in React?",
+       "options": [
+         "It's used for creating memorization games",
+         "memo is a higher-order component that memoizes the rendering of a functional component, preventing unnecessary re-renders if the props have not changed.",
+         "It's used for memorizing React syntax",
+         "It's used for storing component state"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React.memo is a higher-order component that memoizes the rendering of a functional component, preventing unnecessary re-renders when its props haven't changed. By default, React re-renders a component whenever its parent re-renders, even if the props remain the same. React.memo performs a shallow comparison of props to determine if a re-render is needed. If the props have not changed, React reuses the previously rendered result, skipping the rendering process and diffing algorithm. React.memo is particularly useful for: 1) Performance optimization of pure functional components. 2) Components that render frequently but with the same props. 3) Expensive rendering operations. You can provide a custom comparison function as the second argument to control exactly when re-renders should occur. React.memo is the functional component equivalent of PureComponent for class components. However, it only checks for prop changes; if your component uses context or state, it will still re-render when those change.",
+       "imageUrl": "/images/memo-function.png"
+     },
+     {
+       "id": 32,
+       "title": "React Forms",
+       "question": "How does React handle forms?",
+       "options": [
+         "React can't handle forms",
+         "React handles forms by using controlled components, where form data is controlled by the React state.",
+         "Forms must be handled through external libraries",
+         "React automatically processes form inputs"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React provides two main approaches to handling forms: controlled and uncontrolled components. In controlled components, form elements (inputs, selects, textareas) are controlled by React state. Their values are set from state, and changes are handled through event handlers that update the state. This creates a two-way binding where React state is the 'single source of truth.' Controlled components offer more direct control, easier validation, and predictable behavior. Uncontrolled components manage their own state internally in the DOM, and you access their values using refs. They more closely resemble traditional HTML forms and can be simpler for basic forms or when integrating with non-React code. For complex forms, many developers use libraries like Formik, React Hook Form, or Redux Form, which handle common patterns like validation, error messages, form submission, and touched/dirty state tracking. These libraries can significantly reduce boilerplate code while providing robust form management capabilities.",
+       "imageUrl": "/images/react-forms.png"
+     },
+     {
+       "id": 22,
+       "title": "React Developer Tools",
+       "question": "What is the React Developer Tools?",
+       "options": [
+         "A text editor specifically for React",
+         "The React Developer Tools is a browser extension that allows developers to inspect and debug React component hierarchies in the Chrome and Firefox browsers.",
+         "A CLI tool for creating React apps",
+         "A package manager for React components"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React Developer Tools is a browser extension available for Chrome, Firefox, and Edge that adds React debugging tools to the browser's developer tools panel. It provides two main tabs: 1) Components: Displays the component tree with each component's props, state, hooks, and context. You can edit props and state in real-time to test changes. 2) Profiler: Records rendering performance information to help identify performance bottlenecks in your application. Key features include: 1) Component filtering and search. 2) Viewing the source code of components. 3) Highlighting components on the page when selected in the tree. 4) Time-travel debugging for state changes. 5) Tracking which components re-rendered and why. 6) Displaying fiber tree and priority information. These tools are invaluable for debugging complex React applications and understanding the flow of data through your component hierarchy. They're maintained by the React team and regularly updated to support new React features.",
+       "imageUrl": "/images/react-dev-tools.png"
+     },
+     {
+       "id": 23,
+       "title": "Context in React",
+       "question": "Explain the concept of context in React",
+       "options": [
+         "A special type of component",
+         "Context provides a way to pass data through the component tree without having to pass props manually at every level. It is often used to share values like themes or authentication status.",
+         "A method for organizing code",
+         "A deprecated feature in React"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Context in React provides a way to share values like themes, user authentication, or language preferences across your component tree without explicitly passing props through each level of the tree (a problem known as 'prop drilling'). The Context API consists of: 1) React.createContext(): Creates a Context object with an optional default value. 2) Context.Provider: A component that provides the context value to all children components within its subtree. 3) Context.Consumer: A component-based way to consume context (less common with hooks). 4) useContext hook: A simpler way to consume context in functional components. Context is designed for passing data that can be considered 'global' for a specific subtree, like the current authenticated user, theme, or preferred language. Changes to context values trigger re-renders of all components that use that context. While powerful, Context is not optimized for high-frequency updates, and overusing it can make component reuse more difficult. For complex state management needs, Context is often used with useReducer or combined with state management libraries.",
+       "imageUrl": "/images/context-diagram.png"
+     },
+     {
+       "id": 24,
+       "title": "Advantages of React",
+       "question": "What are the advantages of using React?",
+       "options": [
+         "It's the only way to build web apps",
+         "React offers a virtual DOM for improved performance, a component-based architecture for modular development, and strong community support, among other advantages.",
+         "It's easier to learn than HTML",
+         "It automatically handles backend operations"
+       ],
+       "correctAnswer": 1,
+       "explanation": "React offers several key advantages that have contributed to its widespread adoption: 1) Virtual DOM: Improves performance by minimizing direct DOM manipulation through an efficient diffing algorithm. 2) Component-Based Architecture: Encourages building encapsulated, reusable components that maintain their own state, improving code organization and reusability. 3) Declarative Approach: You describe what the UI should look like based on the current state, not how to achieve it through DOM manipulations. 4) Unidirectional Data Flow: Makes applications more predictable and easier to debug. 5) Rich Ecosystem: Extensive libraries, tools, and community support. 6) JSX: Combines the power of JavaScript with the familiarity of HTML syntax. 7) React Native: Allows for cross-platform mobile development with the same skills. 8) Strong Corporate Backing: Maintained by Facebook/Meta with a clear development roadmap. 9) Progressive Adoption: Can be integrated gradually into existing projects. These advantages make React particularly well-suited for single-page applications and complex UIs with frequent data changes.",
+       "imageUrl": "/images/react-advantages.png"
+     },
+     {
+       "id": 25,
+       "title": "Prop Drilling",
+       "question": "How does React handle prop drilling, and how can it be avoided?",
+       "options": [
+         "Prop drilling is a feature, not a problem",
+         "Prop drilling occurs when props are passed down through multiple levels of components. It can be avoided by using context or state management libraries like Redux.",
+         "By using JavaScript modules",
+         "By avoiding deeply nested components"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Prop drilling occurs when props need to be passed through multiple nested components that don't actually use those props but merely pass them down to deeper components. This creates several problems: 1) Verbose and cluttered code. 2) Tight coupling between components. 3) Difficulty in refactoring. 4) Reduced component reusability. Several strategies can help avoid prop drilling: 1) React Context API: For passing data deep into the component tree without explicitly threading through each level. 2) State Management Libraries: Redux, MobX, or Zustand provide global state accessible to any component. 3) Component Composition: Restructuring components to avoid deep nesting. 4) Custom Hooks: Extracting shared logic to custom hooks that can access context or state management. 5) Render Props or Higher-Order Components: For sharing behavior between components. The right solution depends on the scale and specific requirements of your application—Context is often sufficient for smaller applications, while larger ones might benefit from more robust state management libraries.",
+       "imageUrl": "/images/prop-drilling.png"
+     },
+     {
+       "id": 26,
+       "title": "shouldComponentUpdate Method",
+       "question": "What is the purpose of the shouldComponentUpdate method?",
+       "options": [
+         "To force component updates",
+         "shouldComponentUpdate is a lifecycle method that determines if a component should re-render. Developers can use it to optimize performance by preventing unnecessary renders.",
+         "To define component styles",
+         "To handle component errors"
+       ],
+       "correctAnswer": 1,
+       "explanation": "shouldComponentUpdate is a lifecycle method in class components that lets you control whether a component should re-render after state or props changes. By default, React re-renders a component whenever props or state change, but this can be inefficient for complex UI with frequent updates. shouldComponentUpdate receives nextProps and nextState as arguments and should return a boolean: true to proceed with rendering, false to skip rendering. Implementing this method allows you to perform a shallow comparison between current and next props/state and prevent unnecessary renders. This is particularly useful for performance optimization in component trees with many elements or when rendering is expensive. In modern React, similar optimization is achieved with React.memo() for functional components and the useMemo hook for specific values. React also provides PureComponent, a class component that implements shouldComponentUpdate with a shallow prop and state comparison automatically.",
+       "imageUrl": "/images/should-component-update.png"
+     }
+   ]
+}
+
