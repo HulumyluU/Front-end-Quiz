@@ -1,0 +1,19 @@
+{
+  "name": "HTML & CSS Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "title": "CSS Box Model",
+      "question": "What does the CSS box model consist of?",
+      "options": [
+        "Only margin and padding",
+        "Content, padding, border, and margin",
+        "Just the content area",
+        "Border and content only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The CSS box model consists of content, padding, border, and margin. These properties work together to create the spacing and layout of elements on a webpage.",
+      "imageUrl": "/images/box-model.png"
+    }
+  ]
+} 

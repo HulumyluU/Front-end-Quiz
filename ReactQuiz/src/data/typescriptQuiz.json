@@ -1,0 +1,19 @@
+{
+  "name": "TypeScript Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "title": "TypeScript Basics",
+      "question": "What is the main purpose of TypeScript?",
+      "options": [
+        "To replace JavaScript completely",
+        "To add static typing to JavaScript",
+        "To make JavaScript run faster",
+        "To add new runtime features to JavaScript"
+      ],
+      "correctAnswer": 1,
+      "explanation": "TypeScript adds optional static typing to JavaScript. It helps catch errors early in development and provides better tooling support, but it doesn't add runtime features or replace JavaScript.",
+      "imageUrl": "/images/typescript-example.png"
+    }
+  ]
+} 

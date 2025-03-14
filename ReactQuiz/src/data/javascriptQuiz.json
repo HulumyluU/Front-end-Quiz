@@ -1,0 +1,33 @@
+{
+  "name": "JavaScript Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "title": "JavaScript Fundamentals",
+      "question": "What is closure in JavaScript?",
+      "options": [
+        "A way to close browser windows",
+        "A function that has access to variables in its outer scope",
+        "A method to end JavaScript execution",
+        "A way to close database connections"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A closure is a function that has access to variables in its outer (enclosing) lexical scope, even after the outer function has returned. This is a fundamental concept in JavaScript for data privacy and state management.",
+      "imageUrl": "/images/closure-example.png"
+    },
+    {
+      "id": 2,
+      "title": "ES6 Features",
+      "question": "What is the difference between let and var?",
+      "options": [
+        "There is no difference",
+        "let is block-scoped, var is function-scoped",
+        "var is block-scoped, let is function-scoped",
+        "let is only for numbers, var is for strings"
+      ],
+      "correctAnswer": 1,
+      "explanation": "let introduces block scope to JavaScript. Unlike var which is function-scoped, let declarations are scoped to blocks (like if statements and for loops). Also, let doesn't allow redeclaration and isn't hoisted.",
+      "imageUrl": "/images/let-var-example.png"
+    }
+  ]
+} 

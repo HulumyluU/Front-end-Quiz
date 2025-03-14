@@ -1,25 +1,60 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import styles from './Quiz.module.css';
-import quizData from '../../data/quizQuestions.json';
+
+// Import all quiz data
+import reactQuiz from '../../data/reactQuiz.json';
+import javascriptQuiz from '../../data/javascriptQuiz.json';
+import typescriptQuiz from '../../data/typescriptQuiz.json';
+import browserQuiz from '../../data/browserQuiz.json';
+import htmlCssQuiz from '../../data/htmlCssQuiz.json';
+import securityQuiz from '../../data/securityQuiz.json';
+
+const quizData = {
+  react: reactQuiz,
+  javascript: javascriptQuiz,
+  typescript: typescriptQuiz,
+  browser: browserQuiz,
+  'html-css': htmlCssQuiz,
+  security: securityQuiz
+};
 
 const Quiz = () => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const category = searchParams.get('category');
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showExplanation, setShowExplanation] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
+  useEffect(() => {
+    // Redirect to home if no category is selected or category doesn't exist
+    if (!category || !quizData[category]) {
+      navigate('/');
+    }
+  }, [category, navigate]);
+
+  if (!category || !quizData[category]) {
+    return null;
+  }
+
+  const currentQuizData = quizData[category];
+  const questions = currentQuizData.questions;
+
   const handleAnswerSelect = (answerIndex) => {
     if (selectedAnswer !== null) return; // Prevent multiple selections
     
     setSelectedAnswer(answerIndex);
-    if (answerIndex === quizData.questions[currentQuestion].correctAnswer) {
+    if (answerIndex === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestion < quizData.questions.length - 1) {
+    if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
       setShowExplanation(false);
@@ -42,26 +77,37 @@ const Quiz = () => {
         <div className={styles.quizComplete}>
           <h1 className={styles.title}>Quiz Completed! 🎉</h1>
           <p className={styles.score}>
-            Your score: {score} out of {quizData.questions.length}
+            Your score: {score} out of {questions.length}
           </p>
-          <button className={styles.button} onClick={resetQuiz}>
-            Try Again
-          </button>
+          <div className={styles.actions}>
+            <button className={styles.button} onClick={resetQuiz}>
+              Try Again
+            </button>
+            <button 
+              className={`${styles.button} ${styles.mainMenuButton}`} 
+              onClick={() => navigate('/')}
+            >
+              Go to Main Menu
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
-  const currentQuizQuestion = quizData.questions[currentQuestion];
+  const currentQuizQuestion = questions[currentQuestion];
 
   return (
     <div className={styles.container}>
       <div className={styles.quizCard}>
-        <div className={styles.progress}>
-          Question {currentQuestion + 1} of {quizData.questions.length}
+        <div className={styles.quizHeader}>
+          <h2 className={styles.categoryTitle}>{currentQuizData.name}</h2>
+          <div className={styles.progress}>
+            Question {currentQuestion + 1} of {questions.length}
+          </div>
         </div>
         
-        <h2 className={styles.title}>{currentQuizQuestion.title}</h2>
+        <h3 className={styles.title}>{currentQuizQuestion.title}</h3>
         <p className={styles.question}>{currentQuizQuestion.question}</p>
 
         <div className={styles.options}>
@@ -91,10 +137,11 @@ const Quiz = () => {
             >
               {showExplanation ? 'Hide Explanation' : 'Show Explanation'}
             </button>
-            <button className={styles.button} onClick={handleNextQuestion}>
-              {currentQuestion === quizData.questions.length - 1
-                ? 'Finish Quiz'
-                : 'Next Question'}
+            <button 
+              onClick={handleNextQuestion} 
+              className={styles.button}
+            >
+              {currentQuestion === questions.length - 1 ? "Finish Quiz" : "Next Question"}
             </button>
           </div>
         )}
@@ -113,6 +160,15 @@ const Quiz = () => {
               </div>
             )}
           </div>
+        )}
+
+        {quizCompleted && (
+          <button 
+            onClick={() => navigate('/')} 
+            className={`${styles.button} ${styles.mainMenuButton}`}
+          >
+            Go to Main Menu
+          </button>
         )}
       </div>
     </div>

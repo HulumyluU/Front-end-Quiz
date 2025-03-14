@@ -1,0 +1,19 @@
+{
+  "name": "Front-end Security Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "title": "XSS Prevention",
+      "question": "What is Cross-Site Scripting (XSS)?",
+      "options": [
+        "A styling framework",
+        "A type of malicious script injection",
+        "A cross-browser testing tool",
+        "A JavaScript library"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. It can be prevented by properly sanitizing user input and using appropriate security headers.",
+      "imageUrl": "/images/xss-example.png"
+    }
+  ]
+} 

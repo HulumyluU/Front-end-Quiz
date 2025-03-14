@@ -1,0 +1,19 @@
+{
+  "name": "Browser & DOM Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "title": "Event Loop",
+      "question": "What is the JavaScript Event Loop?",
+      "options": [
+        "A special type of for loop",
+        "A mechanism to handle asynchronous operations",
+        "A way to create infinite loops",
+        "A DOM event handler"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Event Loop is a mechanism that allows JavaScript to perform non-blocking operations despite being single-threaded. It handles asynchronous operations by managing the execution of code in the call stack and callback queue.",
+      "imageUrl": "/images/event-loop.png"
+    }
+  ]
+} 

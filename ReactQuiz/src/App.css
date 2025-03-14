@@ -5,26 +5,34 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
+  background: #16162d;
   color: #e2e8f0;
-  background-color: #16162d;
+  min-height: 100vh;
 }
 
 .app {
   min-height: 100vh;
-  background-color: #16162d;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #16162d 0%, #1a1a2e 100%);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  flex: 1;
 }
 
 .logo {
