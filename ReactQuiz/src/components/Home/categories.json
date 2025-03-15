@@ -1,0 +1,41 @@
+[
+   {
+     "id": "react",
+     "title": "React.js",
+     "icon": "⚛️",
+     "description": "Test your React.js knowledge from basics to advanced concepts" 
+   },
+   {
+     "id": "javascript",
+     "title": "JavaScript",
+     "iconType": "image",
+     "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+     "description": "Master core JavaScript concepts and modern ES6+ features"
+   },
+   {
+     "id": "typescript",
+     "title": "TypeScript",
+     "iconType": "image",
+     "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+     "description": "Explore TypeScript types, interfaces, and advanced features"
+   },
+   {
+     "id": "browser",
+     "title": "Browser & DOM",
+     "icon": "🌐",
+     "description": "Learn about DOM manipulation, event loop, and browser APIs"
+   },
+   {
+     "id": "html-css",
+     "title": "HTML & CSS",
+     "iconType": "image",
+     "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+     "description": "Test your markup and styling skills"
+   },
+   {
+     "id": "security",
+     "title": "Front-end Security",
+     "icon": "🔒",
+     "description": "Learn about secure coding practices"
+   }
+ ]

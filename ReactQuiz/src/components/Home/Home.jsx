@@ -1,53 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
+import categoriesData from './categories.json'; // storing categories data (icons and descriptions about categories sections)
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
+  const [categories, setCategories] = useState([]);
 
-  const categories = [
-    {
-      id: 'react',
-      title: 'React.js',
-      icon: '⚛️',
-      description: 'Test your React.js knowledge from basics to advanced concepts'
-    },
-    {
-      id: 'javascript',
-      title: 'JavaScript',
-      // Replace emoji with an image tag
-      iconType: 'image',
-      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-      description: 'Master core JavaScript concepts and modern ES6+ features'
-    },
-    {
-      id: 'typescript',
-      title: 'TypeScript',
-      iconType: 'image',
-      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      description: 'Explore TypeScript types, interfaces, and advanced features'
-    },
-    {
-      id: 'browser',
-      title: 'Browser & DOM',
-      icon: '🌐',
-      description: 'Learn about DOM manipulation, event loop, and browser APIs'
-    },
-    {
-      id: 'html-css',
-      title: 'HTML & CSS',
-      iconType: 'image',
-      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-      description: 'Test your markup and styling skills'
-    },
-    {
-      id: 'security',
-      title: 'Front-end Security',
-      icon: '🔒',
-      description: 'Learn about secure coding practices'
-    }
-  ];
+  useEffect(() => {
+    // Load categories data
+    setCategories(categoriesData);
+  }, []);
 
   const handleStartQuiz = () => {
     if (!selectedCategory) {
@@ -84,6 +48,17 @@ const Home = () => {
                     alt={`${category.title} logo`} 
                     style={{ width: '30px', height: '30px' }} 
                   />
+                ) : category.iconType === 'multipleImages' ? (
+                  <div style={{ display: 'flex', gap: '5px' }}>
+                    {category.iconSrc.map((src, index) => (
+                      <img 
+                        key={index}
+                        src={src} 
+                        alt={`${category.title} logo part ${index + 1}`} 
+                        style={{ width: '30px', height: '30px' }} 
+                      />
+                    ))}
+                  </div>
                 ) : (
                   category.icon
                 )}

@@ -28,24 +28,24 @@ const Contact = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>Get in Touch</h1>
         <p className={styles.description}>
-          Have questions about React Quiz? Feel free to reach out!
+          Have questions about Front-end Quiz Master? Feel free to reach out!
         </p>
 
         <div className={styles.contactGrid}>
           <div className={styles.contactInfo}>
             <div className={styles.contactCard}>
               <h3>📧 Email</h3>
-              <p>reactquiz@example.com</p>
+              <p><a href="ms3713287@gmail.com">ms3713287@gmail.com</a></p>
             </div>
             <div className={styles.contactCard}>
               <h3>💻 GitHub</h3>
-              <a href="https://github.com/reactquiz" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/HulumyluU/Front-end-Quiz" target="_blank" rel="noopener noreferrer">
                 @reactquiz
               </a>
             </div>
             <div className={styles.contactCard}>
               <h3>🌐 LinkedIn</h3>
-              <a href="https://linkedin.com/in/reactquiz" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/maksym-sovyk/" target="_blank" rel="noopener noreferrer">
                 React Quiz
               </a>
             </div>
