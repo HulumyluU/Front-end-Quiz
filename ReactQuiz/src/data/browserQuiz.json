@@ -1,19 +1,371 @@
 {
-  "name": "Browser & DOM Quiz",
-  "questions": [
-    {
-      "id": 1,
-      "title": "Event Loop",
-      "question": "What is the JavaScript Event Loop?",
-      "options": [
-        "A special type of for loop",
-        "A mechanism to handle asynchronous operations",
-        "A way to create infinite loops",
-        "A DOM event handler"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The Event Loop is a mechanism that allows JavaScript to perform non-blocking operations despite being single-threaded. It handles asynchronous operations by managing the execution of code in the call stack and callback queue.",
-      "imageUrl": "/images/event-loop.png"
-    }
-  ]
-} 
+   "name": "Browser & DOM Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "DOM Fundamentals",
+       "question": "What is the DOM (Document Object Model)?",
+       "options": [
+         "Content-Type",
+         "Cache-Control",
+         "Content-Encoding",
+         "Accept-Language",
+         "A programming language used to build web pages",
+         "A browser extension that enables animation effects",
+         "An interface that represents HTML and XML documents as a tree structure",
+         "A security protocol that protects against website attacks"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of HTML and XML documents as a tree-like model where each node is an object representing a part of the document. The DOM provides a way for programs (particularly JavaScript) to access and manipulate the content, structure, and style of documents. It's not a programming language itself, but rather a standardized API that bridges JavaScript and HTML/XML. The DOM creates a hierarchical representation with parent-child relationships between elements, allowing developers to traverse, access, modify, add, or delete elements and their content programmatically. This enables dynamic web pages that can update without requiring a full page reload."
+     },
+     {
+       "id": 2,
+       "title": "DOM Traversal",
+       "question": "Which property allows you to access the first child element of a DOM node?",
+       "options": [
+         "node.firstChild",
+         "node.firstElementChild",
+         "node.childElement(0)",
+         "node.getFirstElement()"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'firstElementChild' property returns the first child element (not including text and comment nodes) of a specified parent element. This is different from 'firstChild', which returns the first child node of any type (element, text, comment, etc.). The distinction is important when working with DOM traversal: 'firstChild' might return a text node (like whitespace) between elements, while 'firstElementChild' specifically returns an element node. Other important DOM traversal properties include: parentNode, children (element children collection), childNodes (all child nodes), nextElementSibling, previousElementSibling, lastElementChild, and more. Understanding these traversal methods is fundamental to effectively manipulating the DOM structure."
+     },
+     {
+       "id": 3,
+       "title": "DOM Selection Methods",
+       "question": "Which DOM selection method returns the first element that matches a specified CSS selector?",
+       "options": [
+         "document.getElement(selector)",
+         "document.findElement(selector)",
+         "document.querySelector(selector)",
+         "document.getElementBySelector(selector)"
+       ],
+       "correctAnswer": 2,
+       "explanation": "document.querySelector(selector) returns the first element within the document that matches the specified CSS selector. If no matches are found, it returns null. This method is part of the modern DOM API and provides a powerful way to select elements using the same syntax as CSS selectors. For example, document.querySelector('.className') selects the first element with class 'className', and document.querySelector('#idName') selects the element with ID 'idName'. Other important selection methods include: document.querySelectorAll() which returns all matching elements as a NodeList, document.getElementById() which returns an element by its ID, document.getElementsByClassName() which returns elements by class name, and document.getElementsByTagName() which returns elements by tag name."
+     },
+     {
+       "id": 4,
+       "title": "DOM Manipulation",
+       "question": "Which method creates a new HTML element in the DOM?",
+       "options": [
+         "document.makeElement(tagName)",
+         "document.newElement(tagName)",
+         "document.createElement(tagName)",
+         "document.addElement(tagName)"
+       ],
+       "correctAnswer": 2,
+       "explanation": "document.createElement(tagName) creates a new HTML element with the specified tag name. This method creates the element in memory but doesn't automatically add it to the document. To add the newly created element to the DOM, you need to use methods like appendChild(), insertBefore(), or replaceChild() on an existing node. For example: const newDiv = document.createElement('div'); newDiv.textContent = 'Hello World'; document.body.appendChild(newDiv); This creates a new div element with text content and adds it to the end of the body. Other important DOM manipulation methods include: removeChild() to remove a child element, replaceChild() to replace a child element, insertAdjacentHTML() to insert HTML code at specified positions relative to an element, and cloneNode() to create a copy of a node."
+     },
+     {
+       "id": 5,
+       "title": "DOM Event Handling",
+       "question": "What is the modern way to add an event listener to a DOM element?",
+       "options": [
+         "element.addEventListener(event, handler)",
+         "element.attachEvent(event, handler)",
+         "element.on(event, handler)",
+         "element.addHandler(event, handler)"
+       ],
+       "correctAnswer": 0,
+       "explanation": "element.addEventListener(event, handler) is the modern standard way to attach an event listener to a DOM element. This method registers a specified function (handler) to be called whenever the specified event is delivered to the target element. The addEventListener method allows multiple listeners to be added to the same element for the same event type, doesn't overwrite existing event handlers, and has options for controlling event propagation. The basic syntax is: element.addEventListener(eventType, listenerFunction, options); where options is an optional parameter that can include properties like 'capture', 'once', and 'passive'. The older approach of using onevent properties (like element.onclick = function(){}) has limitations because it can be overwritten and only allows one handler per event type per element."
+     },
+     {
+       "id": 6,
+       "title": "Event Propagation",
+       "question": "What is event bubbling in the DOM?",
+       "options": [
+         "A technique to prevent events from firing multiple times",
+         "The process where events propagate from the target element up to the root",
+         "A method to make elements draggable in a web page",
+         "The delay between when an event is triggered and when it's processed"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Event bubbling is the process where an event triggered on a nested element 'bubbles up' through its ancestors in the DOM tree. When an event occurs on an element, it first runs the handlers on that element, then on its parent, then all the way up to the document root. For example, if you have a structure like <div> → <ul> → <li> and click on the <li>, the click event will first trigger on the <li>, then the <ul>, then the <div>, and finally the document. This behavior is useful for event delegation, where you can attach a single event listener to a parent element to handle events for multiple child elements. The opposite of bubbling is capturing, where events propagate from the root down to the target. You can stop event propagation using event.stopPropagation()."
+     },
+     {
+       "id": 7,
+       "title": "Event Loop",
+       "question": "What is the JavaScript Event Loop?",
+       "options": [
+         "A programming pattern for handling asynchronous events",
+         "A mechanism that monitors and executes queued events and callbacks",
+         "A browser API for creating animation loops",
+         "A type of loop structure used in JavaScript like for-loops"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The JavaScript Event Loop is a mechanism that allows JavaScript to perform non-blocking operations despite being single-threaded. It works by continuously checking the call stack and the callback queue. When the call stack is empty, the event loop takes the first event from the queue and pushes it to the call stack for execution. This process consists of several key components: 1) The Call Stack, which tracks function calls; 2) Web APIs (in browsers) that handle operations like setTimeout, DOM events, and fetch requests; 3) The Callback Queue, which holds callbacks from completed async operations; 4) The Microtask Queue, which has higher priority than the Callback Queue and holds promises and mutation observer callbacks. This architecture allows JavaScript to handle I/O, user events, and other asynchronous operations efficiently without blocking the main thread."
+     },
+     {
+       "id": 8,
+       "title": "Call Stack",
+       "question": "What happens when the call stack exceeds its maximum size in JavaScript?",
+       "options": [
+         "The browser automatically allocates more memory",
+         "JavaScript switches to asynchronous execution mode",
+         "A stack overflow error occurs",
+         "The oldest functions in the stack are automatically removed"
+       ],
+       "correctAnswer": 2,
+       "explanation": "When the call stack exceeds its maximum size in JavaScript, a stack overflow error occurs. This commonly happens with infinite or excessively deep recursion where functions keep calling themselves without proper termination conditions. For example, a function that calls itself without an exit condition will continuously add new function calls to the stack until it exceeds the browser's limit. The error typically appears as 'Maximum call stack size exceeded' or 'RangeError: Maximum call stack size exceeded'. Each browser has different call stack size limits. To prevent stack overflow errors, ensure recursive functions have proper base cases, consider iterative approaches for deeply nested operations, and be mindful of mutual recursion (where function A calls function B which calls function A). In some cases, you can use techniques like trampolining or converting recursion to use the heap instead of the stack."
+     },
+     {
+       "id": 9,
+       "title": "Asynchronous JavaScript",
+       "question": "Which of the following is NOT an asynchronous JavaScript operation?",
+       "options": [
+         "Calculating a factorial with a for loop",
+         "Fetching data from an API",
+         "Setting a timeout with setTimeout",
+         "Adding an event listener"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Calculating a factorial with a for loop is a synchronous operation in JavaScript, not an asynchronous one. Synchronous operations execute immediately and block the main thread until they complete. A factorial calculation using a loop simply processes data already available in memory without waiting for external resources or time delays. In contrast, the other options are all asynchronous: fetching data from an API involves network requests that take time to complete; setTimeout schedules code to run after a specified delay without blocking; and adding an event listener sets up a callback to be executed at some future time when an event occurs. Asynchronous operations in JavaScript typically use callbacks, promises, or async/await to handle their results and don't block code execution while waiting for completion."
+     },
+     {
+       "id": 10,
+       "title": "Promise API",
+       "question": "What is the purpose of the Promise.all() method?",
+       "options": [
+         "To execute promises in sequence one after another",
+         "To wait for all promises in an array to resolve or for any to reject",
+         "To handle error conditions in promises",
+         "To cancel running promises"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Promise.all() takes an iterable of promises as input and returns a single Promise that resolves when all input promises have resolved, or rejects when any of the input promises rejects. It's useful when you need to aggregate results from multiple asynchronous operations that can run concurrently. The returned promise resolves with an array of all the resolved values from the input promises, in the same order as the original iterable. If any promise in the iterable rejects, Promise.all() immediately rejects with that reason. Other important Promise methods include: Promise.race() which resolves or rejects as soon as one promise in the array settles; Promise.allSettled() which waits for all promises to settle regardless of whether they fulfill or reject; and Promise.any() which resolves as soon as any promise in the array resolves, or rejects if all promises reject."
+     },
+     {
+       "id": 11,
+       "title": "Async/Await",
+       "question": "What happens when you use 'await' outside of an async function?",
+       "options": [
+         "It works fine as long as it's in the global scope",
+         "It causes a syntax error",
+         "It's automatically wrapped in a Promise",
+         "It behaves the same as synchronous code"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Using 'await' outside of an async function causes a syntax error. The 'await' keyword can only be used inside functions declared with the 'async' keyword. This is because 'await' pauses execution until the promise settles, which would block the main thread if allowed in regular synchronous code. To use 'await' at the top level, you have several options: 1) In modern JavaScript (ES2022+), you can use top-level await in ECMAScript modules; 2) Wrap the code in an immediately invoked async function expression (IIFE) like (async () => { await somePromise(); })(); 3) Create a separate async function and call it from your code. The async/await syntax was introduced to make asynchronous code more readable and maintainable compared to chained .then() calls, but the underlying mechanism still uses Promises behind the scenes."
+     },
+     {
+       "id": 12,
+       "title": "HTTP Protocol",
+       "question": "What is the primary difference between HTTP and HTTPS?",
+       "options": [
+         "HTTP is faster than HTTPS",
+         "HTTPS uses encryption to secure data transmission",
+         "HTTP supports more request methods than HTTPS",
+         "HTTPS only works on mobile devices"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The primary difference between HTTP (Hypertext Transfer Protocol) and HTTPS (HTTP Secure) is that HTTPS uses encryption to secure data transmission. HTTPS adds a security layer through SSL/TLS (Secure Sockets Layer/Transport Layer Security) protocols, which encrypt the data exchanged between the client and server. This encryption prevents unauthorized access, eavesdropping, and tampering with the communication. HTTP sends data in plaintext, making it vulnerable to interception. HTTPS websites are identified by the padlock icon in browser address bars and use the 'https://' prefix instead of 'http://'. They operate on port 443 by default (versus port 80 for HTTP) and require SSL/TLS certificates issued by trusted Certificate Authorities. HTTPS is essential for websites that handle sensitive information like login credentials, personal data, or payment information, and has become the standard for all websites due to security concerns and SEO benefits."
+     },
+     {
+       "id": 13,
+       "title": "HTTP Request Methods",
+       "question": "Which HTTP method is idempotent but not safe?",
+       "options": [
+         "GET",
+         "POST",
+         "PUT",
+         "OPTIONS"
+       ],
+       "correctAnswer": 2,
+       "explanation": "PUT is idempotent but not safe. In HTTP, 'safe' methods don't change server state and are used only for retrieval operations. 'Idempotent' methods produce the same server state regardless of how many times they're called. PUT is idempotent because making the same PUT request multiple times has the same effect as making it once - it sets a resource to a specific state. However, it's not safe because it modifies server state. GET and OPTIONS are both safe and idempotent as they don't change server state. POST is neither safe nor idempotent - it's not safe because it changes server state, and it's not idempotent because multiple identical POST requests might create multiple resources or have cumulative effects. Other idempotent methods include DELETE (removes a specific resource) and HEAD (like GET but returns only headers). Understanding these properties is crucial when designing RESTful APIs and handling network failures or retries."
+     },
+     {
+       "id": 14,
+       "title": "HTTP Status Codes",
+       "question": "Which range of HTTP status codes indicates server errors?",
+       "options": [
+         "100-199",
+         "200-299",
+         "400-499",
+         "500-599"
+       ],
+       "correctAnswer": 3,
+       "explanation": "HTTP status codes in the range 500-599 indicate server errors, meaning the server failed to fulfill a valid request. Common codes in this range include: 500 (Internal Server Error) for unexpected server conditions, 501 (Not Implemented) when the server doesn't support the functionality, 502 (Bad Gateway) when an upstream server received an invalid response, 503 (Service Unavailable) when the server is temporarily unable to handle the request, and 504 (Gateway Timeout) when an upstream server didn't respond in time. Other status code ranges are: 100-199 for informational responses (like 100 Continue), 200-299 for successful responses (like 200 OK, 201 Created), 300-399 for redirections (like 301 Moved Permanently, 304 Not Modified), and 400-499 for client errors (like 400 Bad Request, 404 Not Found, 403 Forbidden). Understanding HTTP status codes is essential for debugging web applications and implementing proper error handling."
+     },
+     {
+       "id": 15,
+       "title": "LocalStorage vs SessionStorage",
+       "question": "What is the main difference between localStorage and sessionStorage?",
+       "options": [
+         "localStorage has a larger storage capacity",
+         "sessionStorage persists across browser sessions while localStorage doesn't",
+         "localStorage persists even after the browser is closed while sessionStorage is cleared",
+         "sessionStorage is encrypted while localStorage isn't"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The main difference between localStorage and sessionStorage is their persistence duration. localStorage data persists indefinitely until explicitly cleared through code or browser settings, even after the browser is closed and reopened. In contrast, sessionStorage data is cleared when the page session ends (when the tab or browser is closed). Both storage mechanisms provide about 5-10MB of storage capacity (varies by browser) and store data as key-value pairs with string values. They share the same API methods: setItem(key, value), getItem(key), removeItem(key), clear(), and key(). Both are bound by the Same-Origin Policy, meaning they're accessible only from the same origin (domain, protocol, and port). Neither type of storage is encrypted by default, and both are synchronous, which means operations can potentially block the main thread. These storage mechanisms are useful for different scenarios based on how long you need data to persist."
+     },
+     {
+       "id": 16,
+       "title": "Browser Rendering Process",
+       "question": "In what sequence does the browser render a webpage?",
+       "options": [
+         "Execute JavaScript → Parse HTML → Build CSSOM → Layout → Paint",
+         "Parse HTML → Parse CSS → Execute JavaScript → Layout → Paint",
+         "Parse HTML → Build DOM → Build CSSOM → Layout → Paint",
+         "Download assets → Parse HTML → Paint → Execute JavaScript"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The browser rendering process typically follows this sequence: 1) Parse HTML: The browser parses HTML into a DOM (Document Object Model) tree; 2) Build CSSOM: It parses CSS to create the CSS Object Model; 3) JavaScript Execution: If encountered, the browser may pause parsing to execute JavaScript, which can modify the DOM and CSSOM; 4) Render Tree Construction: The browser combines DOM and CSSOM into a render tree containing only visible elements; 5) Layout (Reflow): It calculates the exact position and size of each element; 6) Paint: It converts the render tree into pixels on the screen; 7) Compositing: It draws the separate layers in the correct order. This pipeline is known as the 'critical rendering path.' Modern browsers optimize this process through techniques like speculative parsing, async/defer scripts, and rendering in multiple threads. Understanding this process helps developers optimize website performance by minimizing layout changes, reducing paint complexity, and managing script execution timing."
+     },
+     {
+       "id": 17,
+       "title": "Web Workers",
+       "question": "What is the main purpose of Web Workers in JavaScript?",
+       "options": [
+         "To optimize DOM manipulation operations",
+         "To run JavaScript in background threads without blocking the UI",
+         "To provide cross-browser compatibility for newer JavaScript features",
+         "To manage service requests between client and server"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The main purpose of Web Workers is to run JavaScript code in background threads separate from the main execution thread, allowing for true parallel processing without blocking the user interface. Since JavaScript is traditionally single-threaded, performing CPU-intensive tasks can cause the UI to freeze or become unresponsive. Web Workers solve this problem by enabling concurrent execution. Key characteristics of Web Workers include: 1) They run in an isolated context without access to the DOM, window object, or parent variables; 2) Communication with the main thread happens through a messaging system using postMessage() and onmessage event handlers; 3) They can make XMLHttpRequests, use many core JavaScript features, and even spawn additional workers. There are three types: Dedicated Workers (used by a single script), Shared Workers (shared between multiple scripts), and Service Workers (act as proxy servers that handle network requests and caching). Web Workers are ideal for computationally expensive operations like data processing, complex calculations, and background synchronization."
+     },
+     {
+       "id": 18,
+       "title": "Browser Storage Methods",
+       "question": "Which browser storage method has the largest storage capacity?",
+       "options": [
+         "Cookies",
+         "localStorage",
+         "sessionStorage",
+         "IndexedDB"
+       ],
+       "correctAnswer": 3,
+       "explanation": "IndexedDB has the largest storage capacity among browser storage methods, allowing applications to store significant amounts of structured data. While cookies are limited to about 4KB per cookie (with browsers typically allowing around 50 cookies per domain), and both localStorage and sessionStorage typically offer 5-10MB per origin, IndexedDB can store substantially more data - often limited only by available disk space (though browsers may implement their own limits, usually in the gigabyte range). IndexedDB is a low-level API for client-side storage of significant amounts of structured data, including files/blobs. It's a transactional database system that's asynchronous by design, making it suitable for applications that need to store large amounts of data without affecting performance. Other storage options include the Cache API (for HTTP responses, part of Service Workers), WebSQL (deprecated), and the File System API (limited availability). The choice between storage methods depends on the type of data, persistence requirements, performance needs, and amount of data to be stored."
+     },
+     {
+       "id": 19,
+       "title": "Browser DevTools",
+       "question": "Which browser DevTools panel would you use to inspect and debug DOM elements?",
+       "options": [
+         "Console panel",
+         "Network panel",
+         "Elements panel",
+         "Performance panel"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Elements panel in browser DevTools is specifically designed for inspecting and debugging DOM elements. This panel provides a live view of the current DOM structure and allows developers to: 1) View and modify HTML structure by editing, adding, or deleting nodes; 2) Examine and change CSS properties with real-time feedback; 3) See box model dimensions and layout; 4) View event listeners attached to elements; 5) Set DOM breakpoints to pause execution when the DOM structure changes; 6) Inspect accessibility properties. The Elements panel is essential for frontend development and debugging layout issues. Other DevTools panels serve different purposes: the Console panel for executing JavaScript and viewing logged messages; the Network panel for monitoring network requests and responses; and the Performance panel for analyzing runtime performance metrics. Most modern browsers (Chrome, Firefox, Safari, Edge) offer similar functionality in their DevTools, though the specific interface and some features may vary."
+     },
+     {
+       "id": 20,
+       "title": "Browser Compatibility",
+       "question": "What is the purpose of feature detection in web development?",
+       "options": [
+         "To determine which browser the user is using",
+         "To check if the browser supports specific APIs or features before using them",
+         "To create different visual designs for different browsers",
+         "To track user behavior across different browsers"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Feature detection in web development is the practice of checking if a browser supports specific APIs, methods, or features before attempting to use them. Rather than identifying the browser type or version (known as browser sniffing), feature detection directly tests for the existence and functionality of the features themselves. This approach is more reliable because: 1) It focuses on capabilities rather than browser identity, which may be spoofed or inaccurately reported; 2) It adapts to new browsers and updates automatically; 3) It handles partial or inconsistent implementations across browsers. A common implementation is to check if an object or method exists, such as: if (navigator.geolocation) { /* geolocation is available */ } else { /* provide fallback */ }. Libraries like Modernizr help automate feature detection, and polyfills can provide fallback implementations for missing features. This technique is fundamental to progressive enhancement, where basic functionality is provided to all browsers while enhanced experiences are offered to browsers with more advanced capabilities."
+     },
+     {
+       "id": 21,
+       "title": "Cross-Origin Resource Sharing",
+       "question": "What is CORS (Cross-Origin Resource Sharing)?",
+       "options": [
+         "A technique for optimizing website loading speed",
+         "A security feature that restricts web pages from making requests to different domains",
+         "A method for sharing code between multiple web applications",
+         "A browser extension that enables cross-browser compatibility"
+       ],
+       "correctAnswer": 1,
+       "explanation": "CORS (Cross-Origin Resource Sharing) is a security feature implemented by browsers that controls how web pages in one domain can request resources from another domain. By default, browsers restrict cross-origin HTTP requests initiated from scripts due to the Same-Origin Policy, which is a critical security mechanism that prevents malicious sites from reading sensitive data from another site. CORS works through a system of HTTP headers that tell the browser whether a specific web application can access selected resources from a server at a different origin. When a site makes a cross-origin request, the browser adds an Origin header. If the server allows the request, it responds with an Access-Control-Allow-Origin header naming the permitted origin(s). Other CORS headers control credentials, exposed headers, and allowed methods. CORS supports both simple requests (GET, POST with specific content types) and preflighted requests (which require an OPTIONS preflight request to check if the actual request is safe to send). Understanding CORS is essential for developing modern web applications that interact with APIs or resources from different domains."
+     },
+     {
+       "id": 22,
+       "title": "Browser Security",
+       "question": "What is the Same-Origin Policy in web browsers?",
+       "options": [
+         "A policy that ensures all website content loads from the same server",
+         "A security mechanism that restricts how documents or scripts from one origin interact with resources from another origin",
+         "A rule requiring all subdomains to share the same security certificates",
+         "A design principle that maintains visual consistency across a website"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The Same-Origin Policy (SOP) is a critical security mechanism implemented by web browsers that restricts how documents or scripts from one origin can interact with resources from another origin. An origin is defined by the combination of protocol (HTTP/HTTPS), host (domain), and port number. Under this policy, a web page can freely embed cross-origin resources like images, CSS, and scripts, but cannot read their content via JavaScript. The policy prevents malicious websites from reading data from other websites, accessing cookies or localStorage from other domains, or manipulating DOMs across origins. For example, code from example.com cannot read data from api.example.org or access localStorage set by another site. This protects users from cross-site request forgery (CSRF) and data theft attacks. Modern web applications can bypass these restrictions in controlled ways using mechanisms like CORS (Cross-Origin Resource Sharing), window.postMessage(), JSONP (largely obsolete), or server-side proxies. The Same-Origin Policy is fundamental to browser security model and web application isolation."
+     },
+     {
+       "id": 23,
+       "title": "Fetch API",
+       "question": "How does the Fetch API differ from XMLHttpRequest?",
+       "options": [
+         "Fetch only supports JSON data formats",
+         "XMLHttpRequest has better browser compatibility",
+         "Fetch uses Promises and has a cleaner, more flexible API",
+         "XMLHttpRequest allows asynchronous requests while Fetch is synchronous"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Fetch API differs from XMLHttpRequest (XHR) primarily in that it uses Promises and has a cleaner, more flexible API design. Fetch provides a more powerful and flexible feature set, making it easier to use and chain with other operations. Key differences include: 1) Fetch is Promise-based, allowing the use of .then(), .catch(), and async/await syntax, while XHR uses event callbacks; 2) Fetch has a more logical separation between request configuration and response handling; 3) Fetch won't reject on HTTP error status codes (400-500), only on network failures, requiring manual status checking; 4) Fetch doesn't send cookies by default (unless credentials: 'include' is specified); 5) Fetch provides a simpler way to handle different types of responses through methods like .json(), .text(), .blob(); 6) XHR has better legacy browser support, while Fetch requires polyfills for older browsers. Both APIs are asynchronous, but Fetch's Promise-based architecture makes for cleaner and more maintainable code, especially for complex request chains or parallel requests."
+     },
+     {
+       "id": 24,
+       "title": "Client-Side Routing",
+       "question": "What technology enables client-side routing in single-page applications?",
+       "options": [
+         "The HTTP protocol's routing extensions",
+         "Server-directed navigation commands",
+         "Browser History API and fragment identifiers",
+         "WebSocket continuous connections"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Client-side routing in single-page applications (SPAs) is enabled primarily through the Browser History API and fragment identifiers (hash routing). The History API (introduced in HTML5) allows manipulation of the browser history and URL without triggering a full page reload. It provides methods like pushState() and replaceState() to change the URL displayed in the address bar, and the popstate event to detect navigation events. Fragment identifiers (using the URL hash, e.g., example.com/#/about) were the original approach to client-side routing and work even in older browsers. Modern SPA frameworks like React Router, Vue Router, and Angular Router abstract these mechanisms, providing declarative routing with features like nested routes, route parameters, navigation guards, and lazy loading. Client-side routing creates the illusion of multiple pages in a single-page application by swapping content and updating the URL, improving perceived performance by avoiding full page reloads while maintaining bookmarkable URLs and functional browser navigation controls."
+     },
+     {
+       "id": 25,
+       "title": "HTML5 APIs",
+       "question": "Which HTML5 API allows websites to store application data offline?",
+       "options": [
+         "WebRTC API",
+         "Geolocation API",
+         "Service Worker API",
+         "Web Audio API"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Service Worker API is the HTML5 technology that specifically enables websites to store application data offline and implement advanced caching strategies. Service Workers act as proxy servers that sit between web applications, the browser, and the network, intercepting network requests and serving responses from a cache. They run in a separate thread from the main JavaScript execution thread, operate only over HTTPS for security reasons, and continue to exist even when a website is closed. Service Workers enable features like: 1) Offline functionality by caching assets and API responses; 2) Background synchronization for deferred actions when connectivity is restored; 3) Push notifications for re-engagement; 4) Performance improvements through intelligent caching strategies. While other storage mechanisms like localStorage, IndexedDB, and the Cache API are used to actually store the data, the Service Worker orchestrates the offline experience by managing these resources and determining when to use cached data versus making network requests. This makes it the foundation of Progressive Web Apps (PWAs) that provide native-like offline experiences."
+     },
+     {
+       "id": 26,
+       "title": "Performance Optimization",
+       "question": "Which browser rendering process is triggered when changing an element's position or size?",
+       "options": [
+         "Parsing",
+         "Painting",
+         "Compositing",
+         "Layout (Reflow)"
+       ],
+       "correctAnswer": 3,
+       "explanation": "Layout (also called Reflow) is the browser rendering process triggered when changing an element's position or size. During layout, the browser calculates the exact position and size of each element on the page based on the viewport dimensions, the CSS applied to elements, and their content. When you modify properties that affect an element's geometry (like width, height, top, left, margin, padding, border, or anything that changes the box model), the browser must recalculate the layout of the page. Layout is expensive because it's often recursive—changing one element can affect its parents, children, and siblings, potentially requiring recalculation of the entire document. This is why layout operations are a common performance bottleneck. Performance best practices include batching layout changes, avoiding frequent style calculations that force layout, using CSS transforms and opacity for animations (which don't trigger layout), minimizing DOM depth, and using position: absolute or fixed for elements that change frequently (to isolate their layout impact)."
+     },
+     {
+       "id": 27,
+       "title": "Browser Caching",
+       "question": "Which HTTP header is used to control browser caching?",
+       "options": [
+         "Content-Type",
+         "Cache-Control",
+         "Content-Encoding",
+         "Accept-Language"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Cache-Control is the primary HTTP header used to control browser caching. It defines how, and for how long, a browser should cache responses. This header provides directives that control caching behavior such as: max-age (seconds a resource is considered fresh), no-cache (must revalidate with server before using cached content), no-store (don't cache at all), private (only cache in browser, not intermediate caches), public (can be cached by any cache), and immutable (resource won't change during its max-age period). Other related caching headers include: Expires (legacy header specifying an absolute expiration date), ETag (provides a version identifier for revalidation), Last-Modified (timestamp for when the resource was last changed), and Vary (specifies which request headers should be considered when matching future requests to cached responses). Proper cache configuration improves performance by reducing unnecessary network requests and bandwidth usage, while ensuring users receive the most up-to-date content when needed."
+     },
+     {
+       "id": 28,
+       "title": "DOM Manipulation Performance",
+       "question": "Which approach is most efficient for adding multiple elements to the DOM?",
+       "options": [
+         "Adding elements one at a time with appendChild()",
+         "Using innerHTML to set all elements at once",
+         "Using a DocumentFragment to batch changes",
+         "Using the jQuery html() method"
+       ]
+     }
+   ]
+}
