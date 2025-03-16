@@ -1,19 +1,320 @@
 {
-  "name": "Front-end Security Quiz",
-  "questions": [
-    {
-      "id": 1,
-      "title": "XSS Prevention",
-      "question": "What is Cross-Site Scripting (XSS)?",
-      "options": [
-        "A styling framework",
-        "A type of malicious script injection",
-        "A cross-browser testing tool",
-        "A JavaScript library"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. It can be prevented by properly sanitizing user input and using appropriate security headers.",
-      "imageUrl": "/images/xss-example.png"
-    }
-  ]
-} 
+   "name": "Front-end Security Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "Cross-Site Scripting (XSS)",
+       "question": "What is Cross-Site Scripting (XSS)?",
+       "options": [
+         "A technique for optimizing website performance across different browsers",
+         "A vulnerability that allows attackers to inject malicious scripts into web pages",
+         "A method for sharing data between different websites securely",
+         "A programming pattern for cross-browser compatibility"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious client-side scripts (usually JavaScript) into web pages viewed by other users. When these scripts execute in victims' browsers, they can steal sensitive information like cookies and session tokens, manipulate web content, or redirect users to malicious sites. There are three main types of XSS: 1) Reflected XSS, where malicious script is reflected off a web server in response to a request; 2) Stored XSS, where malicious script is stored on the target server and executed when users access the affected page; and 3) DOM-based XSS, where the vulnerability exists in client-side code rather than server-side code."
+     },
+     {
+       "id": 2,
+       "title": "XSS Prevention",
+       "question": "Which approach is MOST effective for preventing XSS attacks?",
+       "options": [
+         "Disabling JavaScript in the web application",
+         "Using input validation combined with context-aware output encoding",
+         "Relying solely on client-side validation of user inputs",
+         "Implementing a strong firewall solution"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Context-aware output encoding combined with input validation is the most effective approach for preventing XSS attacks. Output encoding ensures that browser interprets data as text rather than executable code, and context-aware means applying the right encoding based on where the data will be placed (HTML context, JavaScript context, CSS context, URL context, etc.). Input validation acts as a first line of defense by rejecting clearly malicious input. Other important XSS prevention techniques include: using Content Security Policy (CSP) headers to restrict what resources can execute, implementing HttpOnly and Secure flags for sensitive cookies, using modern frameworks that automatically escape output, employing X-XSS-Protection headers, and regular security testing. A defense-in-depth approach using multiple techniques provides the strongest protection."
+     },
+     {
+       "id": 3,
+       "title": "Cross-Site Request Forgery (CSRF)",
+       "question": "What is Cross-Site Request Forgery (CSRF)?",
+       "options": [
+         "An attack that forces users to execute unwanted actions on websites they're authenticated to",
+         "A technique for sharing authentication between multiple websites",
+         "A method for validating form submissions across different domains",
+         "A vulnerability in SSL/TLS implementations"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to execute unwanted actions on web applications without their knowledge or consent. In a CSRF attack, the malicious actor tricks the victim into performing state-changing requests like transferring funds, changing email addresses, or making purchases by exploiting the fact that the user is already authenticated to the target site. The attack works because browsers automatically include cookies (including session cookies) with requests to websites. CSRF attacks differ from XSS as they exploit the trust a website has in a user's browser rather than exploiting the trust a user has in a website. The impact of CSRF can range from data theft to complete account takeover, depending on the actions available to authenticated users."
+     },
+     {
+       "id": 4,
+       "title": "CSRF Prevention",
+       "question": "Which of the following is the most robust method for preventing CSRF attacks?",
+       "options": [
+         "Using only GET requests for all operations",
+         "Implementing CSRF tokens in forms and AJAX requests",
+         "Relying on CORS policies alone",
+         "Checking the Referer header for all requests"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Implementing CSRF tokens is the most robust method for preventing CSRF attacks. These tokens are unique, unpredictable values generated by the server, included in forms or AJAX requests, and validated on each state-changing request. Since attackers cannot guess or access these tokens from other domains, they cannot forge legitimate requests. Other effective CSRF protection methods include: 1) SameSite cookie attribute, which restricts when cookies are sent cross-origin; 2) Custom request headers for AJAX requests, as browsers prevent cross-origin requests from setting custom headers without CORS; 3) Double Submit Cookie pattern; 4) Using frameworks with built-in CSRF protection. Checking the Referer header can help but is unreliable since it can be spoofed or removed. CORS policies help with resource access but aren't designed specifically for CSRF protection."
+     },
+     {
+       "id": 5,
+       "title": "Content Security Policy",
+       "question": "What is Content Security Policy (CSP)?",
+       "options": [
+         "A framework for managing user permissions and access control",
+         "A security standard that helps prevent XSS and data injection attacks",
+         "A protocol for secure content delivery over HTTPS",
+         "A technique for encrypting sensitive content in web applications"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Content Security Policy (CSP) is a security standard implemented through HTTP headers that helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks. CSP works by allowing web developers to specify which sources of content browsers should consider valid for execution. It restricts the sources from which resources like JavaScript, CSS, images, fonts, and more can be loaded and executed. By implementing CSP, even if an attacker manages to inject malicious code into a page, the browser will refuse to execute it if it violates the policy. Key directives include default-src (fallback for other resource types), script-src (JavaScript sources), style-src (CSS sources), img-src (image sources), connect-src (fetch, XHR, WebSocket), and frame-src (frames and iframes). CSP also provides reporting capabilities to help detect and address policy violations.",
+       "imageUrl": "/images/CSP.png"
+     },
+     {
+       "id": 6,
+       "title": "Secure Cookies",
+       "question": "Which cookie attributes enhance security in web applications?",
+       "options": [
+         "Size, Shape, and Color attributes",
+         "HttpOnly, Secure, and SameSite attributes",
+         "Visible, Hidden, and Transparent attributes",
+         "Primary, Secondary, and Tertiary attributes"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The HttpOnly, Secure, and SameSite attributes significantly enhance cookie security in web applications. The HttpOnly attribute prevents client-side scripts (including those injected via XSS) from accessing the cookie, making it unavailable to JavaScript's document.cookie API. The Secure attribute ensures cookies are only sent over HTTPS connections, protecting against network eavesdropping and man-in-the-middle attacks. The SameSite attribute controls when cookies are sent with cross-site requests, with options including Strict (never sent cross-site), Lax (sent only with navigation to the origin site), and None (sent on all requests but requires Secure). Additional security can be achieved with the Domain and Path attributes to scope cookies appropriately, and the Max-Age or Expires attributes to limit cookie lifetime. These protections are essential for cookies containing sensitive data like session identifiers."
+     },
+     {
+       "id": 7,
+       "title": "CORS (Cross-Origin Resource Sharing)",
+       "question": "What is the purpose of CORS (Cross-Origin Resource Sharing)?",
+       "options": [
+         "To block all cross-origin requests for maximum security",
+         "To allow servers to specify which origins can access their resources",
+         "To encrypt data transferred between different origins",
+         "To compress resources shared between multiple websites"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Cross-Origin Resource Sharing (CORS) is a security feature implemented by browsers that allows servers to specify which origins (domains, schemes, or ports) are permitted to access their resources. By default, browsers enforce the Same-Origin Policy, which restricts how documents or scripts from one origin can interact with resources from another origin. CORS relaxes this restriction by adding HTTP headers that tell browsers to allow a web application running at one origin to access resources from a different origin in a controlled manner. This is crucial for modern web applications that often need to make cross-origin requests to APIs and services. CORS headers include Access-Control-Allow-Origin, Access-Control-Allow-Methods, and Access-Control-Allow-Headers. For requests that might have side effects (like PUT or DELETE), browsers first send a 'preflight' OPTIONS request to check if the cross-origin request is permitted."
+     },
+     {
+       "id": 8,
+       "title": "Local Storage Security",
+       "question": "What is the main security concern with using localStorage for sensitive data?",
+       "options": [
+         "Data in localStorage expires too quickly",
+         "localStorage has very limited storage capacity",
+         "Data in localStorage is accessible to any JavaScript running on the same origin",
+         "localStorage is not supported in modern browsers"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The main security concern with localStorage is that any JavaScript running on the same origin (domain, protocol, and port) can access all data stored there. This makes localStorage vulnerable to XSS attacks - if an attacker can inject and execute JavaScript code on your site, they can read, modify, or delete any data in localStorage. Unlike cookies, localStorage data cannot be protected with attributes like HttpOnly. Additional concerns include: 1) Data is stored unencrypted on the user's device; 2) Data persists until explicitly deleted, increasing the attack window; 3) localStorage is synchronous and can impact performance if overused; 4) There's no automatic expiration mechanism. For sensitive information like authentication tokens, session data, or personal information, more secure alternatives include HttpOnly cookies for session management, using short-lived JWTs with secure storage strategies, or leveraging the Web Crypto API for client-side encryption when necessary."
+     },
+     {
+       "id": 9,
+       "title": "Subresource Integrity",
+       "question": "What is Subresource Integrity (SRI) and why is it important?",
+       "options": [
+         "A technique to compress JavaScript resources for faster loading",
+         "A system for rating the quality of third-party libraries",
+         "A security feature that verifies resources haven't been tampered with",
+         "A method for prioritizing critical CSS and JavaScript loading"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Subresource Integrity (SRI) is a security feature that enables browsers to verify that resources they fetch (like scripts or stylesheets) are delivered without unexpected manipulation. It works by allowing you to provide a cryptographic hash that a fetched resource must match. If the fetched resource doesn't match the provided hash, the browser refuses to load it. SRI is particularly important when loading resources from CDNs or other third-party sources, as it protects against scenarios where these services might be compromised or the content modified in transit. To implement SRI, developers add integrity attributes to <script> and <link> tags, containing a base64-encoded hash (typically SHA-384) of the expected resource. For example: <script src=\"https://example.com/script.js\" integrity=\"sha384-hash\" crossorigin=\"anonymous\"></script>. The crossorigin attribute is required for SRI checks on resources from different origins."
+     },
+     {
+       "id": 10,
+       "title": "DOM-based XSS",
+       "question": "What characterizes DOM-based XSS attacks?",
+       "options": [
+         "They exploit vulnerabilities in the browser's Document Object Model",
+         "They only affect websites built with React or Angular",
+         "They require server-side code execution to succeed",
+         "They modify the DOM through malicious CSS"
+       ],
+       "correctAnswer": 0,
+       "explanation": "DOM-based XSS attacks are characterized by exploiting vulnerabilities in client-side JavaScript that manipulates the Document Object Model (DOM) insecurely. Unlike traditional XSS where malicious code is embedded in the HTML returned from the server, DOM-based XSS occurs entirely in the browser when JavaScript dynamically updates the page using unsafe data. Common sources of attacker-controlled data include URL parameters, fragment identifiers (hash), localStorage values, and postMessage data. Dangerous sinks (where this data is used) include document.write(), innerHTML, outerHTML, insertAdjacentHTML, and eval(). For example, a vulnerable application might extract a value from the URL with location.hash and insert it directly into the DOM without sanitization. To prevent DOM-based XSS, developers should use safe DOM methods like textContent instead of innerHTML, validate input client-side, encode output when using dangerous sinks, implement Content Security Policy, and use frameworks that automatically sanitize dynamic content."
+     },
+     {
+       "id": 11,
+       "title": "Security Headers",
+       "question": "Which security header helps prevent clickjacking attacks?",
+       "options": [
+         "Content-Security-Policy",
+         "X-XSS-Protection",
+         "X-Frame-Options",
+         "Strict-Transport-Security"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The X-Frame-Options HTTP header specifically helps prevent clickjacking attacks by controlling whether a browser should be allowed to render a page in a <frame>, <iframe>, <embed> or <object>. Clickjacking is an attack where users are tricked into clicking on actionable content on a hidden website by overlaying it on a legitimate looking website. The X-Frame-Options header supports three directives: DENY (page cannot be displayed in a frame), SAMEORIGIN (page can only be displayed in a frame on the same origin as the page itself), and ALLOW-FROM uri (page can only be displayed in a frame on the specified origin). While Content-Security-Policy can also prevent clickjacking with its frame-ancestors directive and is the more modern approach, X-Frame-Options is specifically designed for this purpose and has broader browser support. Strict-Transport-Security enforces HTTPS connections, and X-XSS-Protection helps with some XSS attacks but neither directly addresses clickjacking."
+     },
+     {
+       "id": 12,
+       "title": "Third-Party Scripts",
+       "question": "What is the best practice for including third-party scripts in a web application?",
+       "options": [
+         "Always load them synchronously to ensure they execute correctly",
+         "Use SRI (Subresource Integrity), CSP, and load them from trusted sources",
+         "Include all third-party code directly in your application bundle",
+         "Always load them from the fastest CDN regardless of the provider"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The best practice for including third-party scripts is to use Subresource Integrity (SRI), implement Content Security Policy (CSP), and load scripts only from trusted sources. SRI ensures scripts haven't been tampered with by validating their cryptographic hash. CSP restricts which scripts can execute and from where. Additional best practices include: 1) Loading scripts with the defer or async attribute when possible to improve performance and prevent render-blocking; 2) Evaluating the security history and practices of script providers before inclusion; 3) Hosting critical third-party scripts on your own infrastructure when feasible; 4) Implementing a CSP reporting mechanism to detect violations; 5) Regularly auditing included scripts for potential security issues; 6) Using sandboxed iframes for untrusted content; 7) Minimizing the number of third-party scripts to reduce the attack surface. Remember that any third-party script has full access to your page and users' data, so they should be treated as potential security risks."
+     },
+     {
+       "id": 13,
+       "title": "HTTPS and Mixed Content",
+       "question": "What is 'mixed content' in the context of web security?",
+       "options": [
+         "Using both HTML and JavaScript in the same file",
+         "Loading insecure HTTP resources on a secure HTTPS page",
+         "Combining multiple content types like images and videos on one page",
+         "Using content from multiple domains on a single page"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Mixed content occurs when a secure HTTPS website loads resources (such as scripts, stylesheets, images, or iframes) over insecure HTTP connections. This is problematic because while the initial HTML is loaded over a secure, encrypted connection, the insecure resources are vulnerable to tampering and eavesdropping, effectively compromising the security of the entire page. Browsers classify mixed content into two types: 'Passive/Display' mixed content (like images, audio, and video) which may still load but generate warnings, and 'Active' mixed content (scripts, stylesheets, iframes, and AJAX requests) which is typically blocked by modern browsers. The security implications are severe: attackers can intercept unencrypted requests and responses to extract sensitive information or modify the content to inject malicious code. To fix mixed content issues, ensure all resources are loaded via HTTPS, use relative URLs or protocol-relative URLs (//example.com/resource.js), and implement the upgrade-insecure-requests CSP directive."
+     },
+     {
+       "id": 14,
+       "title": "JWT Security",
+       "question": "What security best practice should be followed when working with JWTs (JSON Web Tokens) in frontend applications?",
+       "options": [
+         "Store JWTs in localStorage for easiest access",
+         "Include sensitive user data in JWT payload for performance",
+         "Store JWTs in HttpOnly cookies and implement proper expiration",
+         "Use the JWT as a query parameter in all API requests"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The security best practice for handling JWTs in frontend applications is to store them in HttpOnly cookies and implement proper expiration. HttpOnly cookies cannot be accessed by JavaScript, protecting tokens from XSS attacks. Short expiration times (minutes to hours) with refresh token rotation limit the damage if a token is compromised. Additional best practices include: 1) Using secure cookies (with the Secure flag) to ensure transmission only over HTTPS; 2) Implementing the SameSite attribute to prevent CSRF attacks; 3) Not storing sensitive data in the JWT payload, as it's only encoded, not encrypted; 4) Validating JWT signature on the server before trusting any data; 5) Using strong signing algorithms like RS256 (RSA) or ES256 (ECDSA) rather than HS256 (HMAC) for larger applications; 6) Implementing a token revocation strategy like a server-side blocklist for compromised tokens; 7) Transmitting tokens in the Authorization header rather than as URL parameters, which can be logged."
+     },
+     {
+       "id": 15,
+       "title": "HTML5 Security Features",
+       "question": "Which HTML5 feature is designed to enhance security by isolating potentially untrusted content?",
+       "options": [
+         "Web Workers",
+         "Canvas API",
+         "Sandboxed iframes",
+         "IndexedDB"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Sandboxed iframes are an HTML5 security feature specifically designed to isolate potentially untrusted content by restricting its capabilities. The sandbox attribute on an iframe creates a separate execution environment with limited permissions. By default, sandboxed content cannot: execute scripts, submit forms, display popups, access the parent page's DOM, or navigate the top-level browsing context. Developers can selectively enable specific capabilities by adding values to the sandbox attribute (e.g., sandbox=\"allow-scripts allow-forms\"). This feature is ideal for displaying third-party content, advertisements, or user-generated content while minimizing security risks. The sandbox is part of HTML5's broader security improvements, which also include Content Security Policy, Cross-Origin Resource Sharing, and the postMessage API for secure cross-origin communication. While sandboxed iframes provide strong isolation, they should be used as part of a defense-in-depth approach rather than as the sole security control."
+     },
+     {
+       "id": 16,
+       "title": "Secure Frontend Architecture",
+       "question": "Which architectural approach is most secure for frontend applications?",
+       "options": [
+         "Single-page applications with all logic in the browser",
+         "Server-rendered pages with minimal client-side JavaScript",
+         "Defense-in-depth with both client and server validation",
+         "Fully static websites with no dynamic content"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The most secure architectural approach for frontend applications is defense-in-depth, which implements security controls at multiple layers including both client and server validation. This approach acknowledges that any single security measure can fail and creates redundant protections. Key aspects include: 1) Validating all user inputs on both client-side (for user experience and preliminary filtering) and server-side (as the authoritative security boundary); 2) Implementing proper authentication and authorization checks on the server for all API endpoints; 3) Using Content Security Policy and other security headers; 4) Applying the principle of least privilege, where components only have access to resources they explicitly need; 5) Keeping sensitive business logic on the server rather than in client-side code; 6) Using modern frameworks with built-in security features and regular updates; 7) Employing secure communication with HTTPS; 8) Regular security testing and code reviews. This multi-layered approach provides robust protection regardless of whether the application is a single-page application, server-rendered, or a hybrid architecture."
+     },
+     {
+       "id": 17,
+       "title": "Frontend Input Validation",
+       "question": "What is the primary purpose of frontend input validation from a security perspective?",
+       "options": [
+         "To replace the need for server-side validation",
+         "To provide better user experience while still requiring server validation",
+         "To encrypt user data before sending to the server",
+         "To prevent all possible injection attacks"
+       ],
+       "correctAnswer": 1,
+       "explanation": "From a security perspective, the primary purpose of frontend input validation is to provide better user experience while still requiring server-side validation as the authoritative security control. Frontend validation helps users correct mistakes quickly without a server roundtrip, reducing frustration and improving usability. However, it cannot be relied upon for security because any client-side validation can be bypassed by attackers using tools like browser developer consoles, proxy tools, or API clients to send malicious requests directly to your server endpoints. Proper security implementation requires treating all client-side data as untrusted and implementing thorough server-side validation and sanitization. Client-side validation should be seen as a usability feature rather than a security feature, though it can serve as a first line of defense to filter out obvious attack attempts. A balanced approach implements appropriate validation on both ends: user-friendly checks in the frontend and comprehensive security validation on the backend."
+     },
+     {
+       "id": 18,
+       "title": "Sensitive Data Exposure",
+       "question": "Which practice can lead to sensitive data exposure in frontend applications?",
+       "options": [
+         "Using HTTPS for all API communications",
+         "Implementing proper access controls on API endpoints",
+         "Storing API keys or credentials in frontend code",
+         "Using POST requests instead of GET for sensitive operations"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Storing API keys, credentials, or other secrets in frontend code is a practice that leads to sensitive data exposure, as any code that runs in the browser is visible to users. Even when minified or obfuscated, attackers can inspect the code to discover embedded secrets. This vulnerability often occurs when developers hardcode API keys, database credentials, encryption keys, or admin passwords directly in JavaScript files or environment variables that get bundled with the frontend application. The proper approach is to keep all secrets server-side where users cannot access them. For APIs that require authentication, implement a backend proxy that adds the necessary credentials to requests or use token-based authentication where the frontend receives only limited-scope, temporary tokens after proper authentication. Additional risky practices include exposing sensitive data in URLs (which can be logged), storing sensitive information in localStorage or sessionStorage (vulnerable to XSS), and sending sensitive data without encryption."
+     },
+     {
+       "id": 19,
+       "title": "Frontend Security Testing",
+       "question": "Which security testing approach is most appropriate for frontend applications?",
+       "options": [
+         "Network penetration testing alone",
+         "Combination of SAST, DAST, and manual code review",
+         "Only manual black-box testing",
+         "Server-side security scans exclusively"
+       ],
+       "correctAnswer": 1,
+       "explanation": "A comprehensive security testing approach for frontend applications combines Static Application Security Testing (SAST), Dynamic Application Security Testing (DAST), and manual code review. SAST tools analyze source code for security vulnerabilities without executing the application, catching issues early in development. DAST tools test running applications by simulating attacks from the outside, finding runtime vulnerabilities like XSS and CSRF. Manual code review by security experts catches complex logic flaws and design issues that automated tools might miss. Additional effective frontend security testing practices include: 1) Component analysis/SCA to identify vulnerable dependencies; 2) CSP testing to validate Content Security Policy effectiveness; 3) Client-side storage analysis to check for sensitive data exposure; 4) Cross-browser testing for security inconsistencies; 5) Third-party script evaluation; 6) Security regression testing after changes; 7) Regular security awareness training for developers. This multi-faceted approach provides much better coverage than any single method alone."
+     },
+     {
+       "id": 20,
+       "title": "Insecure Deserialization",
+       "question": "What is the risk of insecure deserialization in frontend applications?",
+       "options": [
+         "It only affects backend systems, not frontend applications",
+         "It might cause minor display errors in the UI",
+         "It can lead to XSS, DOM manipulation, or client-side code execution",
+         "It primarily causes performance issues but no security concerns"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Insecure deserialization in frontend applications can lead to serious security vulnerabilities including Cross-Site Scripting (XSS), DOM manipulation, and client-side code execution. Deserialization converts serialized data (JSON, XML, etc.) back into JavaScript objects. When this process is performed insecurely on untrusted data, attackers can craft malicious payloads that, when deserialized, execute unwanted code or manipulate the DOM. Common frontend scenarios include: 1) Parsing JSON data from untrusted sources without validation; 2) Using eval() or Function constructors to deserialize data; 3) Using risky third-party libraries with unsafe deserialization methods; 4) Processing serialized data from localStorage or URLs without proper sanitization. To mitigate these risks, developers should avoid dangerous functions like eval(), use built-in parsers like JSON.parse() instead of custom deserialization, validate structure and content of incoming data, sanitize deserialized objects before use, and consider using safer alternatives like structured cloning or JSON schema validation."
+     },
+     {
+       "id": 21,
+       "title": "Client-Side Rate Limiting",
+       "question": "What is the primary security benefit of implementing client-side rate limiting?",
+       "options": [
+         "It prevents all server-side DoS attacks",
+         "It eliminates the need for server-side validation",
+         "It improves user experience while reducing accidental DoS",
+         "It can securely replace CAPTCHA systems"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The primary security benefit of client-side rate limiting is improving user experience while helping to reduce accidental denial of service (DoS) conditions. Client-side rate limiting throttles the frequency of user actions like button clicks, form submissions, or API calls directly in the browser, preventing users from unintentionally overwhelming servers through rapid repeated actions. This improves application responsiveness and prevents users from having their IP addresses blocked by server-side rate limiters. Important considerations: 1) Client-side rate limiting is easily bypassed by malicious users and cannot replace server-side rate limiting for security; 2) It should be implemented as a UX enhancement, not a security control; 3) Common implementations include debouncing (delaying execution until activity stops) and throttling (limiting execution frequency); 4) It's particularly useful for resource-intensive operations like search or for preventing duplicate form submissions; 5) Server-side rate limiting remains essential for protecting against deliberate abuse and attacks."
+     },
+     {
+       "id": 22,
+       "title": "Browser Security Models",
+       "question": "Which browser security mechanism prevents websites from accessing data across different origins?",
+       "options": [
+         "Content Security Policy (CSP)",
+         "HTTPS encryption",
+         "Same-Origin Policy (SOP)",
+         "Web Authentication API"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Same-Origin Policy (SOP) is the browser security mechanism that prevents websites from accessing data across different origins, where an origin is defined by the combination of protocol (HTTP/HTTPS), domain, and port. This fundamental security feature restricts how documents or scripts loaded from one origin can interact with resources from another origin. For example, JavaScript running on example.com cannot read data from api.different-site.com or access the DOM of a page loaded from another site. The Same-Origin Policy protects users from malicious sites accessing sensitive information from other tabs or sessions. It applies to XMLHttpRequest and Fetch API calls, DOM access, cookies, localStorage, and sessionStorage. Modern web applications can selectively bypass SOP restrictions using Cross-Origin Resource Sharing (CORS) headers to enable legitimate cross-origin requests. Other browser security mechanisms like CSP work alongside SOP but serve different purposes - CSP restricts resource loading sources rather than cross-origin data access."
+     },
+     {
+       "id": 23,
+       "title": "Security in SPAs",
+       "question": "What is a key security challenge specific to Single Page Applications (SPAs)?",
+       "options": [
+         "They cannot implement proper authentication",
+         "Token storage and management on the client side",
+         "They cannot use HTTPS connections",
+         "They're incompatible with security headers"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Token storage and management is a key security challenge specific to Single Page Applications (SPAs). Because SPAs maintain a persistent front-end that communicates with APIs via AJAX/fetch, they typically rely on token-based authentication (JWT, OAuth tokens, etc.) rather than traditional session cookies. This creates several security considerations: 1) Where to store tokens safely - localStorage is vulnerable to XSS, while HttpOnly cookies require additional CSRF protections; 2) How to securely transmit tokens to APIs; 3) Token expiration and renewal strategies; 4) Handling token revocation when users log out; 5) Protecting against token theft via XSS. Other security challenges in SPAs include: client-side route protection being easily bypassed, increasing attack surface through multiple API endpoints, managing user state securely, properly implementing redirects after authentication, and dealing with cross-origin resource sharing. These challenges require specific solutions that differ from traditional server-rendered applications."
+     },
+     {
+       "id": 24,
+       "title": "Password Security",
+       "question": "What is the best practice for handling passwords in frontend applications?",
+       "options": [
+         "Store hashed passwords in localStorage for offline login",
+         "Encrypt passwords in the browser before sending to the server",
+         "Send passwords over HTTPS and avoid storing them client-side",
+         "Use JavaScript encryption to secure passwords in cookies"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The best practice for handling passwords in frontend applications is to transmit them securely over HTTPS connections and never store them on the client side. Passwords should only be collected in forms or input fields and transmitted directly to the server using POST requests with HTTPS, which encrypts the data in transit. Key guidelines include: 1) Never storing passwords in any client-side storage mechanism (localStorage, sessionStorage, cookies, etc.); 2) Not implementing client-side password hashing as a replacement for server-side hashing; 3) Using appropriate autocomplete attributes (autocomplete=\"current-password\" or \"new-password\") to help password managers; 4) Implementing proper validation feedback without revealing password requirements in error messages; 5) Supporting secure password managers through proper HTML semantics; 6) Providing visual indicators of connection security; 7) Considering offering multi-factor authentication for additional security. Password handling should always follow the principle that the frontend is primarily responsible for secure transmission, while the backend is responsible for secure validation, storage, and management"
+      }
+   ]
+}
+
+

@@ -3,7 +3,7 @@
    "questions": [
      {
        "id": 1,
-       "title": "What is React?",
+       "title": "React",
        "question": "What is React?",
        "options": [
          "A complete full-stack framework for building web applications",
@@ -195,7 +195,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "The useReducer hook provides a more powerful way to manage state in functional components, especially when the state logic is complex or when the next state depends on the previous state. It's inspired by Redux and works similarly. useReducer accepts a reducer function (state, action) => newState and an initial state, and returns the current state paired with a dispatch function to trigger state updates. The reducer pattern centralizes state update logic outside the component, making it easier to test and reason about state transitions. useReducer is preferable to useState when: 1) State involves multiple sub-values. 2) The next state depends on the previous state. 3) State updates are complex or involve deep nesting. 4) You need more predictable state transitions. It's like having a mini-Redux within a component without needing the full Redux library.",
-       "imageUrl": "/images/usereducer-example.png"
+       "imageUrl": "/images/useReducer.png"
      },
      {
        "id": 15,
@@ -209,7 +209,7 @@
        ],
        "correctAnswer": 1,
        "explanation": "The key attribute is crucial when rendering lists in React for several reasons: 1) Performance: Keys help React identify which items have changed, been added, or removed, allowing it to update only what's necessary instead of re-rendering the entire list. 2) State preservation: With proper keys, React maintains component state across re-renders even when the position of an item in a list changes. 3) Reconciliation: During the diffing process, React uses keys to match elements in the previous and new render, minimizing DOM operations. Keys must be unique among siblings (but not globally unique), stable across renders, and predictable. Using index as a key is only safe if the list is static and never reordered. For dynamic lists, it's best to use stable IDs from your data. Missing keys or improperly implemented keys can lead to subtle bugs, performance issues, and unexpected behavior with component state.",
-       "imageUrl": "/images/key-attribute.png"
+       "imageUrl": "/images/keyAttributeList.png"
      },
      {
        "id": 16,
@@ -223,7 +223,7 @@
        ],
        "correctAnswer": 3,
        "explanation": "Class and functional components represent two approaches to creating components in React. Class components: 1) Use ES6 class syntax that extends React.Component. 2) Have access to lifecycle methods like componentDidMount and componentDidUpdate. 3) Use this.state and this.setState() for state management. 4) Can use refs with createRef(). 5) Use this.props to access props. Functional components: 1) Are simpler JavaScript functions that take props as an argument. 2) Prior to React 16.8, could only be used for presentational purposes without state. 3) With the introduction of Hooks in React 16.8, can now use state, effects, context, and other React features. 4) Generally require less code and are easier to test and understand. Modern React development favors functional components with hooks because they're more concise, easier to test, and encourage better patterns like separating concerns. However, understanding class components remains important for maintaining legacy code.",
-       "imageUrl": "/images/component-types.png"
+       "imageUrl": "/images/FunctionalVSClass.png"
      },
      {
        "id": 17,
@@ -237,7 +237,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "Refs in React provide a way to access DOM nodes or React component instances created in the render method. Unlike props and state, which follow React's unidirectional data flow, refs offer an escape hatch to directly interact with DOM elements or component instances. Common use cases for refs include: 1) Managing focus, text selection, or media playback. 2) Triggering imperative animations. 3) Integrating with third-party DOM libraries. In function components, refs are created with the useRef() hook, which returns a mutable ref object whose .current property is initialized to the passed argument. In class components, refs can be created with React.createRef(). Refs should be used sparingly, as excessive use breaks the declarative nature of React and can make code harder to understand and maintain. For most cases, try to find a declarative solution using props and state before resorting to refs.",
-       "imageUrl": "/images/refs-example.png"
+       "imageUrl": "/images/useRef.png"
      },
      {
        "id": 18,
@@ -251,7 +251,7 @@
        ],
        "correctAnswer": 1,
        "explanation": "React Hooks, introduced in React 16.8, are functions that allow functional components to use React features previously only available in class components. They let you use state, lifecycle methods, context, and other React features without writing a class. Core hooks include: 1) useState: Adds state to functional components. 2) useEffect: Handles side effects like data fetching, subscriptions, and DOM manipulations. 3) useContext: Accesses data from React Context. 4) useReducer: Manages complex state logic with a reducer pattern. 5) useRef: Creates mutable references that persist across renders. 6) useMemo and useCallback: Optimize performance by memoizing values and functions. Hooks follow two key rules: they can only be called at the top level of components (not inside loops, conditions, or nested functions), and they can only be called from React function components or custom hooks. Custom hooks allow you to extract component logic into reusable functions, enabling better separation of concerns and code reuse.",
-       "imageUrl": "/images/react-hooks.png"
+       "imageUrl": "/images/reactHooks.png"
      },
      {
        "id": 19,
@@ -265,7 +265,7 @@
        ],
        "correctAnswer": 2,
        "explanation": "The useContext hook provides a way to consume values from React's Context API within functional components without complex nesting. Context in React allows data to be passed through the component tree without having to pass props down manually at every level (prop drilling). The useContext hook makes this process cleaner and more straightforward. Using useContext involves: 1) First creating a context with React.createContext(). 2) Providing the context value at a higher level with Context.Provider. 3) Consuming the context in any descendent component with useContext(MyContext). This is particularly useful for values that are considered 'global' for a tree of components, such as the current authenticated user, theme, or preferred language. useContext always uses the value from the nearest Provider above it in the component tree. If there is no Provider, it uses the default value specified when creating the context.",
-       "imageUrl": "/images/usecontext-example.png"
+       "imageUrl": "/images/useContext.png"
      },
      {
        "id": 20,
@@ -279,7 +279,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "dangerouslySetInnerHTML is React's replacement for using innerHTML in the browser DOM. It allows you to insert HTML directly into your React components. The property name is intentionally verbose and alarming as a reminder that this approach is risky from a security perspective. When you use dangerouslySetInnerHTML, you must pass an object with a __html key containing the HTML string. This explicit format serves as a reminder that the content isn't being automatically sanitized. The primary security concern is Cross-Site Scripting (XSS) attacks, where malicious scripts are injected and executed in the context of your application. You should use this property sparingly and only with content you trust completely or have properly sanitized. For most cases, React's declarative approach using JSX and React components is safer and more maintainable than directly inserting HTML strings.",
-       "imageUrl": "/images/dangerously-set-inner-html.png"
+       "imageUrl": "/images/dengerouslySetInnerHTML.png"
      },
      {
        "id": 21,
@@ -293,7 +293,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "componentDidMount is a lifecycle method in class components that runs immediately after a component has been mounted (inserted into the DOM tree). This makes it the perfect place for operations that need access to the DOM or that should only happen once in the component's life. Common uses include: 1) Data fetching from APIs or external sources. 2) Setting up subscriptions or event listeners. 3) Initializing third-party libraries that need access to DOM nodes. 4) Making direct DOM measurements or manipulations. componentDidMount is called during the 'commit' phase, meaning the DOM has been updated by the time this method is called. In the hooks paradigm, the equivalent functionality is achieved using the useEffect hook with an empty dependency array. Any setState() calls inside componentDidMount will trigger an extra rendering, but it happens before the browser updates the screen, so the user won't see the intermediate state.",
-       "imageUrl": "/images/component-did-mount.png"
+       "imageUrl": "/images/componentDidmount.webp"
      },
      {
        "id": 27,
@@ -307,7 +307,7 @@
        ],
        "correctAnswer": 1,
        "explanation": "React Fragments provide a way to group multiple elements without adding an extra node to the DOM. Before Fragments, when returning multiple elements from a component, you had to wrap them in a parent div or span, which could lead to unnecessary DOM nodes and potential styling/layout issues. Fragments solve this problem by letting you group children without adding extra nodes to the DOM. They can be written as <React.Fragment>...</React.Fragment> or with the shorthand syntax <>...</> (which doesn't support keys or attributes). Fragments are particularly useful for: 1) Table layouts, where having an extra div inside a <tr> would be invalid HTML. 2) Lists where adding extra container elements would affect styling. 3) Component return values that need to have multiple elements at the top level. 4) Preventing unnecessary DOM bloat for performance and cleaner HTML output.",
-       "imageUrl": "/images/react-fragments.png"
+       "imageUrl": "/images/ReactFragments.png"
      },
      {
        "id": 28,
@@ -321,7 +321,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "In React Router, the key prop serves a special purpose beyond React's regular use of keys for list rendering. When a key prop is added to a route's component and that key changes, it forces the component to unmount and remount completely, rather than just updating. This is particularly useful when you have the same route component rendering for different routes or parameters, and you want to ensure a complete reset of the component state, lifecycle methods, and effects. Common use cases include: 1) Form pages that should reset when navigating between different records. 2) Detail views that need to fully re-initialize when the ID parameter changes. 3) Tab interfaces where each tab should start fresh when selected. Without using a key, React would typically preserve the component instance and just update it with new props, which might not trigger the reset of internal state or re-execution of effects that you desire.",
-       "imageUrl": "/images/router-key-prop.png"
+       "imageUrl": "/images/ReactRoutes.png"
      },
      {
        "id": 29,
@@ -335,7 +335,7 @@
        ],
        "correctAnswer": 1,
        "explanation": "The forwardRef function in React allows a component to take a ref received from its parent component and forward it to a child DOM element or another component. This is necessary because refs don't work like regular props—they cannot be passed through the regular props system. forwardRef is particularly useful when: 1) Creating reusable component libraries where the internal DOM structure is abstracted away, but access to specific elements is still needed. 2) Higher-order components need to forward refs to wrapped components. 3) Parent components need to imperatively access DOM elements or component methods inside a child component. The syntax involves wrapping your component with React.forwardRef(), which gives your component access to the ref as its second parameter after props. This feature enables better encapsulation while still allowing controlled access to internal elements when necessary.",
-       "imageUrl": "/images/forward-ref.png"
+       "imageUrl": "/images/forwardReff.png"
      },
      {
        "id": 30,
@@ -349,7 +349,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the entire component tree. They work like a JavaScript catch block, but for components. A class component becomes an error boundary if it defines either the static getDerivedStateFromError() or componentDidCatch() lifecycle methods (or both). Error boundaries only catch errors in the components below them in the tree; they don't catch errors in event handlers, asynchronous code, or their own errors. Error boundaries are valuable for: 1) Preventing an entire application from crashing due to an error in one component. 2) Displaying user-friendly error messages instead of a broken UI. 3) Logging errors to monitoring services. As of React 18, error boundaries only exist as class components, though future React versions may provide a hook-based alternative. The recommended pattern is to create a reusable ErrorBoundary component and place it strategically around your application.",
-       "imageUrl": "/images/error-boundaries.png"
+       "imageUrl": "/images/errorBoundary.png"
      },
      {
        "id": 31,
@@ -363,7 +363,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "React.memo is a higher-order component that memoizes the rendering of a functional component, preventing unnecessary re-renders when its props haven't changed. By default, React re-renders a component whenever its parent re-renders, even if the props remain the same. React.memo performs a shallow comparison of props to determine if a re-render is needed. If the props have not changed, React reuses the previously rendered result, skipping the rendering process and diffing algorithm. React.memo is particularly useful for: 1) Performance optimization of pure functional components. 2) Components that render frequently but with the same props. 3) Expensive rendering operations. You can provide a custom comparison function as the second argument to control exactly when re-renders should occur. React.memo is the functional component equivalent of PureComponent for class components. However, it only checks for prop changes; if your component uses context or state, it will still re-render when those change.",
-       "imageUrl": "/images/memo-function.png"
+       "imageUrl": "/images/memo.png"
      },
      {
        "id": 32,
@@ -377,7 +377,7 @@
        ],
        "correctAnswer": 0,
        "explanation": "React provides two main approaches to handling forms: controlled and uncontrolled components. In controlled components, form elements (inputs, selects, textareas) are controlled by React state. Their values are set from state, and changes are handled through event handlers that update the state. This creates a two-way binding where React state is the 'single source of truth.' Controlled components offer more direct control, easier validation, and predictable behavior. Uncontrolled components manage their own state internally in the DOM, and you access their values using refs. They more closely resemble traditional HTML forms and can be simpler for basic forms or when integrating with non-React code. For complex forms, many developers use libraries like Formik, React Hook Form, or Redux Form, which handle common patterns like validation, error messages, form submission, and touched/dirty state tracking. These libraries can significantly reduce boilerplate code while providing robust form management capabilities.",
-       "imageUrl": "/images/react-forms.png"
+       "imageUrl": "/images/reactForm.png"
      }
    ]
  }
