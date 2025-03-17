@@ -5,6 +5,7 @@ import Home from './components/Home/Home'
 import Quiz from './components/Quiz/Quiz'
 import Contact from './components/Contact/Contact'
 import About from './components/About/About'
+import Blog from './components/Blog/Blog'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </div>
         <Footer />

@@ -1,0 +1,180 @@
+{
+   "posts": [
+     {
+       "id": 1,
+       "title": "Understanding React Hooks",
+       "date": "March 15, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Learn how useState, useEffect, and other React hooks can simplify your functional components.",
+       "content": "React Hooks were introduced in React 16.8 to allow developers to use state and other React features without writing a class component. This has revolutionized how we write React applications...",
+       "imageUrl": "/Courses/reactHooks.png",
+       "tags": ["React", "Hooks", "Frontend"],
+       "link": "https://www.youtube.com/watch?v=xfKYYRE6-TQ"
+     },
+     {
+       "id": 2,
+       "title": "CSS Grid vs Flexbox: When to Use Each",
+       "date": "March 10, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "A comprehensive comparison of CSS Grid and Flexbox with practical examples.",
+       "content": "While both CSS Grid and Flexbox are powerful layout systems, they serve different purposes. Flexbox is designed for one-dimensional layouts, while Grid is designed for two-dimensional layouts...",
+       "imageUrl": "/Courses/cssGrid.jpeg",
+       "tags": ["CSS", "Layout", "Design"],
+       "link": "https://www.youtube.com/watch?v=3elGSZSWTbM"
+     },
+     {
+       "id": 3,
+       "title": "Top 10 JavaScript Array Methods You Should Know",
+       "date": "March 5, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Master these essential array methods to write cleaner and more efficient JavaScript code.",
+       "content": "JavaScript arrays come with many built-in methods that make data manipulation easier. In this post, we'll cover the top 10 methods that every developer should know...",
+       "imageUrl": "/Courses/arrayMrthods.webp",
+       "tags": ["JavaScript", "Arrays", "Tips"],
+       "link": "https://www.udemy.com/course/javascript-arrays/"
+     },
+     {
+       "id": 4,
+       "title": "Optimizing React Performance",
+       "date": "February 28, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Learn techniques to improve your React application's performance and user experience.",
+       "content": "Performance optimization is crucial for providing a smooth user experience. In this article, we'll explore various techniques such as memoization, code splitting, and lazy loading to optimize your React applications...",
+       "imageUrl": "/Courses/performance.webp",
+       "tags": ["React", "Performance", "Optimization"],
+       "link": "https://www.udemy.com/course/advanced-react-render-performance-best-practices-patterns/?srsltid=AfmBOopyTjw8-Vn7FpJs66Z8AmxIJG4SXSWKA6VJHCAOYV8kf-SQ06H3"
+     },
+     {
+       "id": 5,
+       "title": "The Complete Guide to React Context API",
+       "date": "February 20, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Learn how to use React Context API to avoid prop drilling and manage global state.",
+       "content": "React Context provides a way to pass data through the component tree without having to pass props down manually at every level. This guide explains when and how to use this powerful feature...",
+       "imageUrl": "/Courses/ContextAPI.png",
+       "tags": ["React", "Context API", "State Management"],
+       "link": "https://www.youtube.com/watch?v=sP7ANcTpJr8"
+     },
+     {
+       "id": 6,
+       "title": "Modern CSS Techniques Every Developer Should Know",
+       "date": "February 15, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Explore the latest CSS features that make styling web applications easier and more powerful.",
+       "content": "CSS has evolved significantly in recent years with features like custom properties, logical properties, and container queries. This post covers the most important modern CSS techniques for today's web development...",
+       "imageUrl": "Courses/cssTech.webp",
+       "tags": ["CSS", "Frontend", "Web Design"],
+       "link": "https://www.youtube.com/watch?v=44FTAS-qT8Q"
+     },
+     {
+       "id": 7,
+       "title": "Unit Testing React Components with Jest and React Testing Library",
+       "date": "February 10, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "A comprehensive guide to testing React components to ensure your application functions correctly.",
+       "content": "Testing is an essential part of building reliable React applications. This tutorial covers how to set up and write effective tests using Jest and React Testing Library...",
+       "imageUrl": "Courses/unitTesting.webp",
+       "tags": ["React", "Testing", "Jest"],
+       "link": "https://www.youtube.com/watch?v=JBSUgDxICg8"
+     },
+     {
+       "id": 8,
+       "title": "Building Accessible Web Applications",
+       "date": "February 5, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Learn best practices for creating web applications that everyone can use, regardless of abilities.",
+       "content": "Web accessibility is not just a nice-to-have feature, it's a necessity. This guide covers ARIA attributes, keyboard navigation, color contrast, and other important accessibility considerations...",
+       "imageUrl": "Courses/webAccessibility.webp",
+       "tags": ["Accessibility", "Frontend", "Best Practices"],
+       "link": "https://www.udemy.com/course/web-accessibility-testing/"
+     },
+     {
+       "id": 9,
+       "title": "Introduction to TypeScript for JavaScript Developers",
+       "date": "January 30, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Discover how TypeScript can enhance your JavaScript development with static typing and improved tooling.",
+       "content": "TypeScript adds type safety to JavaScript, helping catch errors early and improve developer productivity. This introduction covers the basics and how to integrate TypeScript into your projects...",
+       "imageUrl": "Courses/TP.jpeg",
+       "tags": ["TypeScript", "JavaScript", "Web Development"],
+       "link": "https://www.udemy.com/course/understanding-typescript/"
+     },
+     {
+       "id": 10,
+       "title": "Redux vs Context API: Choosing the Right State Management Solution",
+       "date": "January 25, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Compare two popular state management approaches in React applications and learn when to use each.",
+       "content": "State management is a critical aspect of React applications. This article examines the differences between Redux and Context API, along with practical use cases for each approach...",
+       "imageUrl": "Courses/redux.webp",
+       "tags": ["React", "Redux", "State Management"],
+       "link": "https://www.udemy.com/course/the-ultimate-redux-course-state-management-library/"
+     },
+     {
+       "id": 11,
+       "title": "Responsive Web Design in 2025: Beyond Media Queries",
+       "date": "January 20, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Explore modern techniques for creating responsive layouts that adapt to any device.",
+       "content": "Responsive design has evolved beyond simple media queries. Learn about container queries, fluid typography, and other advanced techniques for building truly responsive web experiences...",
+       "imageUrl": "Courses/responsiveWebDesign.jpg",
+       "tags": ["CSS", "Responsive Design", "Frontend"],
+       "link": "https://www.youtube.com/watch?v=srvUrASNj0s"
+     },
+     {
+       "id": 12,
+       "title": "Web Performance Optimization Techniques",
+       "date": "January 15, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Improve your website's loading speed and user experience with these optimization strategies.",
+       "content": "Fast-loading websites provide better user experiences and rank higher in search results. This guide covers image optimization, code splitting, lazy loading, and other performance best practices...",
+       "imageUrl": "Courses/webP.png",
+       "tags": ["Performance", "Web Development", "Optimization"],
+       "link": "https://www.youtube.com/watch?v=vgUJuqQO4fo&list=PLNYkxOF6rcICVl6Vb-AFlw81bQLuv6a_P"
+     },
+     {
+       "id": 13,
+       "title": "Getting Started with React 19",
+       "date": "January 10, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Explore the new features and improvements in React 19 and how to upgrade your applications.",
+       "content": "React 19 introduces several exciting new features and performance improvements. This tutorial walks through the key changes and how to take advantage of them in your projects...",
+       "imageUrl": "Courses/react_.png",
+       "tags": ["React", "JavaScript", "Frontend"],
+       "link": "https://www.udemy.com/course/the-ultimate-react-course/"
+     },
+     {
+       "id": 14,
+       "title": "Building Custom React Hooks for Reusable Logic",
+       "date": "January 5, 2025",
+       "author": "React Quiz Team",
+       "excerpt": "Learn how to extract and reuse stateful logic across components with custom hooks.",
+       "content": "Custom hooks are a powerful pattern for sharing logic between React components. This guide shows you how to build your own hooks for common tasks like form handling, API calls, and more...",
+       "imageUrl": "Courses/customHooks.webp",
+       "tags": ["React", "Hooks", "Code Reuse"],
+       "link": "https://www.youtube.com/watch?v=6ThXsUwLWvc"
+     },
+     {
+       "id": 15,
+       "title": "CSS-in-JS Libraries Comparison: Styled Components vs Emotion",
+       "date": "December 30, 2024",
+       "author": "React Quiz Team",
+       "excerpt": "Compare popular CSS-in-JS solutions and choose the right one for your React project.",
+       "content": "CSS-in-JS offers component-scoped styling with the full power of JavaScript. This comparison explores the differences between Styled Components, Emotion, and other libraries to help you make an informed choice...",
+       "imageUrl": "Courses/cssLIB.png",
+       "tags": ["CSS-in-JS", "React", "Styling"],
+       "link": "https://www.youtube.com/watch?v=MN3RWhGudvw"
+     },
+     {
+       "id": 16,
+       "title": "Advanced JavaScript Patterns for React Developers",
+       "date": "December 25, 2024",
+       "author": "React Quiz Team",
+       "excerpt": "Level up your React code with advanced JavaScript patterns and techniques.",
+       "content": "Mastering JavaScript patterns like closures, currying, and functional composition can greatly improve your React code. This article covers advanced patterns with practical React examples...",
+       "imageUrl": "Courses/JSPaterns.jpeg",
+       "tags": ["JavaScript", "React", "Advanced"],
+       "link": "https://www.udemy.com/course/the-complete-javascript-course/"
+     }    
+   ]
+ }
