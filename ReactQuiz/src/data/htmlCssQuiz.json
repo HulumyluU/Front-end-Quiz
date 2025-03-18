@@ -1,19 +1,410 @@
 {
-  "name": "HTML & CSS Quiz",
-  "questions": [
-    {
-      "id": 1,
-      "title": "CSS Box Model",
-      "question": "What does the CSS box model consist of?",
-      "options": [
-        "Only margin and padding",
-        "Content, padding, border, and margin",
-        "Just the content area",
-        "Border and content only"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The CSS box model consists of content, padding, border, and margin. These properties work together to create the spacing and layout of elements on a webpage.",
-      "imageUrl": "/images/box-model.png"
-    }
-  ]
-} 
+   "name": "HTML & CSS Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "HTML Basics",
+       "question": "What does HTML stand for?",
+       "options": [
+         "Hyper Text Markup Language",
+         "High-level Text Management Language",
+         "Hyperlink and Text Markup Language",
+         "Home Tool Markup Language"
+       ],
+       "correctAnswer": 0,
+       "explanation": "HTML stands for Hyper Text Markup Language. It is the standard markup language for creating web pages and web applications. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document. HTML elements are the building blocks of HTML pages and are represented by tags. HTML tags label pieces of content such as 'heading', 'paragraph', 'table', and so on. Browsers do not display the HTML tags, but use them to render the content of the page.",
+       "imageUrl": "/images/html-basics.png"
+     },
+     {
+       "id": 2,
+       "title": "CSS Basics",
+       "question": "What does CSS stand for?",
+       "options": [
+         "Creative Style Sheets",
+         "Computer Style Sheets",
+         "Cascading Style Sheets",
+         "Colorful Style Sheets"
+       ],
+       "correctAnswer": 2,
+       "explanation": "CSS stands for Cascading Style Sheets. CSS is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This separation improves content accessibility, provides more flexibility and control in the specification of presentation characteristics, and reduces complexity and repetition in the structural content. CSS can also allow the same markup page to be presented in different styles for different rendering methods.",
+       "imageUrl": "/images/css-basics.png"
+     },
+     {
+       "id": 3,
+       "title": "HTML Elements",
+       "question": "Which HTML element is used to define the main content of an HTML document?",
+       "options": [
+         "<content>",
+         "<main>",
+         "<section>",
+         "<article>"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The <main> element is used to define the main content of an HTML document. It represents the dominant content of the <body> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application. A document should have only one <main> element, and it should not be a descendant of an <article>, <aside>, <footer>, <header>, or <nav> element. Using <main> properly helps with accessibility as screen readers can jump directly to the main content.",
+       "imageUrl": "/images/html-main-element.png"
+     },
+     {
+       "id": 4,
+       "title": "CSS Selectors",
+       "question": "Which CSS selector has the highest specificity?",
+       "options": [
+         "Element selector (e.g., p)",
+         "Class selector (e.g., .example)",
+         "ID selector (e.g., #example)",
+         "Universal selector (e.g., *)"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The ID selector (#example) has the highest specificity among the given options. CSS specificity is a weight that is applied to a given CSS declaration and determines which style declaration is applied to an element. Specificity hierarchy, from highest to lowest, is generally: inline styles, ID selectors, class selectors/attribute selectors/pseudo-classes, element selectors/pseudo-elements. The universal selector (*) has the lowest specificity. Understanding specificity is crucial for debugging CSS issues where styles aren't being applied as expected. In complex stylesheets, conflicts can occur, and the rule with the highest specificity will win regardless of the order in the stylesheet.",
+       "imageUrl": "/images/css-specificity.png"
+     },
+     {
+       "id": 5,
+       "title": "HTML Document Structure",
+       "question": "What is the correct HTML for creating a hyperlink?",
+       "options": [
+         "<a url='http://example.com'>Example</a>",
+         "<a href='http://example.com'>Example</a>",
+         "<hyperlink href='http://example.com'>Example</hyperlink>",
+         "<link to='http://example.com'>Example</link>"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The correct HTML for creating a hyperlink is <a href='http://example.com'>Example</a>. The <a> element (anchor element) creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL. The 'href' attribute (hypertext reference) specifies the URL or destination that the link goes to. The text between the opening and closing tags is what users see and click on. Hyperlinks can be styled using CSS, and their states (unvisited, visited, hover, active) can be styled differently. Links are fundamental to the web, allowing users to navigate between pages and resources.",
+       "imageUrl": "/images/html-hyperlink.png"
+     },
+     {
+       "id": 6,
+       "title": "CSS Box Model",
+       "question": "What does the CSS Box Model describe?",
+       "options": [
+         "How HTML elements are organized in a grid",
+         "How padding, border, and margin are added to the content",
+         "How CSS selectors target HTML elements",
+         "How CSS animations are calculated"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The CSS Box Model describes how elements are rendered in HTML, with each element represented as a rectangular box. This model explains how padding, border, and margin are added to the content area of an element. The parts of the box model, from innermost to outermost, are: content (the actual content, text, images, etc.), padding (transparent area around the content), border (a line around the padding), and margin (transparent area outside the border). The standard box model calculates an element's total width as: width + padding-left + padding-right + border-left + border-right + margin-left + margin-right. The box-sizing property can change this behavior, with 'border-box' making the width include padding and border.",
+       "imageUrl": "/images/css-box-model.png"
+     },
+     {
+       "id": 7,
+       "title": "HTML Forms",
+       "question": "Which attribute is used to specify that an input field must be filled out?",
+       "options": [
+         "validate",
+         "placeholder",
+         "required",
+         "mandatory"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The 'required' attribute is used to specify that an input field must be filled out before the form can be submitted. It's a boolean attribute that can be added to form controls like <input>, <select>, and <textarea>. When present, it specifies that the element must have a value before the form can be submitted. Browsers that support this attribute will show an error message and prevent form submission if a user tries to submit a form with empty required fields. This provides a simple form of client-side validation without requiring JavaScript. Other form validation attributes include 'pattern' for regex pattern validation, 'min' and 'max' for number ranges, 'minlength' and 'maxlength' for text length, and more.",
+       "imageUrl": "/images/html-required-attribute.png"
+     },
+     {
+       "id": 8,
+       "title": "CSS Positioning",
+       "question": "What is the default value of the 'position' property in CSS?",
+       "options": [
+         "static",
+         "relative",
+         "absolute",
+         "fixed"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The default value of the 'position' property in CSS is 'static'. Elements with position: static are positioned according to the normal flow of the document, and the top, right, bottom, left, and z-index properties have no effect on these elements. Other position values are: 'relative' (positioned relative to its normal position, but still in the flow), 'absolute' (positioned relative to the nearest positioned ancestor, removed from the flow), 'fixed' (positioned relative to the viewport, remains in place during scrolling), and 'sticky' (a hybrid of relative and fixed positioning). Understanding positioning is crucial for creating complex layouts and overlapping elements.",
+       "imageUrl": "/images/css-positioning.png"
+     },
+     {
+       "id": 9,
+       "title": "HTML Semantic Elements",
+       "question": "Which of the following is NOT a semantic HTML5 element?",
+       "options": [
+         "<article>",
+         "<div>",
+         "<section>",
+         "<header>"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The <div> element is NOT a semantic HTML5 element. While <div> is a valid HTML element, it is considered non-semantic because it doesn't convey any meaning about its content. Semantic elements, on the other hand, clearly describe their meaning both to the browser and to the developer. Examples include <header>, <footer>, <article>, <section>, <nav>, <aside>, <figure>, <figcaption>, <time>, and more. Using semantic elements improves accessibility, SEO, and code readability. They provide clear structure to the document and help assistive technologies like screen readers understand the page content better. When no semantic element is appropriate for specific content, non-semantic elements like <div> and <span> can still be used.",
+       "imageUrl": "/images/html-semantic-elements.png"
+     },
+     {
+       "id": 10,
+       "title": "CSS Display",
+       "question": "Which value of the 'display' property makes an element a block-level element?",
+       "options": [
+         "inline",
+         "inline-block",
+         "block",
+         "flex"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The 'block' value of the 'display' property makes an element a block-level element. Block-level elements start on a new line and take up the full width available. They effectively create a 'block' in the flow of the document. Examples of elements that are block-level by default include <div>, <p>, <h1>-<h6>, <section>, and <form>. Other display values include: 'inline' (elements that don't start on a new line and only take up as much width as necessary), 'inline-block' (like inline but can have width and height), 'flex' (enables a flex context for its children), 'grid' (enables a grid context), and 'none' (removes the element from the document flow). The display property is fundamental for controlling layout in CSS.",
+       "imageUrl": "/images/css-display-property.png"
+     },
+     {
+       "id": 11,
+       "title": "HTML Tables",
+       "question": "Which HTML element defines a row in a table?",
+       "options": [
+         "<td>",
+         "<th>",
+         "<tr>",
+         "<table-row>"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The <tr> element defines a row in an HTML table. HTML tables are structured with several elements that work together: <table> creates the table itself, <tr> defines table rows, <th> defines header cells (typically bold and centered), and <td> defines standard data cells. Additional elements like <thead>, <tbody>, and <tfoot> can be used to group rows and enable features like scrollable tables with fixed headers. While CSS is now preferred for layout, tables are still appropriate for displaying tabular data. Proper table structure is important for accessibility, as screen readers use table markup to help users navigate and understand the relationships between data.",
+       "imageUrl": "/images/html-table-structure.png"
+     },
+     {
+       "id": 12,
+       "title": "CSS Flexbox",
+       "question": "Which property is used to control the direction of flex items in a flex container?",
+       "options": [
+         "flex-direction",
+         "flex-wrap",
+         "flex-flow",
+         "flex-basis"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The 'flex-direction' property is used to control the direction of flex items in a flex container. It defines the main axis along which flex items are placed within the container. Its possible values are: 'row' (default, left to right), 'row-reverse' (right to left), 'column' (top to bottom), and 'column-reverse' (bottom to top). Flexbox is a one-dimensional layout model designed for laying out items in a row or column, with powerful alignment and distribution features. Other important flexbox properties include: 'justify-content' (aligns items along the main axis), 'align-items' (aligns items along the cross axis), 'flex-wrap' (controls whether items wrap to new lines), and 'gap' (controls spacing between items).",
+       "imageUrl": "/images/css-flexbox-direction.png"
+     },
+     {
+       "id": 13,
+       "title": "HTML Attributes",
+       "question": "Which attribute is used to provide alternative text for an image?",
+       "options": [
+         "src",
+         "alt",
+         "title",
+         "description"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'alt' attribute is used to provide alternative text for an image. This text appears if the image cannot be displayed and is read by screen readers for users with visual impairments, making it essential for accessibility. It should describe the content and function of the image concisely. The alt text is also used by search engines to understand the image content, contributing to better SEO. Other important image attributes include: 'src' (specifies the URL of the image), 'title' (provides additional information shown as a tooltip), 'width' and 'height' (specify dimensions), and 'loading' (can be set to 'lazy' to defer loading until the image is near the viewport).",
+       "imageUrl": "/images/html-alt-attribute.png"
+     },
+     {
+       "id": 14,
+       "title": "CSS Grid",
+       "question": "Which CSS property defines the columns in a grid layout?",
+       "options": [
+         "grid-template-rows",
+         "grid-template-columns",
+         "grid-columns",
+         "grid-auto-columns"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'grid-template-columns' property defines the columns in a CSS grid layout. It specifies the size of each column in the grid, using values like pixel measurements, percentages, 'fr' units (fractional units), 'auto', or functions like 'minmax()'. For example, 'grid-template-columns: 100px 200px 1fr' creates three columns with the specified widths. CSS Grid is a powerful two-dimensional layout system, ideal for both complex and simple layouts. Other important grid properties include: 'grid-template-rows' (defines row sizes), 'gap' (sets spacing between grid items), 'grid-template-areas' (defines named grid areas), and 'grid-column'/'grid-row' (positions items within the grid). The 'fr' unit is especially useful, distributing available space proportionally.",
+       "imageUrl": "/images/css-grid-template-columns.png"
+     },
+     {
+       "id": 15,
+       "title": "HTML5 Input Types",
+       "question": "Which HTML5 input type would you use for collecting email addresses?",
+       "options": [
+         "<input type='text'>",
+         "<input type='email'>",
+         "<input type='mail'>",
+         "<input type='address'>"
+       ],
+       "correctAnswer": 1,
+       "explanation": "You would use <input type='email'> for collecting email addresses in HTML5. This input type provides built-in validation that checks if the entered text follows the standard email format (contains an @ symbol with domain information). On mobile devices, it often triggers a keyboard optimized for email entry with easy access to the @ symbol and .com. HTML5 introduced many specialized input types beyond the traditional 'text', including: 'number', 'date', 'time', 'url', 'tel', 'range', 'color', 'search', and more. These input types enhance user experience by providing appropriate validation, specialized UI controls (like date pickers), and optimized virtual keyboards on mobile devices. Browsers that don't support a particular input type will fall back to treating it as type='text'.",
+       "imageUrl": "/images/html5-input-types.png"
+     },
+     {
+       "id": 16,
+       "title": "CSS Transitions",
+       "question": "Which property specifies the duration of a CSS transition effect?",
+       "options": [
+         "transition-delay",
+         "transition-timing-function",
+         "transition-duration",
+         "transition-speed"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The 'transition-duration' property specifies the duration of a CSS transition effect. It defines how long the transition should take to complete, typically specified in seconds (s) or milliseconds (ms). For example, 'transition-duration: 0.5s' creates a half-second transition. CSS transitions allow property changes to occur smoothly over a specified duration instead of happening instantly. A complete transition typically involves several properties: 'transition-property' (which properties to animate), 'transition-duration' (how long the animation takes), 'transition-timing-function' (the speed curve of the animation), and 'transition-delay' (when the animation starts). The shorthand 'transition' property combines all of these. Transitions enhance user experience by making interface changes visually smoother.",
+       "imageUrl": "/images/css-transition-duration.png"
+     },
+     {
+       "id": 17,
+       "title": "HTML Responsive Images",
+       "question": "Which HTML attribute is used to make an image responsive for different device sizes?",
+       "options": [
+         "responsive",
+         "srcset",
+         "media",
+         "size"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'srcset' attribute is used to make images responsive for different device sizes. It allows you to specify multiple image sources with different resolutions or sizes, and the browser chooses the most appropriate one based on the device's characteristics. For example: <img srcset='small.jpg 500w, medium.jpg 1000w, large.jpg 1500w' sizes='(max-width: 600px) 100vw, 50vw' src='fallback.jpg' alt='Description'>. The 'sizes' attribute works with 'srcset' to help the browser determine which image to choose before it starts loading. The 'picture' element provides even more control, allowing different image sources based on media queries. Responsive images improve performance by loading appropriately sized images for each device, reducing unnecessary data usage and improving load times.",
+       "imageUrl": "/images/html-responsive-images.png"
+     },
+     {
+       "id": 18,
+       "title": "CSS Media Queries",
+       "question": "What is the purpose of CSS media queries?",
+       "options": [
+         "To query the database for styling information",
+         "To make API requests for dynamic styles",
+         "To apply different styles based on device characteristics",
+         "To connect CSS with media files like images and videos"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The purpose of CSS media queries is to apply different styles based on device characteristics such as screen size, resolution, orientation, or other features. Media queries are a fundamental component of responsive web design, allowing websites to adapt their layout and styling to provide optimal viewing experiences across a wide range of devices. A media query consists of a media type (like 'screen' or 'print') and one or more expressions that check for specific conditions. For example: @media screen and (max-width: 768px) { /* Styles applied when screen width is 768px or less */ }. Common use cases include creating mobile-first responsive layouts, adapting font sizes for readability on different devices, hiding or showing elements based on screen size, and adjusting navigation menus for mobile devices.",
+       "imageUrl": "/images/css-media-queries.png"
+     },
+     {
+       "id": 19,
+       "title": "HTML5 Structural Elements",
+       "question": "Which HTML5 element represents a standalone section of content that could be distributed independently?",
+       "options": [
+         "<section>",
+         "<article>",
+         "<div>",
+         "<content>"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The <article> element represents a standalone section of content that could be distributed or reused independently. It should make sense on its own and should be possible to distribute it independently from the rest of the site. Examples include a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, or any independent item of content. The <article> element can contain its own header, footer, sections, and even nested articles. This differs from <section>, which represents a generic section of a document or application that doesn't necessarily stand alone. Proper use of semantic elements like <article> improves accessibility, SEO, and code maintainability by clearly communicating the purpose and structure of content.",
+       "imageUrl": "/images/html5-article-element.png"
+     },
+     {
+       "id": 20,
+       "title": "CSS Specificity",
+       "question": "What is the specificity of the selector '#nav .list li a'?",
+       "options": [
+         "0-1-3-1",
+         "1-0-3-1",
+         "1-1-1-1",
+         "0-1-1-3"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The specificity of the selector '#nav .list li a' is 1-0-3-1. CSS specificity is calculated as a four-part value: inline styles, IDs, classes/attributes/pseudo-classes, and elements/pseudo-elements. In this selector: '#nav' is an ID selector (adds 1-0-0-0), '.list' is a class selector (adds 0-0-1-0), 'li' is an element selector (adds 0-0-0-1), and 'a' is an element selector (adds 0-0-0-1). Adding these up gives 1-0-1-2. Specificity determines which CSS rule applies when multiple rules target the same element. Higher specificity rules override lower specificity rules, regardless of their order in the CSS. Understanding specificity is crucial for debugging CSS issues and writing maintainable style sheets. When specificities are equal, the last defined rule takes precedence.",
+       "imageUrl": "/images/css-specificity-calculation.png"
+     },
+     {
+       "id": 21,
+       "title": "HTML Meta Tags",
+       "question": "Which meta tag is used to make a website responsive?",
+       "options": [
+         "<meta name='responsive' content='true'>",
+         "<meta name='viewport' content='width=device-width, initial-scale=1'>",
+         "<meta http-equiv='responsive' content='enabled'>",
+         "<meta charset='UTF-8'>"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The meta tag used to make a website responsive is <meta name='viewport' content='width=device-width, initial-scale=1'>. This tag tells the browser to set the viewport width to the device width and set the initial zoom level to 1, which is essential for responsive design. Without this tag, mobile browsers might render pages at a desktop screen width and then scale them down, resulting in poor user experience. The viewport meta tag is particularly important for mobile devices, as it ensures that the content adapts correctly to different screen sizes. Other important meta tags include: charset (defines the character encoding), description (provides a concise summary for search results), keywords (helps with SEO), robots (controls search engine crawling), and theme-color (sets the color of the browser UI in supported browsers).",
+       "imageUrl": "/images/html-viewport-meta.png"
+     },
+     {
+       "id": 22,
+       "title": "CSS Units",
+       "question": "Which CSS unit is relative to the font-size of the root element?",
+       "options": [
+         "em",
+         "px",
+         "rem",
+         "vh"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The 'rem' (root em) CSS unit is relative to the font-size of the root element (typically the <html> element). For example, if the root font-size is 16px, then 1rem equals 16px, 2rem equals 32px, etc. CSS offers various units that can be categorized as absolute (px, pt, cm, etc.) or relative (%, em, rem, vh, vw, etc.). Relative units are often preferred for responsive design as they scale based on other values. Other important relative units include: 'em' (relative to the font-size of the element itself), '%' (relative to the parent element), 'vh'/'vw' (relative to viewport height/width), and 'ch' (relative to the width of the '0' character). Using the appropriate units helps create layouts that adapt to different screen sizes and user preferences.",
+       "imageUrl": "/images/css-rem-unit.png"
+     },
+     {
+       "id": 23,
+       "title": "HTML Form Methods",
+       "question": "Which HTTP method is suitable for form submissions that change data on the server?",
+       "options": [
+         "GET",
+         "POST",
+         "PUT",
+         "DELETE"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The POST HTTP method is suitable for form submissions that change data on the server. In HTML forms, the method attribute specifies how form data should be sent to the server, and its value can be either GET or POST. POST is used when the form submission might change data on the server, deals with sensitive information, uploads files, or contains a large amount of data. Unlike GET, POST sends form data in the body of the HTTP request rather than appending it to the URL. This means the data isn't visible in the URL and isn't limited in size. While REST APIs use methods like PUT and DELETE for specific operations, HTML forms traditionally only support GET and POST directly. Other methods can be simulated using JavaScript or the _method hidden field pattern in server frameworks.",
+       "imageUrl": "/images/html-form-methods.png"
+     },
+     {
+       "id": 24,
+       "title": "CSS Pseudo-classes",
+       "question": "Which CSS pseudo-class targets an element when a user hovers over it?",
+       "options": [
+         ":active",
+         ":focus",
+         ":hover",
+         ":visited"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The ':hover' CSS pseudo-class targets an element when a user hovers over it with their cursor. It allows you to change an element's style when the user places their pointer over it, creating interactive effects without JavaScript. CSS pseudo-classes select elements based on states or positions that aren't explicitly defined in the markup. Other common pseudo-classes include: ':active' (when an element is being activated/clicked), ':focus' (when an element has keyboard focus), ':visited' (for links the user has visited), ':nth-child()' (for selecting elements based on their position), ':first-child' and ':last-child' (for targeting first or last elements within a parent), and ':not()' (for negating other selectors). Pseudo-classes help create interactive and dynamic interfaces without requiring additional HTML markup.",
+       "imageUrl": "/images/css-hover-pseudo-class.png"
+     },
+     {
+       "id": 25,
+       "title": "HTML Audio and Video",
+       "question": "Which attribute makes audio or video content play automatically in HTML5?",
+       "options": [
+         "autostart",
+         "play",
+         "autoplay",
+         "auto"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The 'autoplay' attribute makes audio or video content play automatically when the page loads in HTML5. It's a boolean attribute that requires no value (simply <audio autoplay> or <video autoplay>). HTML5 introduced native support for multimedia with the <audio> and <video> elements, eliminating the need for plugins like Flash. Other important attributes for these elements include: 'controls' (adds playback controls), 'loop' (makes the media play repeatedly), 'muted' (starts with sound off), 'preload' (specifies if/how the media should be loaded on page load), and 'src' (specifies the media source). Multiple <source> elements can be nested inside to provide different formats for browser compatibility. Note that many modern browsers restrict autoplay, especially for content with audio, to prevent unwanted noise and improve user experience.",
+       "imageUrl": "/images/html5-media-elements.png"
+     },
+     {
+       "id": 26,
+       "title": "CSS Animations",
+       "question": "Which CSS property defines the animation name to be applied to an element?",
+       "options": [
+         "animation-name",
+         "animation-keyframes",
+         "animation-id",
+         "animation-reference"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The 'animation-name' CSS property defines the name of the animation to be applied to an element. This name refers to a @keyframes rule that defines the animation sequence. CSS animations allow elements to gradually change from one style to another without using JavaScript. The complete set of animation properties includes: 'animation-name' (specifies the @keyframes to use), 'animation-duration' (how long the animation takes), 'animation-timing-function' (the speed curve), 'animation-delay' (when to start), 'animation-iteration-count' (how many times to run), 'animation-direction' (whether to alternate or reset), 'animation-fill-mode' (styles before/after animation), and 'animation-play-state' (running or paused). The shorthand 'animation' property can combine all these values. Animations provide smooth visual effects and can enhance user experience when used appropriately.",
+       "imageUrl": "/images/css-animation-name.png"
+     },
+     {
+       "id": 27,
+       "title": "HTML Accessibility",
+       "question": "Which attribute is used to provide a text alternative for non-text content for accessibility?",
+       "options": [
+         "aria-label",
+         "alt",
+         "title",
+         "description"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'alt' attribute is used to provide a text alternative for non-text content, primarily images, for accessibility purposes. Screen readers read this text aloud to users who cannot see the image. However, 'aria-label' is also correct in many contexts, particularly for interactive elements without visible text. Web accessibility ensures that people with disabilities can perceive, understand, navigate, and interact with websites. Key accessibility attributes and elements include: 'alt' for images, 'aria-label' for naming elements without visible text, 'aria-describedby' for more detailed descriptions, 'role' for defining element purposes, and proper heading structure (<h1>-<h6>). The Web Content Accessibility Guidelines (WCAG) provide comprehensive standards for making web content accessible. Creating accessible websites is not only ethically important but often legally required and benefits all users.",
+       "imageUrl": "/images/html-accessibility-attributes.png"
+     },
+     {
+       "id": 28,
+       "title": "CSS Variables",
+       "question": "How do you declare a CSS custom property (variable)?",
+       "options": [
+         "@variable --name: value;",
+         "$name: value;",
+         "--name: value;",
+         "var(name): value;"
+       ],
+       "correctAnswer": 2,
+       "explanation": "CSS custom properties (variables) are declared using the '--name: value;' syntax. They are typically defined in the :root pseudo-class to make them globally available: :root { --primary-color: #3498db; }. To use the variable, you use the var() function: color: var(--primary-color);. CSS variables allow you to define values once and reuse them throughout your stylesheet, making it easier to maintain consistent themes and update styles. They can be updated dynamically with JavaScript, enabling theme switching and responsive value changes without requiring a full CSS rebuild. Variables can also be scoped to specific elements (creating local variables) and can reference other variables. They're particularly useful for managing color schemes, spacing systems, typography scales, and other design tokens across large projects.",
+       "imageUrl": "/images/css-custom-properties.png"
+     },
+     {
+       "id": 29,
+       "title": "HTML5 Web Storage",
+       "question": "Which is the correct JavaScript syntax to store a value in localStorage?",
+       "options": [
+         "localStorage.setItem('key', 'value');",
+         "localStorage('key', 'value');",
+         "localStorage.store('key', 'value');",
+         "localStorage.key = 'value';"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The correct JavaScript syntax to store a value in localStorage is localStorage.setItem('key', 'value');. HTML5 Web Storage provides two mechanisms for storing data in the browser: localStorage and sessionStorage. localStorage stores data with no expiration date, persisting even after the browser is closed, while sessionStorage stores data for one session (until the browser is closed). Both storage types are available on the"
+      }
+   ]
+}

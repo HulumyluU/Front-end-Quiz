@@ -1,33 +1,396 @@
 {
-  "name": "JavaScript Quiz",
-  "questions": [
-    {
-      "id": 1,
-      "title": "JavaScript Fundamentals",
-      "question": "What is closure in JavaScript?",
-      "options": [
-        "A way to close browser windows",
-        "A function that has access to variables in its outer scope",
-        "A method to end JavaScript execution",
-        "A way to close database connections"
-      ],
-      "correctAnswer": 1,
-      "explanation": "A closure is a function that has access to variables in its outer (enclosing) lexical scope, even after the outer function has returned. This is a fundamental concept in JavaScript for data privacy and state management.",
-      "imageUrl": "/images/closure-example.png"
-    },
-    {
-      "id": 2,
-      "title": "ES6 Features",
-      "question": "What is the difference between let and var?",
-      "options": [
-        "There is no difference",
-        "let is block-scoped, var is function-scoped",
-        "var is block-scoped, let is function-scoped",
-        "let is only for numbers, var is for strings"
-      ],
-      "correctAnswer": 1,
-      "explanation": "let introduces block scope to JavaScript. Unlike var which is function-scoped, let declarations are scoped to blocks (like if statements and for loops). Also, let doesn't allow redeclaration and isn't hoisted.",
-      "imageUrl": "/images/let-var-example.png"
-    }
-  ]
-} 
+   "name": "JavaScript Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "Variables in JavaScript",
+       "question": "What is the difference between var, let, and const in JavaScript?",
+       "options": [
+         "var is function-scoped, while let and const are block-scoped",
+         "let is block-scoped, while var and const are function-scoped",
+         "const variables cannot be reassigned, while var and let can",
+         "Both A and C are correct"
+       ],
+       "correctAnswer": 3,
+       "explanation": "In JavaScript, there are important differences between var, let, and const declarations. var is function-scoped, meaning its scope is limited to the function it's declared in, and it can be redeclared and updated. let and const, introduced in ES6, are both block-scoped (limited to the block, statement, or expression they're defined in). The key difference between let and const is that let variables can be reassigned, while const variables cannot be reassigned after initialization (though if const is an object or array, its properties or elements can still be modified).",
+       "imageUrl": "/images/var-let-const.png"
+     },
+     {
+       "id": 2,
+       "title": "Data Types",
+       "question": "Which of the following is NOT a primitive data type in JavaScript?",
+       "options": [
+         "String",
+         "Number",
+         "Object",
+         "Boolean"
+       ],
+       "correctAnswer": 2,
+       "explanation": "JavaScript has seven primitive data types: String, Number, BigInt, Boolean, undefined, null, and Symbol. Object is not a primitive type but a reference type. Primitive types store simple data values, while objects are collections of properties. Primitives are immutable (their values cannot be changed once created), while objects are mutable. When you assign a primitive value to a variable, the variable holds the actual value, but when you assign an object, the variable holds a reference to the object in memory.",
+       "imageUrl": "/images/js-data-types.png"
+     },
+     {
+       "id": 3,
+       "title": "Ternary Operator",
+       "question": "What does the following code return: let result = (10 > 5) ? 'Greater' : 'Less';",
+       "options": [
+         "'Greater'",
+         "'Less'",
+         "undefined",
+         "Error"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The ternary (conditional) operator is a shorthand way of writing an if-else statement in JavaScript. It takes three operands: a condition followed by a question mark (?), an expression to execute if the condition is truthy, and an expression to execute if the condition is falsy, separated by a colon (:). In this example, the condition (10 > 5) evaluates to true, so the ternary operator returns the first value 'Greater'. The ternary operator is often used for simple conditional assignments or rendering in frameworks like React.",
+       "imageUrl": "/images/ternary-operator.png"
+     },
+     {
+       "id": 4,
+       "title": "Switch Statement",
+       "question": "What is the purpose of the 'break' statement in a switch case?",
+       "options": [
+         "To exit the entire script execution",
+         "To stop the execution of the current case and exit the switch block",
+         "To skip to the next iteration in a loop",
+         "To indicate the end of a function"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In a switch statement, the break statement is used to terminate the current case and exit the switch block. Without a break statement, the code will continue executing the next case regardless of whether its condition matches. This behavior, known as 'fall-through', can sometimes be useful, but it's often unintended and can lead to bugs. A common pattern is to have a break statement at the end of each case. The default case, which executes when no case matches, doesn't technically need a break (if it's the last case), but it's good practice to include one for consistency and to prevent issues if cases are reordered later.",
+       "imageUrl": "/images/switch-case.png"
+     },
+     {
+       "id": 5,
+       "title": "forEach Method",
+       "question": "What is the return value of the Array.forEach() method?",
+       "options": [
+         "A new array with the results of the callback function",
+         "The original array, unmodified",
+         "undefined",
+         "A boolean indicating if any element passed the test"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Array.forEach() method executes a provided function once for each array element, but it always returns undefined. It's used primarily for its side effects (like logging, updating variables outside the function, or modifying the array in place) rather than for its return value. Unlike map(), filter(), or reduce(), which create new arrays, forEach() is designed for cases where you just need to perform an action with each element. It's important to note that you cannot break out of a forEach() loop early - it will always process all elements. If you need to exit early, consider using a traditional for loop or the some()/every() methods.",
+       "imageUrl": "/images/forEach.png"
+     },
+     {
+       "id": 6,
+       "title": "map Method",
+       "question": "What does the Array.map() method do?",
+       "options": [
+         "Modifies the original array by applying a function to each element",
+         "Creates a new array by applying a function to each element of the original array",
+         "Filters out elements from the array that don't meet a condition",
+         "Combines all elements of an array into a single value"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Array.map() is a powerful higher-order function that creates a new array populated with the results of calling a provided function on every element in the calling array. It transforms each element in an array without changing the original array (immutability). The callback function passed to map() takes three arguments: the current element being processed, its index, and the array map() was called upon. Map is commonly used in modern JavaScript and frameworks like React for transforming data structures or rendering lists of components. If you need to transform data without changing the original array, map() is generally the preferred method.",
+       "imageUrl": "/images/map-method.png"
+     },
+     {
+       "id": 7,
+       "title": "filter Method",
+       "question": "What will the following code return: [1, 2, 3, 4, 5].filter(num => num % 2 === 0)?",
+       "options": [
+         "[2, 4]",
+         "[1, 3, 5]",
+         "2",
+         "[1, 2, 3, 4, 5]"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The Array.filter() method creates a new array with all elements that pass the test implemented by the provided function. In this example, the callback function num => num % 2 === 0 checks if a number is even (its remainder when divided by 2 equals 0). When applied to the array [1, 2, 3, 4, 5], only the elements 2 and 4 satisfy this condition, so they are included in the new array [2, 4]. The filter() method doesn't modify the original array and only includes elements for which the callback returns a truthy value. It's commonly used for removing unwanted elements based on certain criteria.",
+       "imageUrl": "/images/filter-method.png"
+     },
+     {
+       "id": 8,
+       "title": "reduce Method",
+       "question": "What does Array.reduce() do?",
+       "options": [
+         "Reduces an array to a subset of its elements",
+         "Executes a reducer function on each element, resulting in a single output value",
+         "Reduces the size of an array by removing duplicates",
+         "Converts an array to a lower-dimensional array"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The Array.reduce() method executes a reducer function on each element of the array, resulting in a single output value. The reducer function takes four arguments: accumulator (result from previous calls), current value, current index, and the source array. An initial value can be provided as a second argument to reduce(); if omitted, the first element is used as the initial accumulator. Reduce is versatile and can be used for summing numbers, flattening arrays, counting occurrences, grouping data, and more. Despite its name, reduce doesn't necessarily make something smaller - it can transform an array into any value, including a new array, object, number, or string.",
+       "imageUrl": "/images/reduce-method.png"
+     },
+     {
+       "id": 9,
+       "title": "Array Destructuring",
+       "question": "What will be the value of 'b' after this code executes: const [a, b, ...rest] = [10, 20, 30, 40, 50];",
+       "options": [
+         "20",
+         "[20, 30, 40, 50]",
+         "30",
+         "undefined"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Array destructuring is a JavaScript expression that allows unpacking values from arrays into distinct variables. In this example, the first element (10) is assigned to 'a', the second element (20) is assigned to 'b', and the rest parameter (...rest) collects all remaining elements [30, 40, 50] as an array. Destructuring came with ES6 and provides a concise way to extract multiple values from data stored in arrays and objects. It's commonly used in React for props, useState hooks, and when working with API responses. You can also provide default values during destructuring with syntax like const [a = 5, b = 7] = [1];, which would set a to 1 and b to 7.",
+       "imageUrl": "/images/array-destructuring.png"
+     },
+     {
+       "id": 10,
+       "title": "Object Destructuring",
+       "question": "What will the following code print: const {name, age} = {name: 'John', age: 30, job: 'Developer'}; console.log(age);",
+       "options": [
+         "30",
+         "undefined",
+         "Error",
+         "'age'"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Object destructuring allows you to extract properties from objects and bind them to variables with the same name. In this example, we extract the 'name' and 'age' properties from the object, assigning their values to variables called 'name' and 'age'. When we log the 'age' variable, it outputs 30. Object destructuring can also use different variable names with syntax like const {name: userName, age: userAge} = obj;. You can provide default values for properties that might not exist with const {name, age = 25} = obj;. Destructuring is particularly useful when working with complex objects like API responses, configuration objects, or when extracting specific props in React components.",
+       "imageUrl": "/images/object-destructuring.png"
+     },
+     {
+       "id": 11,
+       "title": "Spread Operator",
+       "question": "What does the spread operator (...) do in JavaScript?",
+       "options": [
+         "It only spreads array elements as function arguments",
+         "It only creates shallow copies of arrays and objects",
+         "It allows iteration through objects",
+         "It expands arrays, objects, and strings into their individual elements"
+       ],
+       "correctAnswer": 3,
+       "explanation": "The spread operator (...) in JavaScript expands iterable elements like arrays, objects, and strings into individual elements. It has versatile use cases: 1) Creating array copies: const newArray = [...oldArray]; 2) Combining arrays: const combined = [...array1, ...array2]; 3) Adding elements to arrays: const newArray = [1, 2, ...oldArray]; 4) Spreading arrays as function arguments: myFunction(...myArray); 5) Creating object copies: const newObj = {...oldObj}; 6) Merging objects: const merged = {...obj1, ...obj2}; 7) Spreading strings: const chars = [...'hello']; // ['h','e','l','l','o']. The spread operator creates shallow copies, meaning nested objects or arrays still reference the original nested items.",
+       "imageUrl": "/images/spread-operator.png"
+     },
+     {
+       "id": 12,
+       "title": "Promises",
+       "question": "What is a Promise in JavaScript?",
+       "options": [
+         "A function that always returns a value",
+         "A proxy for a value that might be unknown when the promise is created",
+         "A special type of callback function",
+         "A method to make synchronous code run faster"
+       ],
+       "correctAnswer": 1,
+       "explanation": "A Promise in JavaScript represents a value that might not be available yet but will be resolved at some point in the future. It's an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises have three states: 1) Pending: initial state, neither fulfilled nor rejected. 2) Fulfilled: operation completed successfully with a resulting value. 3) Rejected: operation failed with an error reason. Promises are used with methods like .then() (to handle fulfillment), .catch() (to handle rejection), and .finally() (to execute code regardless of outcome). Promises solve the 'callback hell' problem by enabling a more readable, chainable syntax for asynchronous operations and better error handling.",
+       "imageUrl": "/images/promises.png"
+     },
+     {
+       "id": 13,
+       "title": "Async/Await",
+       "question": "What does the 'await' keyword do?",
+       "options": [
+         "Makes a function run asynchronously",
+         "Waits for a Promise to settle and returns its result",
+         "Pauses execution for a specified time interval",
+         "Creates a new Promise object"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The await keyword in JavaScript pauses the execution of an async function until a Promise is settled (either fulfilled or rejected) and returns the Promise's result. It can only be used inside async functions. Await makes asynchronous code look and behave more like synchronous code, improving readability and maintainability. When an await keyword is encountered, the JavaScript engine will wait for the Promise to resolve before continuing execution within that function, but it doesn't block the main thread - other code outside the async function can continue running. Error handling with await can be done using traditional try/catch blocks, which is often more intuitive than Promise chains with .catch() methods.",
+       "imageUrl": "/images/async-await.png"
+     },
+     {
+       "id": 14,
+       "title": "Fetch API",
+       "question": "What does the Fetch API return?",
+       "options": [
+         "The actual data requested",
+         "A Promise that resolves to the Response object",
+         "A JSON object",
+         "An HTTP request object"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The Fetch API returns a Promise that resolves to the Response object representing the response to the request. This Response object doesn't directly contain the actual data but provides methods to extract it, such as .json(), .text(), .blob(), or .formData(). These methods also return Promises that resolve to the actual data. A typical fetch usage pattern is: fetch(url).then(response => response.json()).then(data => console.log(data)). With async/await, it becomes: async function getData() { const response = await fetch(url); const data = await response.json(); console.log(data); }. Fetch is the modern replacement for XMLHttpRequest, offering a cleaner, promise-based interface for making HTTP requests.",
+       "imageUrl": "/images/fetch-api.png"
+     },
+     {
+       "id": 15,
+       "title": "Map Object",
+       "question": "What is the main difference between a Map object and a regular JavaScript object?",
+       "options": [
+         "Maps can use any value as keys, while objects only use strings and symbols",
+         "Maps can only store primitive values",
+         "Maps have a fixed size, while objects can grow",
+         "Maps are immutable, while objects are mutable"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The Map object is a collection of key-value pairs, similar to regular objects, but with several important differences: 1) Map keys can be of any data type (objects, functions, primitives), while object keys are always converted to strings or symbols. 2) Maps maintain the insertion order of elements, while regular objects don't guarantee order. 3) Maps have a size property, while objects require manual tracking. 4) Maps are optimized for frequent additions and removals. 5) Maps have useful built-in methods like .has(), .get(), .set(), .delete(), and iterators (.keys(), .values(), .entries()). Maps are better for dynamic key-value collections, especially when keys aren't strings or when key-value pairs are frequently added and removed.",
+       "imageUrl": "/images/map-object.png"
+     },
+     {
+       "id": 16,
+       "title": "Set Object",
+       "question": "What is the primary purpose of the Set object in JavaScript?",
+       "options": [
+         "To store key-value pairs with better performance than objects",
+         "To create arrays with better method support",
+         "To store unique values of any type",
+         "To implement sorted collections with fast lookups"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Set object in JavaScript is a collection that can store unique values of any type, whether primitive values or object references. A value in a Set may only occur once; duplicate values are automatically removed. Sets provide methods for adding (.add()), deleting (.delete()), and checking for values (.has()). They also track their size with the .size property. Sets are useful for removing duplicates from arrays (e.g., [...new Set(array)]), checking for element existence (which is faster than using Array.includes() for large collections), and maintaining a collection of unique items. Unlike arrays, Sets don't have index-based access or methods like map() and filter(), though you can convert to an array to use these methods.",
+       "imageUrl": "/images/set-object.png"
+     },
+     {
+       "id": 17,
+       "title": "Closure",
+       "question": "What is a closure in JavaScript?",
+       "options": [
+         "A way to close browser windows programmatically",
+         "A function that cannot access variables outside its scope",
+         "A function bundled with its lexical environment",
+         "A method to terminate event listeners"
+       ],
+       "correctAnswer": 2,
+       "explanation": "A closure in JavaScript is a function bundled together with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function, even after the outer function has finished executing. Closures are created every time a function is created, at function creation time. They are useful for data encapsulation, creating private variables and methods, implementing partial applications and currying, and in event handlers and callbacks where they 'remember' the environment in which they were created. Closures are one of JavaScript's most powerful features and are fundamental to understanding advanced JavaScript patterns.",
+       "imageUrl": "/images/closures.png"
+     },
+     {
+       "id": 18,
+       "title": "Event Delegation",
+       "question": "What is event delegation in JavaScript?",
+       "options": [
+         "Assigning event handlers to child elements instead of the parent",
+         "Using a single event listener on a parent element to handle events for multiple child elements",
+         "Delegating event handling to a separate JavaScript file",
+         "Automatically triggering events on page load"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Event delegation is a technique where you attach a single event listener to a parent element instead of adding event listeners to multiple child elements. It relies on event bubbling, where events triggered on nested elements 'bubble up' through their ancestors. The parent element's event handler checks the event.target to determine which element actually triggered the event. Benefits include: 1) Simplified initialization (one handler instead of many), 2) Lower memory usage, 3) Dynamic elements support (works for elements added after the page loads), 4) Less code maintenance. A common implementation uses parent.addEventListener('click', (e) => { if(e.target.matches('selector')) { // handle event } }). Event delegation is particularly useful for large lists, tables, or any UI with many similar interactive elements.",
+       "imageUrl": "/images/event-delegation.png"
+     },
+     {
+       "id": 19,
+       "title": "this Keyword",
+       "question": "In a regular JavaScript function, what determines the value of 'this'?",
+       "options": [
+         "The scope in which the function was defined",
+         "The context in which the function is called",
+         "The parent object of the function",
+         "The global window object always"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In JavaScript, the value of 'this' in a regular function depends on how the function is called, not where it was defined. There are several rules: 1) In a method, 'this' refers to the owner object. 2) In a regular function call, 'this' refers to the global object (window in browsers, global in Node.js), or undefined in strict mode. 3) In arrow functions, 'this' retains the value of the enclosing lexical context. 4) In event handlers, 'this' refers to the element that received the event. 5) Methods like call(), apply(), and bind() can explicitly set 'this'. 6) In a constructor (called with 'new'), 'this' refers to the newly created instance. Understanding 'this' behavior is crucial for working with object-oriented patterns and frameworks.",
+       "imageUrl": "/images/this-keyword.png"
+     },
+     {
+       "id": 20,
+       "title": "call, apply, bind",
+       "question": "What is the difference between call(), apply(), and bind() methods?",
+       "options": [
+         "They all do the same thing with different syntax",
+         "call() and apply() execute the function immediately while bind() returns a new function",
+         "bind() can only be used with arrow functions",
+         "call() works with objects, apply() works with arrays, and bind() works with primitives"
+       ],
+       "correctAnswer": 1,
+       "explanation": "call(), apply(), and bind() are methods used to control what 'this' refers to in a function, but they differ in how they're used and when they execute the function. call(thisArg, arg1, arg2, ...) invokes the function immediately with a specified 'this' and arguments provided individually. apply(thisArg, [argsArray]) also invokes the function immediately, but takes arguments as an array. bind(thisArg, arg1, arg2, ...) returns a new function with 'this' bound to the specified object and any provided arguments partially applied, without executing the original function. The function it returns can be executed later. A memory aid: Call for Comma-separated arguments, Apply for Array of arguments, and Bind for Building a new function.",
+       "imageUrl": "/images/call-apply-bind.png"
+     },
+     {
+       "id": 21,
+       "title": "Prototype Chain",
+       "question": "What is the prototype chain in JavaScript?",
+       "options": [
+         "A linked list data structure used for memory management",
+         "A series of objects linked together through their prototype properties",
+         "The hierarchical chain of variable scopes",
+         "The sequence of function calls in a recursive algorithm"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The prototype chain is JavaScript's inheritance mechanism, where objects are linked to other objects via their prototype. When a property is accessed on an object and the property isn't found, JavaScript looks up the prototype chain to find it on the object's prototype, its prototype's prototype, and so on until it reaches the end of the chain (usually Object.prototype, which has null as its prototype). This enables objects to inherit properties and methods from their prototypes. Every JavaScript object has a prototype (__proto__ property), which points to another object or null. The chain ends at Object.prototype, whose prototype is null. Constructor functions create objects with their prototype property as the object's prototype. This prototype-based inheritance is fundamental to JavaScript's object-oriented programming model.",
+       "imageUrl": "/images/prototype-chain.png"
+     },
+     {
+       "id": 22,
+       "title": "Hoisting",
+       "question": "How does variable hoisting work in JavaScript?",
+       "options": [
+         "All variable declarations are moved to the top of the function regardless of where they're defined",
+         "var declarations are hoisted and initialized as undefined, while let and const are hoisted but not initialized",
+         "Only function declarations are hoisted, not variables",
+         "Hoisting only applies to global variables, not local ones"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Hoisting is JavaScript's behavior of moving declarations to the top of their scope during compilation, before code execution. However, only the declarations are hoisted, not initializations. For var declarations, the variable is initialized with undefined, which means you can use it before its declaration without error. For let and const declarations, they are hoisted but remain in the 'temporal dead zone' until their declaration is reached - attempting to access them before declaration results in a ReferenceError. Function declarations (not expressions) are completely hoisted, meaning both the declaration and definition are moved to the top of the scope. This allows you to call a function before it appears in your code. Understanding hoisting helps avoid unexpected behavior and reinforces best practices like declaring variables at the top of their scope.",
+       "imageUrl": "/images/hoisting.png"
+     },
+     {
+       "id": 23,
+       "title": "Event Loop",
+       "question": "What is the JavaScript event loop?",
+       "options": [
+         "A design pattern for handling user interface events",
+         "The mechanism that allows JavaScript to perform non-blocking operations",
+         "A loop that checks for new events like clicks and keyboard input",
+         "A technique for optimizing repetitive tasks in JavaScript"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The JavaScript event loop is the mechanism that allows JavaScript, which is single-threaded, to perform non-blocking operations despite having only one main thread of execution. It works by continuously checking if the call stack is empty, and if so, it takes the first task from the task queue (or callback queue) and pushes it onto the call stack for execution. The event loop consists of several key components: 1) Call Stack: where JavaScript executes function calls, 2) Web APIs (in browsers) or C/C++ APIs (in Node.js): where asynchronous operations like DOM events, AJAX calls, or timeouts are processed, 3) Callback Queue: where callbacks from completed async operations wait to be executed, 4) Microtask Queue: for Promises and other microtasks which have higher priority than the callback queue. Understanding the event loop is crucial for working with asynchronous JavaScript.",
+       "imageUrl": "/images/event-loop.png"
+     },
+     {
+       "id": 24,
+       "title": "Promise.all vs Promise.race",
+       "question": "What is the difference between Promise.all() and Promise.race()?",
+       "options": [
+         "Promise.all() waits for all promises to resolve, Promise.race() waits for the fastest one",
+         "Promise.all() combines multiple promises, Promise.race() can only handle two promises",
+         "Promise.all() works with asynchronous functions, Promise.race() only works with synchronous functions",
+         "Promise.all() returns an array, Promise.race() always returns a single value"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Promise.all() and Promise.race() are methods for working with multiple promises concurrently, but they have different behaviors: Promise.all([p1, p2, ...]) returns a new promise that resolves when all promises in the array have resolved, or rejects as soon as any one of them rejects. When successful, it returns an array of all the resolved values in the same order as the promises passed in. Promise.race([p1, p2, ...]) returns a new promise that resolves or rejects as soon as the first of the promises in the array resolves or rejects, with the value or reason from that promise. Promise.all() is useful when you need all operations to complete (like loading multiple API resources), while Promise.race() is useful for implementing timeouts or using the result from whatever source responds first.",
+       "imageUrl": "/images/promise-all-race.png"
+     },
+     {
+       "id": 25,
+       "title": "Deep Copy vs Shallow Copy",
+       "question": "What is the difference between deep copy and shallow copy in JavaScript?",
+       "options": [
+         "Deep copy duplicates everything, shallow copy only duplicates primitive values",
+         "Shallow copy duplicates the top-level properties, deep copy duplicates nested objects too",
+         "Deep copy works with arrays, shallow copy works with objects",
+         "Shallow copy is faster but uses more memory than deep copy"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In JavaScript, a shallow copy creates a new object that copies references to the nested objects in the original, while a deep copy creates a new object with new copies of all nested objects at every level. With a shallow copy, changes to nested objects in the copy will affect the original (and vice versa) because they reference the same objects in memory. Common shallow copy methods include Object.assign(), the spread operator ({...obj}), and Array.slice(). A deep copy completely duplicates everything, so the copy and original are completely independent. Deep copies can be created using JSON.parse(JSON.stringify(obj)) (with limitations for methods, functions, undefined values, etc.) or libraries like lodash's cloneDeep(). Understanding the difference is crucial when working with complex data structures to avoid unexpected side effects.",
+       "imageUrl": "/images/deep-shallow-copy.png"
+     },
+     {
+       "id": 26,
+       "title": "Generators",
+       "question": "What are generator functions in JavaScript?",
+       "options": [
+         "Functions that generate random values",
+         "Factory functions that create and return new objects",
+         "Special functions that can pause and resume execution",
+         "Functions that automatically generate documentation"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Generator functions are a special kind of function in JavaScript that can pause execution and later resume from the same point. They're defined using function* syntax and use the yield keyword to pause and yield values. When called, a generator function doesn't execute its code but returns a generator object that conforms to the iterator protocol. The generator's code is executed by calling the .next() method of the generator object, which runs until it encounters a yield statement, returning an object with value (the yielded value) and done (a boolean indicating if the generator is finished) properties. Generators are useful for creating iterable sequences, handling asynchronous operations more cleanly (especially before async/await), implementing infinite sequences efficiently, and managing control flow in a more readable way.",
+       "imageUrl": "/images/generator-functions.png"
+     },
+     {
+       "id": 27,
+       "title": "Optional Chaining",
+       "question": "What does the optional chaining operator (?.) do in JavaScript?",
+       "options": [
+         "Creates conditional statements similar to ternary operators",
+         "Allows null checking before accessing properties, methods, or indices",
+         "Combines multiple conditions into a single boolean expression",
+         "Provides type checking in JavaScript"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The optional chaining operator (?.) allows you to access properties, call methods, and access array elements on a value that might be null or undefined without causing an error. Instead of throwing an error, it returns undefined if the reference is nullish. Before optional chaining, you would need verbose checks like user && user.address && user.address.street, but with optional chaining it becomes user?.address?.street. This makes code more concise and readable. It can be used for property access (obj?.prop), method calls (obj?.method()), and array elements (arr?.[0]). It can be combined with the nullish coalescing operator (??) to provide default values: user?.address?.street ?? 'No street found'. Optional chaining was added in ES2020 and has broad browser support.",
+       "imageUrl": "/images/optional-chaining.png"
+     },
+     {
+       "id": 28,
+       "title": "Nullish Coalescing",
+       "question": "What does the nullish coalescing operator (??) do?",
+       "options": [
+         "Checks if a value is null and throws an error",
+         "Returns the right-hand operand when the left is null or undefined",
+         "Combines two values into an array if neither is null",
+         "Creates optional parameters in function definitions"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The nullish coalescing operator (??) returns the right-hand operand when the left-hand operand is null or undefined, and otherwise returns the left-hand operand. It's similar to the logical OR operator (||), but || returns the right side when the left is any falsy value (including empty strings, 0, false, NaN), while ?? only checks for null or undefined. This distinction is important when working with values where 0, empty strings, or false are valid values that should be preserved. For example, const count = userCount ?? 10 will use 10 only if userCount is null or undefined, not if it's 0. The nullish coalescing operator is especially useful for providing default values for potentially missing properties in objects, API responses, or when parsing user input. It was introduced in ES2020 and pairs well with optional chaining."
+      }
+   ]
+}

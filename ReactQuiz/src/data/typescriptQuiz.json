@@ -1,19 +1,354 @@
 {
-  "name": "TypeScript Quiz",
-  "questions": [
-    {
-      "id": 1,
-      "title": "TypeScript Basics",
-      "question": "What is the main purpose of TypeScript?",
-      "options": [
-        "To replace JavaScript completely",
-        "To add static typing to JavaScript",
-        "To make JavaScript run faster",
-        "To add new runtime features to JavaScript"
-      ],
-      "correctAnswer": 1,
-      "explanation": "TypeScript adds optional static typing to JavaScript. It helps catch errors early in development and provides better tooling support, but it doesn't add runtime features or replace JavaScript.",
-      "imageUrl": "/images/typescript-example.png"
-    }
-  ]
-} 
+   "name": "TypeScript Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "TypeScript Basics",
+       "question": "What is TypeScript?",
+       "options": [
+         "A database management system",
+         "A superset of JavaScript that adds static typing",
+         "A new programming language unrelated to JavaScript",
+         "A JavaScript framework like React or Angular"
+       ],
+       "correctAnswer": 1,
+       "explanation": "TypeScript is an open-source language developed by Microsoft that extends JavaScript by adding static type definitions. TypeScript is a superset of JavaScript, meaning any valid JavaScript code is also valid TypeScript code. The key addition is optional static typing and other features like interfaces, enums, tuples, generics, and more robust object-oriented programming capabilities. TypeScript code is transpiled into JavaScript that can run in any JavaScript environment. The main advantages of TypeScript include catching errors during development rather than runtime, better IDE support with intellisense and autocompletion, and improved code maintainability and readability, especially for large-scale applications.",
+       "imageUrl": "/images/typescript-basics.png"
+     },
+     {
+       "id": 2,
+       "title": "Basic Types",
+       "question": "Which of the following is NOT a basic type in TypeScript?",
+       "options": [
+         "boolean",
+         "string",
+         "float",
+         "number"
+       ],
+       "correctAnswer": 2,
+       "explanation": "In TypeScript, 'float' is not a basic type. The basic primitive types in TypeScript include: boolean (true/false values), string (text values), number (includes both integers and floating-point numbers), null, undefined, symbol (ES6), and bigint (ES2020). TypeScript uses 'number' for all numeric values, whether they're integers or floating-point numbers. This differs from some other statically-typed languages that have separate types for integers and floating-point numbers. Additionally, TypeScript includes other types like any (opt-out of type checking), void (absence of any type, commonly used for functions that don't return a value), never (represents values that never occur), and unknown (a type-safe alternative to any).",
+       "imageUrl": "/images/typescript-basic-types.png"
+     },
+     {
+       "id": 3,
+       "title": "Type Annotations",
+       "question": "What is the correct way to declare a variable with a specific type in TypeScript?",
+       "options": [
+         "let name: String = 'John';",
+         "let name as string = 'John';",
+         "let name<string> = 'John';",
+         "let name: string = 'John';"
+       ],
+       "correctAnswer": 3,
+       "explanation": "In TypeScript, you declare a variable with a specific type using a colon followed by the type: let name: string = 'John'; Type annotations tell TypeScript what kind of data a variable is expected to contain. It's important to note that TypeScript uses lowercase type names like 'string', not 'String' (with capital S) for primitive types. This syntax extends to function parameters, return types, and class properties. Type annotations are optional in TypeScript due to its type inference system; if you initialize a variable with a value, TypeScript can often infer the type automatically: let name = 'John'; // TypeScript infers type as string. However, explicitly adding type annotations improves code readability and helps catch errors when initial values aren't present.",
+       "imageUrl": "/images/typescript-annotations.png"
+     },
+     {
+       "id": 4,
+       "title": "Interfaces",
+       "question": "What is the primary purpose of interfaces in TypeScript?",
+       "options": [
+         "To create new JavaScript objects at runtime",
+         "To define contracts within your code and with external code",
+         "To implement multiple inheritance like in C++",
+         "To improve application performance"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The primary purpose of interfaces in TypeScript is to define contracts for object shapes within your code and with external code. Interfaces define the structure that objects must adhere to, specifying property names, their types, and whether they're required or optional (using the ? modifier). Unlike some other languages, TypeScript interfaces have zero runtime impact—they're completely removed during compilation to JavaScript. Interfaces can describe function types, indexable types (like arrays or dictionaries), and class instances. They can also extend other interfaces to build more complex types from simpler ones. Interfaces are powerful for documenting and enforcing code structure, enabling strong type-checking between different parts of an application, and supporting techniques like dependency injection without runtime overhead.",
+       "imageUrl": "/images/typescript-interfaces.png"
+     },
+     {
+       "id": 5,
+       "title": "Type Inference",
+       "question": "What will TypeScript infer as the type of the variable in this code: let x = 42;",
+       "options": [
+         "any",
+         "number",
+         "integer",
+         "object"
+       ],
+       "correctAnswer": 1,
+       "explanation": "TypeScript will infer the type of 'x' as 'number'. Type inference in TypeScript is the ability to automatically determine types without explicit annotations. When you initialize a variable with a value, TypeScript uses that value to infer its type. For numbers (whether integers or decimals), TypeScript uses the 'number' type. This inference happens during compilation and helps reduce the need for explicit type annotations while maintaining type safety. TypeScript's type inference works for variable initialization, function return types, generic types with constraints, and more. It examines not just the immediate assignment but also how variables are used throughout the code to determine the most specific type possible. While inference is powerful, explicit type annotations are still recommended for function parameters and returns to improve documentation and prevent errors.",
+       "imageUrl": "/images/typescript-inference.png"
+     },
+     {
+       "id": 6,
+       "title": "Union Types",
+       "question": "What is the correct way to define a variable that can be either a string or a number?",
+       "options": [
+         "let value: string && number;",
+         "let value: string + number;",
+         "let value: string | number;",
+         "let value: string, number;"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The correct way to define a variable that can be either a string or a number in TypeScript is using a union type with the pipe (|) operator: let value: string | number; Union types allow a variable to hold values of multiple types. When using a union type, you can only access properties and methods that exist on all types in the union. TypeScript will enforce type checking based on the actual type at runtime. For example, with string | number, methods specific to strings like .toUpperCase() would only be available after using type guards to narrow the type. Union types are particularly useful for function parameters that can accept different types, return values that might be different types (like success/error responses), or properties that may hold different value types based on certain conditions.",
+       "imageUrl": "/images/typescript-union-types.png"
+     },
+     {
+       "id": 7,
+       "title": "Type Guards",
+       "question": "What is a type guard in TypeScript?",
+       "options": [
+         "A runtime exception that occurs when types don't match",
+         "A technique to prevent certain types from being used in a module",
+         "A way to check and narrow types within conditional blocks",
+         "A compiler setting that enforces strict type checking"
+       ],
+       "correctAnswer": 2,
+       "explanation": "A type guard in TypeScript is a technique used to narrow down the type of a variable within a conditional block. Type guards are expressions that perform a runtime check to guarantee the type of a variable in a given scope. Common type guards include: 1) typeof for checking primitive types (string, number, boolean, etc.): if (typeof value === 'string') { /* value is treated as string here */ }; 2) instanceof for checking classes: if (value instanceof Date) { /* value is treated as Date here */ }; 3) Custom type predicates using 'is': function isFish(pet: Fish | Bird): pet is Fish { return (pet as Fish).swim !== undefined; }; 4) in operator for checking if a property exists: if ('name' in obj) { /* obj is known to have a name property */ }. Type guards are essential for safely working with union types, making TypeScript's type system more expressive and practical.",
+       "imageUrl": "/images/typescript-type-guards.png"
+     },
+     {
+       "id": 8,
+       "title": "Enums",
+       "question": "What will be the value of Direction.Down in the following enum? enum Direction { Up = 1, Down, Left, Right }",
+       "options": [
+         "1",
+         "2",
+         "0",
+         "undefined"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The value of Direction.Down will be 2. In TypeScript enums, when you specify a numeric value for an enum member (Up = 1), subsequent members without explicit values are automatically assigned incremental values. In this case, Up is assigned 1, so Down becomes 2, Left becomes 3, and Right becomes 4. If no initial value is specified for the first member, enumeration starts from 0. TypeScript supports numeric enums (as shown), string enums (where each member must have an explicit string value), heterogeneous enums (mixing string and numeric values), and const enums (inlined during compilation for better performance). Enums create both a forward mapping (name -> value) and a reverse mapping (value -> name) for numeric enums, allowing you to look up either the value or the name if you know one of them.",
+       "imageUrl": "/images/typescript-enums.png"
+     },
+     {
+       "id": 9,
+       "title": "Function Types",
+       "question": "How do you define a function type that takes two numbers and returns a number?",
+       "options": [
+         "type MathFunc = (a: number, b: number): number;",
+         "type MathFunc = (a: number, b: number) => number;",
+         "interface MathFunc { (a: number, b: number): void; return: number; }",
+         "type MathFunc = function(a: number, b: number): number;"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In TypeScript, you define a function type that takes two numbers and returns a number using arrow notation: type MathFunc = (a: number, b: number) => number; This syntax defines a type alias 'MathFunc' that represents any function taking two number parameters and returning a number. Function types can be defined using either type aliases (with the 'type' keyword) or interfaces. The interface equivalent would be: interface MathFunc { (a: number, b: number): number; }. Function types are useful for: 1) Defining callback parameters, 2) Creating collections of related functions, 3) Implementing strategy patterns, 4) Documenting function signatures for better code clarity. Function types can include optional parameters, rest parameters, and generic type parameters, making them quite flexible for modeling various function signatures.",
+       "imageUrl": "/images/typescript-function-types.png"
+     },
+     {
+       "id": 10,
+       "title": "Generics",
+       "question": "What does the T represent in this TypeScript generic function? function identity<T>(arg: T): T { return arg; }",
+       "options": [
+         "A concrete type that must be specified when calling the function",
+         "A type parameter that can represent any type",
+         "A template literal type",
+         "A special number type in TypeScript"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In the generic function function identity<T>(arg: T): T { return arg; }, T represents a type parameter that can represent any type. Generics allow you to create reusable components that work with a variety of types rather than a single one, while still maintaining full type safety. When calling a generic function, you can either let TypeScript infer the type based on the argument (identity(42) → T inferred as number) or explicitly specify it (identity<string>('hello')). Generic type parameters can be constrained to match certain requirements using the 'extends' keyword: function firstElement<T extends any[]>(arr: T): T[0] | undefined { return arr[0]; }. Generics are widely used in TypeScript to type collections, create type-safe containers, implement generic algorithms, and build flexible APIs without sacrificing type safety.",
+       "imageUrl": "/images/typescript-generics.png"
+     },
+     {
+       "id": 11,
+       "title": "Type Aliases",
+       "question": "What is the main difference between type aliases and interfaces in TypeScript?",
+       "options": [
+         "Type aliases can be extended, but interfaces cannot",
+         "Interfaces can be used to describe object shapes, but type aliases cannot",
+         "Type aliases can be used with union types, but interfaces cannot",
+         "Type aliases have better performance than interfaces"
+       ],
+       "correctAnswer": 2,
+       "explanation": "A key difference between type aliases and interfaces in TypeScript is that type aliases can be used with union types, but interfaces cannot directly represent unions. Type aliases (created with the 'type' keyword) can define not just object shapes but also unions, intersections, primitives, tuples, and other complex types: type StringOrNumber = string | number; Interfaces, on the other hand, primarily describe object shapes and function signatures. Both constructs can be extended: interfaces use the 'extends' keyword, while type aliases use intersection types (&). Interfaces support declaration merging (multiple declarations of the same interface are combined), which type aliases don't support. For most object-type definitions, interfaces and type aliases are interchangeable, and the choice often comes down to style preference. The TypeScript team generally recommends using interfaces for public API definitions and type aliases for unions, intersections, and more complex types.",
+       "imageUrl": "/images/typescript-type-aliases.png"
+     },
+     {
+       "id": 12,
+       "title": "Optional Properties",
+       "question": "How do you define an optional property in a TypeScript interface?",
+       "options": [
+         "interface User { name: string; age?: number; }",
+         "interface User { name: string; age: number | undefined; }",
+         "interface User { name: string; age: optional number; }",
+         "interface User { name: string; ?age: number; }"
+       ],
+       "correctAnswer": 0,
+       "explanation": "In TypeScript, you define an optional property in an interface by adding a question mark (?) after the property name: interface User { name: string; age?: number; }. This syntax indicates that the 'age' property may or may not be present on objects that implement this interface. Optional properties differ from properties with union types that include undefined (age: number | undefined). With an optional property, you don't need to specify the property at all when creating an object, whereas with number | undefined, you must explicitly specify the property, though it can be undefined. Optional properties are useful for: 1) Creating flexible interface definitions, 2) Defining configuration objects with sensible defaults, 3) Modeling partial updates to objects, 4) Representing API responses that may include certain fields only in specific circumstances. When accessing optional properties, TypeScript enforces null checks to prevent runtime errors.",
+       "imageUrl": "/images/typescript-optional-properties.png"
+     },
+     {
+       "id": 13,
+       "title": "Readonly Properties",
+       "question": "How do you make a property readonly in TypeScript?",
+       "options": [
+         "property: readonly string;",
+         "readonly property: string;",
+         "property: const string;",
+         "const property: string;"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In TypeScript, you make a property readonly by adding the 'readonly' modifier before the property name: readonly property: string;. Readonly properties can be set when an object is created, but cannot be changed afterward. TypeScript will show a compile-time error if you attempt to assign a new value to a readonly property. This is particularly useful for enforcing immutability in your data structures. Readonly can be applied to properties in interfaces, type aliases, and class definitions. For array types, you can use ReadonlyArray<T> or readonly T[] to create arrays that cannot be modified. Similarly, there's ReadonlyMap and ReadonlySet for those collection types. The readonly modifier is only enforced at compile time—it doesn't affect the JavaScript output or provide runtime immutability protections. For deep immutability, you would need additional measures like Object.freeze() or immutability libraries.",
+       "imageUrl": "/images/typescript-readonly.png"
+     },
+     {
+       "id": 14,
+       "title": "Tuples",
+       "question": "What is a tuple type in TypeScript?",
+       "options": [
+         "A type that represents an array with fixed length but any element types",
+         "A type that represents an array with elements of the same type",
+         "A type that represents an array with fixed length and specific types for each position",
+         "A special type for storing key-value pairs"
+       ],
+       "correctAnswer": 2,
+       "explanation": "A tuple type in TypeScript represents an array with a fixed length where the types of elements at specific positions are known. Unlike regular arrays where all elements have the same type, tuples allow you to specify different types for each element position. For example: let person: [string, number] = ['Alice', 30]; declares a tuple where the first element must be a string and the second must be a number. TypeScript will enforce these types and the length of the array. Tuples are useful when you want to represent a fixed collection of values where each position has a specific meaning, like coordinates [x, y], key-value pairs, or records with a known structure. TypeScript 4.0 added labeled tuple elements for better documentation: type Person = [name: string, age: number], and you can make tuple elements optional with the ? modifier: type PartialCoordinate = [x: number, y: number, z?: number].",
+       "imageUrl": "/images/typescript-tuples.png"
+     },
+     {
+       "id": 15,
+       "title": "any vs unknown",
+       "question": "What is the difference between 'any' and 'unknown' types in TypeScript?",
+       "options": [
+         "They are identical and can be used interchangeably",
+         "unknown is a newer version of any with better performance",
+         "any allows access to any property without checks, while unknown requires type checking before use",
+         "unknown can only be used for function parameters, while any can be used anywhere"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The key difference between 'any' and 'unknown' types in TypeScript is that 'any' allows access to any properties or methods without type checking, while 'unknown' requires type checking or assertions before use. Both types can represent any value, but they differ in how safely you can interact with them: 1) any essentially opts out of type checking, allowing you to call any methods or access any properties without verification. 2) unknown is a type-safe alternative that prevents you from using a value until you've performed some type of check or assertion. For example, you cannot call methods or access properties on an unknown value without first narrowing its type with a type guard or assertion. This makes unknown safer than any because it forces you to verify what you're working with before using it. 'unknown' is particularly useful for API responses, user inputs, or any data whose structure isn't known at compile time but needs type checking before use.",
+       "imageUrl": "/images/typescript-any-vs-unknown.png"
+     },
+     {
+       "id": 16,
+       "title": "never Type",
+       "question": "When would you use the 'never' type in TypeScript?",
+       "options": [
+         "For variables that are never initialized",
+         "For functions that never return (throw errors or have infinite loops)",
+         "For optional parameters that shouldn't receive values",
+         "For classes that can't be instantiated"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'never' type in TypeScript is used for functions that never return a value, such as functions that always throw an error or have infinite loops. The never type represents values that never occur, making it useful for several scenarios: 1) Functions that always throw exceptions: function throwError(message: string): never { throw new Error(message); }; 2) Functions with infinite loops: function infiniteLoop(): never { while (true) {} }; 3) Exhaustiveness checking in switch statements and conditional types, where never helps catch unhandled cases at compile time; 4) As the return type for type guards that narrow a type to nothing. The never type is assignable to every type, but no type (except never itself) is assignable to never. This makes it useful as a bottom type in TypeScript's type system, helping catch logical errors and impossible conditions.",
+       "imageUrl": "/images/typescript-never.png"
+     },
+     {
+       "id": 17,
+       "title": "Type Assertions",
+       "question": "Which is the preferred syntax for type assertions in modern TypeScript?",
+       "options": [
+         "const len = (input as string).length;",
+         "const len = <string>input.length;",
+         "const len = input@string.length;",
+         "const len = #string(input).length;"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The preferred syntax for type assertions in modern TypeScript is the 'as' keyword: const len = (input as string).length;. Type assertions are a way to tell the TypeScript compiler to treat a value as a specific type, overriding its type inference. There are two syntaxes for type assertions: the 'as' syntax (input as string) and the angle bracket syntax (<string>input). The 'as' syntax is preferred in modern TypeScript because: 1) It works in all contexts, including JSX/TSX files where angle brackets could be confused with JSX tags; 2) It's more consistent with other type operations; 3) It reads more naturally in many code constructs. Type assertions don't perform runtime conversion or checking—they're purely a compile-time construct that tells TypeScript to trust your type judgment. For runtime type checking, you should use type guards like typeof, instanceof, or custom predicates instead.",
+       "imageUrl": "/images/typescript-assertions.png"
+     },
+     {
+       "id": 18,
+       "title": "keyof Operator",
+       "question": "What does the 'keyof' operator do in TypeScript?",
+       "options": [
+         "Creates a new key in an object",
+         "Produces a union type of all property names of a given type",
+         "Checks if a key exists in an object at runtime",
+         "Generates a unique key for object identification"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'keyof' operator in TypeScript produces a union type consisting of all property names (keys) of a given type as string or numeric literal types. For example, given type User = { name: string; age: number; }, keyof User would evaluate to the union type 'name' | 'age'. The keyof operator is particularly useful for: 1) Creating generic functions that operate on object properties safely: function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] { return obj[key]; }; 2) Implementing mapped types that transform the properties of an existing type; 3) Constraining function parameters to valid property names of an object; 4) Building utility types like Pick and Omit. When combined with indexed access types (T[K]), keyof enables fully type-safe property access patterns. keyof also works with index signatures, producing string, number, or their union depending on the index signature types in the original type.",
+       "imageUrl": "/images/typescript-keyof.png"
+     },
+     {
+       "id": 19,
+       "title": "typeof Operator",
+       "question": "How is the 'typeof' operator in TypeScript different from JavaScript's 'typeof'?",
+       "options": [
+         "They are identical with no differences",
+         "TypeScript's typeof returns more specific types than JavaScript's typeof",
+         "TypeScript's typeof can be used in type contexts to refer to the type of a variable",
+         "TypeScript's typeof only works on classes, not primitive values"
+       ],
+       "correctAnswer": 2,
+       "explanation": "TypeScript's 'typeof' operator extends JavaScript's 'typeof' by allowing it to be used in type contexts to refer to the type of a variable, property, or other value. While JavaScript's typeof is a runtime operator that returns a string describing the type of an unevaluated operand ('string', 'number', 'object', etc.), TypeScript's typeof has an additional capability: when used in a type position, it captures the static type of a value. For example: const user = { name: 'John', age: 30 }; type User = typeof user; // captures the type as { name: string; age: number; }. This feature is particularly useful for: 1) Extracting types from existing values; 2) Creating type guards based on JavaScript's runtime typeof; 3) Referring to class types or constructors when you don't have access to the type directly; 4) Working with module augmentation. The dual nature of typeof in TypeScript allows for powerful type inference while maintaining compatibility with JavaScript.",
+       "imageUrl": "/images/typescript-typeof.png"
+     },
+     {
+       "id": 20,
+       "title": "Mapped Types",
+       "question": "What are mapped types in TypeScript?",
+       "options": [
+         "Functions that convert one data type to another at runtime",
+         "A feature that automatically maps database schemas to TypeScript interfaces",
+         "Types created by transforming properties of an existing type",
+         "A way to map class methods to their implementations"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Mapped types in TypeScript are a powerful way to create new types by transforming the properties of an existing type. They use the syntax { [P in K]: T } where K is usually a union of property names and T is often a transformation of the original property types. A common example is making all properties of a type optional: type Partial<T> = { [P in keyof T]?: T[P]; }. Mapped types can: 1) Add, remove, or modify modifiers like readonly and ?, 2) Change property types using conditional types or other transformations, 3) Rename properties using the as operator, 4) Filter properties based on their keys or values. TypeScript includes several utility mapped types: Partial<T> (makes all properties optional), Required<T> (makes all properties required), Readonly<T> (makes all properties readonly), Pick<T, K> (selects a subset of properties), Omit<T, K> (removes certain properties), and Record<K, T> (creates a type with properties from K of type T).",
+       "imageUrl": "/images/typescript-mapped-types.png"
+     },
+     {
+       "id": 21,
+       "title": "Conditional Types",
+       "question": "What does this conditional type evaluate to? type Result<T> = T extends string ? 'string' : 'other';",
+       "options": [
+         "It converts T to either a string or 'other' at runtime",
+         "It evaluates to 'string' if T is assignable to string, otherwise 'other'",
+         "It always evaluates to 'string' | 'other'",
+         "It generates a compiler error because conditional types are not allowed"
+       ],
+       "correctAnswer": 1,
+       "explanation": "This conditional type evaluates to 'string' if T is assignable to string, otherwise it evaluates to 'other'. Conditional types in TypeScript take the form T extends U ? X : Y, similar to a ternary operator for types. They allow you to select different types based on conditions checked at compile time. For example, Result<string> would evaluate to 'string', while Result<number> would evaluate to 'other'. Conditional types are particularly powerful when: 1) Combined with generics to create flexible utility types, 2) Used with the infer keyword to extract types from other types, 3) Applied distributively over union types, where T extends U ? X : Y with a union type T automatically distributes over each member of the union. Common use cases include filtering types from unions, extracting return types from functions, transforming types based on their properties, and implementing complex type relationships that would otherwise be difficult to express.",
+       "imageUrl": "/images/typescript-conditional-types.png"
+     },
+     {
+       "id": 22,
+       "title": "infer Keyword",
+       "question": "What is the purpose of the 'infer' keyword in TypeScript?",
+       "options": [
+         "To automatically infer types without explicit declarations",
+         "To extract a type from another type within a conditional type",
+         "To tell the compiler to ignore type checking in a specific block",
+         "To declare a type that will be inferred from a function's implementation"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The 'infer' keyword in TypeScript is used to extract a type from another type within a conditional type. It introduces a new type variable that represents the type to be extracted or inferred from the expression. For example, type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any; This utility type extracts the return type R from a function type T. The infer keyword can only be used within the extends clause of a conditional type. It's particularly useful for: 1) Extracting parameter types, return types, or constructor types from functions, 2) Extracting element types from arrays or promise value types, 3) Implementing complex type logic that needs to reference parts of a type that aren't directly accessible. The infer keyword has enabled many of TypeScript's built-in utility types and is essential for creating advanced type transformations that need to 'peek inside' generic types.",
+       "imageUrl": "/images/typescript-infer.png"
+     },
+     {
+       "id": 23,
+       "title": "Declaration Merging",
+       "question": "What happens when you define two interfaces with the same name in TypeScript?",
+       "options": [
+         "TypeScript will throw a compiler error for duplicate definitions",
+         "The second interface overwrites the first one",
+         "TypeScript merges the interfaces, combining all their properties",
+         "TypeScript uses the interface defined in the most recently imported file"
+       ],
+       "correctAnswer": 2,
+       "explanation": "When you define two interfaces with the same name in TypeScript, they are merged through a feature called declaration merging. TypeScript will combine all the properties from both interface declarations into a single interface definition. For example: interface User { name: string; } interface User { age: number; } // Equivalent to: interface User { name: string; age: number; } Declaration merging works for interfaces, namespaces, and certain enum declarations. It's particularly useful for: 1) Extending existing interfaces from third-party libraries without modifying original code, 2) Splitting interface definitions across multiple files for better organization, 3) Augmenting module declarations to add new exports, 4) Progressive enhancement of types as more information becomes available. If the same property appears in multiple interface declarations with different types, TypeScript will require the types to be compatible or will generate an error. Methods from multiple interfaces with the same name must have identical signatures.",
+       "imageUrl": "/images/typescript-declaration-merging.png"
+     },
+     {
+       "id": 24,
+       "title": "Type Compatibility",
+       "question": "What principle does TypeScript use for type compatibility?",
+       "options": [
+         "Nominal typing, where types must have the same name to be compatible",
+         "Structural typing, where types are compatible if they have the same structure",
+         "Exact typing, where types must have identical properties and nothing more",
+         "Reference typing, where only references to the same type definition are compatible"
+       ],
+       "correctAnswer": 1,
+       "explanation": "TypeScript uses structural typing for type compatibility, where types are compatible if they have the same structure, regardless of their declared names or where they were defined. This means that if two objects have the same shape (properties and methods), they are considered compatible even if they were created from different classes, interfaces, or type aliases. For example, if interface A has properties x and y, and interface B also has properties x and y with compatible types, values of type A can be assigned to variables of type B and vice versa. TypeScript's structural typing follows a principle of 'duck typing' (if it walks like a duck and quacks like a duck, it's a duck). This differs from nominal typing systems (like Java or C#) where explicit inheritance or implementation is required for type compatibility. An important aspect of structural typing is that extra properties are allowed—an object can have more properties than required by a type and still be compatible.",
+       "imageUrl": "/images/typescript-structural-typing.png"
+     },
+     {
+       "id": 25,
+       "title": "Type Narrowing",
+       "question": "Which of the following is NOT a valid way to narrow types in TypeScript?",
+       "options": [
+         "Using the typeof operator",
+         "Using the instanceof operator",
+         "Using the includes method on arrays",
+         "Using the in operator to check for property existence"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Using the includes method on arrays is not a valid way to narrow types in TypeScript. While includes is a useful array method for checking if a value exists in an array, TypeScript does not recognize it as a type guard that can narrow types. The valid type narrowing techniques in TypeScript are: 1"
+      }
+   ]
+}
