@@ -38,21 +38,21 @@ const Contact = () => {
               <p><a href="ms3713287@gmail.com">ms3713287@gmail.com</a></p>
             </div>
             <div className={styles.contactCard}>
-              <h3>💻 GitHub</h3>
+              <h3><img className={styles.icon_} src="icons/github.png" alt="" /> GitHub</h3>
               <a href="https://github.com/HulumyluU/Front-end-Quiz" target="_blank" rel="noopener noreferrer">
-                @reactquiz
+                @HulumuluU
               </a>
             </div>
             <div className={styles.contactCard}>
               <h3>🌐 LinkedIn</h3>
               <a href="https://www.linkedin.com/in/maksym-sovyk/" target="_blank" rel="noopener noreferrer">
-                React Quiz
+                Maksym Sovyk
               </a>
             </div>
             <div className={styles.contactCard}>
               <h3>🐦 Twitter</h3>
               <a href="https://twitter.com/reactquiz" target="_blank" rel="noopener noreferrer">
-                @reactquiz
+                @Maksym Sovyk
               </a>
             </div>
           </div>

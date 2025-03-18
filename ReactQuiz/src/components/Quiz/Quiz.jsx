@@ -9,6 +9,7 @@ import typescriptQuiz from '../../data/typescriptQuiz.json';
 import browserQuiz from '../../data/browserQuiz.json';
 import htmlCssQuiz from '../../data/htmlCssQuiz.json';
 import securityQuiz from '../../data/securityQuiz.json';
+import ImageWithLoader from './ImageWithLoader'; // animation for loader if img did not pop up immidiatelly
 
 const quizData = {
   react: reactQuiz,
@@ -19,7 +20,9 @@ const quizData = {
   security: securityQuiz
 };
 
-const Quiz = () => {
+
+
+function Quiz(){
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const category = searchParams.get('category');
@@ -152,7 +155,7 @@ const Quiz = () => {
             <p>{currentQuizQuestion.explanation}</p>
             {currentQuizQuestion.imageUrl && (
               <div className={styles.imageContainer}>
-                <img
+                <ImageWithLoader
                   src={currentQuizQuestion.imageUrl}
                   alt="Explanation visualization"
                   className={styles.explanationImage}
