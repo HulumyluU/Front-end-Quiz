@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import styles from './ImageWithLoader.module.css'; // Import the separate CSS module
-
+import styles from './ImageWithLoader.module.css';
 
 const ImageWithLoader = ({ src, alt, className }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   
   return (
     <div className={styles.imageWithLoader}>
@@ -13,10 +13,16 @@ const ImageWithLoader = ({ src, alt, className }) => {
         </div>
       )}
       <img
+        loading='lazy'
         src={src}
-        alt={alt}
+        alt={alt || "Explanation visualization"}
         className={className}
         onLoad={() => setIsLoading(false)}
+        onError={() => {
+          setIsLoading(false);
+          setHasError(true);
+          console.error(`Failed to load image: ${src}`);
+        }}
         style={{ display: isLoading ? 'none' : 'block' }}
       />
     </div>

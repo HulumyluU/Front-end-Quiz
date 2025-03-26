@@ -28,8 +28,7 @@ const Home = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>Front-end Quiz Master</h1>
         <p className={styles.description}>
-          Test your front-end development knowledge across different areas
-          with most popular interview questions. Improve your skills and get ready for your next interview.
+            Enhance your front-end development expertise by tackling popular interview questions across React.js, Vue.js, Angular, JavaScript, TypeScript, and HTML & CSS. Sharpen your coding skills, master frameworks, and prepare confidently for your next job interview
         </p>
 
         <div className={styles.categories}>
@@ -43,7 +42,8 @@ const Home = () => {
             >
               <div className={styles.categoryIcon}>
                 {category.iconType === 'image' ? (
-                  <img 
+                  <img
+                    loading="lazy" 
                     src={category.iconSrc} 
                     alt={`${category.title} logo`} 
                     style={{ width: '30px', height: '30px' }} 
@@ -76,7 +76,7 @@ const Home = () => {
         )}
 
         <Link
-          to={selectedCategory ? `/quiz?category=${selectedCategory}` : '#'}
+          to={selectedCategory ? `/quiz/${selectedCategory}` : '#'}
           className={styles.startButton}
           onClick={(e) => {
             if (!selectedCategory) {

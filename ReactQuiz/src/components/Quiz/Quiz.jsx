@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Quiz.module.css';
 
 // Import all quiz data
@@ -12,7 +12,7 @@ import htmlCssQuiz from '../../data/htmlCssQuiz.json';
 import securityQuiz from '../../data/securityQuiz.json';
 import angularQuiz from '../../data/angularQuiz.json';
 import vueQuiz from '../../data/vueQuiz.json';
-import ImageWithLoader from './ImageWithLoader'; // animation for loader if img did not pop up immidiatelly
+import ImageWithLoader from './ImageWithLoader';
 
 const quizData = {
   react: reactQuiz,
@@ -26,12 +26,9 @@ const quizData = {
   security: securityQuiz
 };
 
-
-
-function Quiz(){
-  const [searchParams] = useSearchParams();
+function Quiz() {
+  const { category } = useParams();
   const navigate = useNavigate();
-  const category = searchParams.get('category');
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showExplanation, setShowExplanation] = useState(false);
@@ -155,33 +152,27 @@ function Quiz(){
           </div>
         )}
 
-        {showExplanation && selectedAnswer !== null && (
-          <div className={styles.explanation}>
-            <h3>Explanation:</h3>
-            <p>{currentQuizQuestion.explanation}</p>
-            {currentQuizQuestion.imageUrl && (
-              <div className={styles.imageContainer}>
-                <ImageWithLoader
-                  src={currentQuizQuestion.imageUrl}
-                  alt="Explanation visualization"
-                  className={styles.explanationImage}
-                />
-              </div>
-            )}
-          </div>
-        )}
-
-        {quizCompleted && (
-          <button 
-            onClick={() => navigate('/')} 
-            className={`${styles.button} ${styles.mainMenuButton}`}
-          >
-            Go to Main Menu
-          </button>
-        )}
+{showExplanation && selectedAnswer !== null && (
+  <div className={styles.explanation}>
+    <h3>Explanation:</h3>
+    <p>{currentQuizQuestion.explanation}</p>
+    
+    {/* Only render the image container if imageUrl exists */}
+    {currentQuizQuestion.imageUrl && (
+            <div className={styles.imageContainer}>
+            <img
+               loading='lazy'
+               src={currentQuizQuestion.imageUrl}
+               alt="Explanation visualization"
+               className={styles.explanationImage}
+            />
+            </div>
+         )}
+      </div>
+    )}
       </div>
     </div>
   );
-};
+}
 
 export default Quiz;
