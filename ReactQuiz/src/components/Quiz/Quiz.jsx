@@ -7,6 +7,7 @@ import reactQuiz from '../../data/reactQuiz.json';
 import javascriptQuiz from '../../data/javascriptQuiz.json';
 import typescriptQuiz from '../../data/typescriptQuiz.json';
 import browserQuiz from '../../data/browserQuiz.json';
+import seoQuiz from '../../data/seoQuiz.json';
 import htmlCssQuiz from '../../data/htmlCssQuiz.json';
 import securityQuiz from '../../data/securityQuiz.json';
 import angularQuiz from '../../data/angularQuiz.json';
@@ -20,6 +21,7 @@ const quizData = {
   javascript: javascriptQuiz,
   typescript: typescriptQuiz,
   browser: browserQuiz,
+  seo: seoQuiz,
   'html-css': htmlCssQuiz,
   security: securityQuiz
 };
