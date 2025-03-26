@@ -1,0 +1,369 @@
+{
+   "name": "Angular Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "Angular Basics",
+       "question": "What is Angular?",
+       "options": [
+         "A CSS framework for responsive web design",
+         "A JavaScript library for building user interfaces",
+         "A complete TypeScript-based frontend framework",
+         "A backend server framework built on Node.js"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Angular is a complete TypeScript-based frontend framework developed and maintained by Google. Unlike libraries that focus on specific aspects of web development, Angular provides a comprehensive solution with features like two-way data binding, dependency injection, templating, routing, form handling, HTTP client, and testing utilities. Angular uses a component-based architecture and follows the MVC (Model-View-Controller) pattern. Since Angular 2, the framework has been completely rewritten from AngularJS (Angular 1.x) and releases follow semantic versioning with major updates approximately every six months."
+     },
+     {
+       "id": 2,
+       "title": "Components",
+       "question": "What are the building blocks of an Angular application?",
+       "options": [
+         "Functions, classes, and interfaces",
+         "Components, directives, pipes, and services",
+         "HTML templates, CSS files, and TypeScript modules",
+         "Models, views, and controllers"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The main building blocks of an Angular application are components, directives, pipes, and services. Components are the fundamental building blocks that control views (HTML templates) and contain application logic. Directives add behavior to DOM elements (either built-in like ngFor or custom). Pipes transform output displayed in templates (like formatting dates or filtering lists). Services are singleton objects that provide shared functionality across the application, often handling data operations or business logic. These building blocks work together through Angular's dependency injection system to create a complete application. Modules are also important as they help organize the application into cohesive functionality blocks."
+     },
+     {
+       "id": 3,
+       "title": "Angular CLI",
+       "question": "What is the Angular CLI used for?",
+       "options": [
+         "Compiling TypeScript code to JavaScript",
+         "Creating and managing Angular projects with scaffolding, building, testing, and deployment features",
+         "Connecting Angular applications to backend APIs",
+         "Managing dependencies in Angular applications"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The Angular CLI (Command Line Interface) is a powerful tool that helps create and manage Angular projects. It provides commands for scaffolding components, services, modules, and other artifacts with best practices, compiling and bundling the application for production, running development servers with hot module reloading, running tests, and optimizing code. Common commands include ng new (create new project), ng generate (create new components/services/etc.), ng serve (start development server), ng build (compile application), and ng test (run tests). The CLI abstracts away complex webpack and build configurations, making it easier to follow Angular best practices and improve developer productivity."
+     },
+     {
+       "id": 4,
+       "title": "Data Binding",
+       "question": "What are the different types of data binding in Angular?",
+       "options": [
+         "One-way binding and two-way binding",
+         "Interpolation, property binding, event binding, and two-way binding",
+         "String binding, object binding, and array binding",
+         "Template binding and directive binding"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Angular supports four types of data binding: 1) Interpolation: Uses double curly braces {{data}} to display component data in the view. 2) Property Binding: Binds a component property to a DOM element property using square brackets [property]=\"data\". 3) Event Binding: Listens for DOM events like clicks using parentheses (event)=\"handler()\". 4) Two-way Binding: Combines property and event binding with the banana-in-a-box syntax [(ngModel)]=\"data\", allowing data to flow in both directions. These binding types enable a rich interaction between components and templates, allowing for dynamic and responsive user interfaces. Together, they form the backbone of Angular's declarative template system."
+     },
+     {
+       "id": 5,
+       "title": "Services",
+       "question": "What is the primary purpose of services in Angular?",
+       "options": [
+         "To handle UI rendering and template processing",
+         "To provide shared functionality and data across components",
+         "To connect directly to the database",
+         "To create responsive layouts for different screen sizes"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The primary purpose of services in Angular is to provide shared functionality and data across components. Services are singleton objects that can be injected into multiple components, directives, and other services. They implement the separation of concerns principle by extracting and centralizing common functionality like data fetching, state management, business logic, and utility functions. This approach prevents code duplication, promotes reusability, and keeps components focused on their presentation and user interaction responsibilities. Services are registered with Angular's dependency injection system, which manages their creation and delivery to the components that need them. Common examples include HTTP services for API communication, authentication services, logging services, and state management services."
+     },
+     {
+       "id": 6,
+       "title": "Directives",
+       "question": "What are the three types of directives in Angular?",
+       "options": [
+         "Input directives, output directives, and two-way directives",
+         "Template directives, class directives, and style directives",
+         "Components, structural directives, and attribute directives",
+         "Binding directives, event directives, and property directives"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Angular has three types of directives: 1) Components - directives with templates that are the main building blocks of Angular applications, denoted with @Component decorator. 2) Structural directives - change the DOM layout by adding or removing elements, like *ngIf, *ngFor, and *ngSwitch. The asterisk (*) prefix is syntactic sugar for a more complex template transformation. 3) Attribute directives - change the appearance or behavior of existing elements, like ngStyle, ngClass, and custom directives created with @Directive decorator. Attribute directives don't create or destroy elements, but modify the elements they're attached to. Understanding the different directive types is crucial for effective Angular development, as they each serve different purposes in building dynamic and interactive UIs."
+     },
+     {
+       "id": 7,
+       "title": "Angular Modules",
+       "question": "What is the purpose of NgModule in Angular?",
+       "options": [
+         "To organize the application into logical functional units",
+         "To define routes for navigation between views",
+         "To create HTTP requests to backend services",
+         "To connect components to the DOM"
+       ],
+       "correctAnswer": 0,
+       "explanation": "NgModule in Angular organizes the application into logical functional units or cohesive blocks of related capabilities. Each Angular app has at least one module (the root module, typically AppModule). NgModules serve several purposes: 1) Declaring which components, directives, and pipes belong to the module; 2) Making some of those components, directives, and pipes public for other modules to use; 3) Importing functionality from other modules; 4) Providing services at the module level. NgModules help manage complexity in larger applications by enabling lazy loading (loading modules on demand), supporting separation of concerns, and allowing for better organization of code. Common module types include feature modules, shared modules, core modules, routing modules, and service modules."
+     },
+     {
+       "id": 8,
+       "title": "Dependency Injection",
+       "question": "What is dependency injection in Angular?",
+       "options": [
+         "A design pattern where a component gets its dependencies from external sources rather than creating them",
+         "A security feature that prevents unauthorized access to components",
+         "A technique for injecting HTML code into templates",
+         "A pattern for organizing CSS styles"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Dependency Injection (DI) in Angular is a design pattern in which a class receives its dependencies from external sources rather than creating them itself. Angular has a built-in DI framework that provides declared dependencies to a class when it's instantiated. This system has several advantages: 1) Increased flexibility and modularity (components can be configured with different dependencies); 2) Better testability (dependencies can be mocked); 3) Reduced coupling between classes; 4) More reusable and maintainable code. In Angular, services are the most common dependencies injected into components. The DI system consists of providers (which tell Angular how to create instances), injectors (which maintain a container of service instances), and tokens (which identify dependencies). Providers can be registered at different levels: component, module, or application-wide."
+     },
+     {
+       "id": 9,
+       "title": "Angular Routing",
+       "question": "How do you define routes in an Angular application?",
+       "options": [
+         "Using the Routes array in the routing module",
+         "Using the <routes> tag in the main HTML file",
+         "In the component decorator's routes property",
+         "By implementing the Routable interface on components"
+       ],
+       "correctAnswer": 0,
+       "explanation": "In Angular, routes are defined using a Routes array in the routing module. Each route is an object that maps a URL path to a component. A basic route definition includes a path (URL segment) and a component to display when that path is matched. Routes can also include additional configurations such as route parameters, child routes, lazy loading, route guards, and data objects. The Routes array is passed to the RouterModule.forRoot() method (for the main application routes) or RouterModule.forChild() (for feature module routes). The router-outlet directive is then used in templates to indicate where the matched component should be displayed. Route navigation can be handled programmatically using the Router service or declaratively using the routerLink directive."
+     },
+     {
+       "id": 10,
+       "title": "Lifecycle Hooks",
+       "question": "Which lifecycle hook would you use to perform initialization logic after Angular has initialized all data-bound properties?",
+       "options": [
+         "ngOnInit",
+         "ngAfterViewInit",
+         "ngOnChanges",
+         "ngAfterContentInit"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The ngOnInit lifecycle hook is used to perform initialization logic after Angular has initialized all data-bound properties of a component. It's called once after the first ngOnChanges and is the ideal place to fetch initial data, set up subscriptions, or perform other one-time setup operations. The complete sequence of lifecycle hooks is: ngOnChanges (when bound inputs change), ngOnInit (after first ngOnChanges), ngDoCheck (during change detection), ngAfterContentInit (after content projection), ngAfterContentChecked (after content has been checked), ngAfterViewInit (after component's view is initialized), ngAfterViewChecked (after view has been checked), and ngOnDestroy (just before Angular destroys the component). Understanding when each hook fires is crucial for proper initialization, cleanup, and managing component state."
+     },
+     {
+       "id": 11,
+       "title": "Template Reference Variables",
+       "question": "How do you declare a template reference variable in Angular?",
+       "options": [
+         "Using the @Reference decorator",
+         "Using the ref attribute",
+         "Using a hash symbol followed by a name (#variableName)",
+         "Using double curly braces {{variableName}}"
+       ],
+       "correctAnswer": 2,
+       "explanation": "In Angular, template reference variables are declared using a hash symbol (#) followed by a name, like #myVariable on an HTML element. These variables provide direct access to DOM elements, components, or directives in your template or component class. For example, you can create a reference to an input element with <input #myInput> and then access its value with myInput.value in the template, or using @ViewChild('myInput') in the component class. Template reference variables are useful for cases like accessing form input values, focusing elements programmatically, or interacting with child components directly. The scope of a template reference variable is limited to the template in which it's declared, making them a clean way to reference elements without querying the DOM."
+     },
+     {
+       "id": 12,
+       "title": "Angular Forms",
+       "question": "What are the two types of forms in Angular?",
+       "options": [
+         "Static forms and dynamic forms",
+         "Template-driven forms and reactive forms",
+         "Simple forms and complex forms",
+         "Client forms and server forms"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Angular provides two approaches to handling forms: Template-driven forms and Reactive forms. Template-driven forms use directives in the template to create and manipulate the form model. They are simpler to implement and similar to AngularJS (Angular 1.x) forms, with most of the form logic existing in the template. Reactive forms (also called model-driven forms) create the form model in the component class explicitly, giving more direct control and better testing capabilities. They're built around reactive programming principles using RxJS observables. Template-driven forms are suited for simple scenarios with basic validation, while reactive forms excel in complex scenarios with dynamic form controls, custom validation, and form control value changes over time. Both approaches use the same form control classes underneath but differ in how these controls are created and managed."
+     },
+     {
+       "id": 13,
+       "title": "Change Detection",
+       "question": "What is the default change detection strategy in Angular?",
+       "options": [
+         "OnPush",
+         "Default",
+         "Manual",
+         "CheckAlways"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The default change detection strategy in Angular is the 'Default' strategy (technically named ChangeDetectionStrategy.Default). With this strategy, Angular checks the entire component tree from top to bottom every time any event occurs that could potentially change the application state. These events include user events (clicks, key presses, etc.), timers, HTTP requests, and Promise resolutions. The Default strategy ensures that all components reflect the current application state, but can become a performance bottleneck in larger applications. The alternative 'OnPush' strategy (ChangeDetectionStrategy.OnPush) only checks a component when its inputs have changed (by reference) or when an event occurs within the component, significantly reducing the number of checks. Understanding and optimizing change detection is crucial for building high-performance Angular applications."
+     },
+     {
+       "id": 14,
+       "title": "Pipes",
+       "question": "What are pipes in Angular and how are they used?",
+       "options": [
+         "Tools to connect components together",
+         "Data transformation utilities used in templates",
+         "Special HTTP handlers for making API requests",
+         "Functions that run when a component initializes"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Pipes in Angular are data transformation utilities used in templates to transform displayed values. They use a simple syntax with the pipe symbol (|) followed by the pipe name, such as {{ data | pipeName }}. Angular provides several built-in pipes, including DatePipe (formats dates), UpperCasePipe/LowerCasePipe (transforms text case), CurrencyPipe (formats currencies), DecimalPipe (formats numbers), PercentPipe (formats percentages), AsyncPipe (unwraps observable or promise values), and JsonPipe (converts to JSON string). Pipes can accept parameters, like {{ date | date:'short' }}, to customize the transformation. Developers can also create custom pipes by implementing the PipeTransform interface and using the @Pipe decorator. Pipes are particularly useful for formatting data without changing the underlying component logic, promoting cleaner and more maintainable code."
+     },
+     {
+       "id": 15,
+       "title": "Content Projection",
+       "question": "Which directive is used for content projection in Angular?",
+       "options": [
+         "<ng-project>",
+         "<ng-template>",
+         "<ng-content>",
+         "<ng-container>"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The <ng-content> directive is used for content projection in Angular. Content projection allows you to insert (or project) content from a parent component's template into designated spots in a child component's template. This pattern is also known as transclusion in AngularJS. With <ng-content>, a component can accept and display content provided by its parent, creating more flexible and reusable components. For multiple projection slots, you can use the 'select' attribute to target specific content, like <ng-content select=\".header\"></ng-content>. The <ng-container> element is a logical container that doesn't render in the DOM but helps with structural directives, while <ng-template> defines template content that isn't rendered directly but can be instantiated by structural directives."
+     },
+     {
+       "id": 16,
+       "title": "Component Communication",
+       "question": "What is the recommended way for child components to send data to their parent component?",
+       "options": [
+         "Using the @Output decorator with EventEmitter",
+         "Using a shared global variable",
+         "Directly accessing the parent component's properties",
+         "Using the ngModel directive"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The recommended way for child components to send data to their parent component is using the @Output decorator with EventEmitter. This creates a custom event that the parent component can listen to using event binding. In the child component, you define an output property with @Output() myEvent = new EventEmitter<any>(); and then emit values using this.myEvent.emit(data). In the parent component's template, you bind to this event with <child-component (myEvent)=\"handleEvent($event)\"></child-component>. This pattern follows Angular's unidirectional data flow and maintains proper component encapsulation. It creates a clear contract between parent and child components, making the code more maintainable and predictable. Other communication methods include @Input properties (parent to child), services (for unrelated components), and the @ViewChild/@ContentChild decorators (for direct component access)."
+     },
+     {
+       "id": 17,
+       "title": "Angular Testing",
+       "question": "Which testing framework is built into Angular CLI projects by default?",
+       "options": [
+         "Mocha",
+         "Jest",
+         "Karma and Jasmine",
+         "Protractor"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Karma and Jasmine are the default testing frameworks built into Angular CLI projects. Jasmine is the testing framework that provides the syntax for writing tests (describe, it, expect, etc.), while Karma is the test runner that executes those tests in a browser environment. Angular's TestBed class helps create a testing environment for Angular components and services. Unit tests typically test individual components, services, pipes, and other classes in isolation, while integration tests verify that different parts of the application work together. End-to-end (E2E) testing was traditionally handled by Protractor, but newer Angular versions support Cypress, WebdriverIO, or other E2E frameworks. Angular's commitment to testing is evident in its built-in testing tools and the testability features of its architecture, such as dependency injection, which makes it easier to mock dependencies."
+     },
+     {
+       "id": 18,
+       "title": "HttpClient",
+       "question": "Which Angular module provides the HttpClient service?",
+       "options": [
+         "HttpModule",
+         "HttpClientModule",
+         "NetworkModule",
+         "ApiModule"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The HttpClientModule provides the HttpClient service in Angular. HttpClient is Angular's mechanism for communicating with remote servers via HTTP. To use it, you import HttpClientModule in your application or feature module, then inject the HttpClient service into your components or services. HttpClient provides methods for HTTP requests (get, post, put, delete, patch, etc.) that return Observables, facilitating the use of RxJS operators for transforming and managing responses. Features include typed response objects, request/response interception, error handling, progress tracking, and testing utilities. HttpClient replaced the older Http service (from HttpModule) in Angular 4.3+, offering a more powerful API with better TypeScript integration. For most applications, HTTP requests should be encapsulated in services rather than called directly from components."
+     },
+     {
+       "id": 19,
+       "title": "Lazy Loading",
+       "question": "What is lazy loading in Angular?",
+       "options": [
+         "A technique to load images only when they enter the viewport",
+         "Loading components only when they're displayed in the UI",
+         "Loading feature modules on demand when they're needed",
+         "A way to delay HTTP requests until user interaction"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Lazy loading in Angular is a technique for loading feature modules on demand when they're needed, typically when a user navigates to a route associated with that module. This pattern improves initial load time and performance by reducing the size of the main bundle, only loading code when it's actually needed. Lazy loading is implemented through the Angular Router with a specific syntax in the route configuration: { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) }. The imported module must define its own routes with RouterModule.forChild(). Lazy loading works well with feature modules that aren't needed for the initial application bootstrap, such as admin sections, secondary features, or rarely used functionality. It's particularly beneficial for larger applications where loading all code upfront would cause significant initial load delays."
+     },
+     {
+       "id": 20,
+       "title": "ViewEncapsulation",
+       "question": "What does ViewEncapsulation control in Angular components?",
+       "options": [
+         "How TypeScript code is encapsulated into JavaScript modules",
+         "How component CSS styles are encapsulated and applied",
+         "How sensitive data is hidden from view in templates",
+         "How Angular protects against XSS attacks"
+       ],
+       "correctAnswer": 1,
+       "explanation": "ViewEncapsulation in Angular controls how component CSS styles are encapsulated and applied. Angular provides three encapsulation strategies: 1) Emulated (default): Angular emulates shadow DOM by preprocessing styles and adding special attributes to elements, preventing styles from leaking out but allowing global styles in. 2) ShadowDom: Uses browser's native shadow DOM to fully encapsulate styles, creating a true style boundary. 3) None: No encapsulation; styles are added to the global styles, potentially affecting any element in the application. ViewEncapsulation is set in the component decorator: @Component({ encapsulation: ViewEncapsulation.Emulated }). Different encapsulation modes allow developers to balance between style isolation and global styling needs. Understanding encapsulation is important for creating reusable components that maintain their intended appearance across different contexts and prevent style conflicts."
+     },
+     {
+       "id": 21,
+       "title": "Zone.js",
+       "question": "What role does Zone.js play in Angular?",
+       "options": [
+         "It provides geolocation services for mapping applications",
+         "It handles internationalization and localization",
+         "It intercepts asynchronous operations to help with change detection",
+         "It optimizes rendering performance by zoning components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Zone.js plays a crucial role in Angular by intercepting and tracking asynchronous operations to help with change detection. It creates an execution context that persists across asynchronous operations, allowing Angular to know when to trigger change detection after these operations complete. Zone.js patches many browser APIs and asynchronous functions (setTimeout, Promise, HTTP requests, event listeners, etc.), creating a mechanism for Angular to be notified when these operations finish. This enables Angular's automatic change detection to work without requiring manual notification when data might have changed. Without Zone.js, developers would need to manually trigger change detection after asynchronous operations. In recent versions, Angular has been working toward providing a 'zoneless' mode to reduce the dependency on Zone.js and give developers more explicit control over change detection, possibly improving performance for advanced use cases."
+     },
+     {
+       "id": 22,
+       "title": "Route Guards",
+       "question": "What are route guards in Angular?",
+       "options": [
+         "Security features that encrypt route parameters",
+         "Services that determine if a route can be activated or deactivated",
+         "Components that display error messages when routes fail to load",
+         "Middleware functions that process HTTP requests before reaching the server"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Route guards in Angular are services that determine if a route can be activated, deactivated, or loaded. They implement different guard interfaces based on their purpose: 1) CanActivate: Controls if a route can be accessed, often used for authentication and authorization. 2) CanActivateChild: Controls access to child routes. 3) CanDeactivate: Checks if a user should be allowed to leave a route, useful for preventing unsaved changes. 4) Resolve: Pre-fetches data before a route is activated, ensuring required data is available when the component loads. 5) CanLoad: Controls whether a lazy-loaded module can be loaded. Guards are implemented as injectable services that return either boolean values (true to allow, false to deny) or observables/promises that resolve to boolean values, allowing for asynchronous guard logic. They're registered in the route configuration and help enforce business rules, authentication requirements, and improve user experience."
+     },
+     {
+       "id": 23,
+       "title": "Angular Elements",
+       "question": "What are Angular Elements?",
+       "options": [
+         "Basic building blocks of Angular templates, like div and span",
+         "A feature that allows using Angular components as standard web components",
+         "Special UI controls provided by the Angular Material library",
+         "The official name for Angular directives"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Angular Elements is a feature that allows Angular components to be used as standard web components (custom elements) that can work in any HTML page, even those not using Angular. Web components are a set of web platform APIs that allow creating custom, reusable HTML elements that work across different frameworks or with no framework at all. Angular Elements packages an Angular component in a custom element, managing the bootstrapping of Angular and exposing the component's functionality through the browser's native custom element interface. This is particularly useful for gradually migrating applications to Angular, embedding Angular functionality into non-Angular applications, creating widgets for CMS systems, or sharing components across different frameworks. Angular Elements implements the Custom Elements v1 specification and creates self-bootstrapping components that are framework-agnostic, though they still carry the Angular runtime."
+     },
+     {
+       "id": 24,
+       "title": "Angular Ivy",
+       "question": "What is Ivy in Angular?",
+       "options": [
+         "A CSS framework specifically designed for Angular applications",
+         "An optional state management library similar to Redux",
+         "Angular's next-generation compilation and rendering pipeline",
+         "A specialized testing tool for Angular components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Ivy is Angular's next-generation compilation and rendering pipeline introduced as the default rendering engine in Angular 9. Ivy represents a complete rewrite of Angular's rendering architecture, with key features including: 1) Improved bundle sizes through more efficient code generation and tree-shaking; 2) Faster compilation; 3) Better debugging experience with more readable generated code; 4) Improved template type checking; 5) Incremental DOM approach that updates only what has changed; 6) Locality principle where components are compiled in isolation without knowledge of other components. Ivy allows for metaprogramming capabilities like higher-order components and runtime evaluation of components. The Ivy architecture replaced the previous View Engine and has been continuously improved in subsequent Angular versions, with most applications seeing reduced bundle sizes and improved runtime performance without requiring code changes."
+     },
+     {
+       "id": 25,
+       "title": "Component Interaction",
+       "question": "Which is NOT a standard method for components to interact in Angular?",
+       "options": [
+         "Using @Input and @Output decorators",
+         "Using a shared service with observables",
+         "Using direct DOM access with document.querySelector",
+         "Using ViewChild to access child components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Direct DOM access with document.querySelector is NOT a standard or recommended method for components to interact in Angular. This approach bypasses Angular's component architecture, breaks encapsulation, makes testing difficult, and creates tight coupling between components and the DOM structure. The standard approaches for component interaction are: 1) @Input and @Output decorators for parent-child communication; 2) Services for sharing data between unrelated components; 3) @ViewChild/@ContentChild for parent to access child components directly; 4) Template reference variables for simple parent access to child properties and methods; 5) NgRx or other state management libraries for complex applications. Angular encourages a declarative approach to DOM manipulation through its template syntax and data binding system rather than imperative DOM access, which helps maintain the benefits of Angular's change detection and component architecture."
+     },
+     {
+       "id": 26,
+       "title": "Angular Universal",
+       "question": "What is Angular Universal?",
+       "options": [
+         "A component library with universal design principles",
+         "An international translation service for Angular applications",
+         "Server-side rendering (SSR) for Angular applications",
+         "A testing framework that works universally across browsers"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Angular Universal is the technology for server-side rendering (SSR) Angular applications. Normally, Angular runs in the browser, rendering pages in the DOM in response to user actions. With Universal, Angular applications can run on the server, generating static application pages that are later bootstrapped on the client. This approach provides several benefits: 1) Improved performance with faster initial page load; 2) Better SEO as search engines can crawl the fully rendered pages; 3) Better performance on mobile and low-powered devices; 4) Showing the application's first render more quickly. Angular Universal works with various server technologies including Node.js/Express, ASP.NET Core, and others. While implementing SSR adds complexity to the build process and can present challenges with browser-specific code, the benefits are significant for public-facing applications where SEO and initial load performance are important."
+     },
+     {
+       "id": 27,
+       "title": "Renderer2",
+       "question": "What is the purpose of Renderer2 in Angular?",
+       "options": [
+         "To create 3D graphics in Angular applications",
+         "To render complex data visualizations",
+         "To manipulate the DOM in a way that's safe for different rendering environments",
+         "To improve rendering performance through WebGL"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Renderer2 in Angular provides an abstraction for manipulating the DOM in a way that's safe for different rendering environments. Rather than accessing DOM elements directly (which would only work in browser environments), Renderer2 provides methods to create, update, and manipulate elements in a way that works across different platforms. This is particularly important for applications that use server-side rendering or run in non-browser environments like web workers or native mobile views. Renderer2 includes methods for element creation (createElement), adding/removing attributes (setAttribute/removeAttribute), setting properties (setProperty), adding/removing styles (setStyle/removeStyle), and manipulating classes (addClass/removeClass). Using Renderer2 instead of direct DOM manipulation ensures your application remains compatible with Angular Universal (SSR) and follows Angular's security best practices by avoiding direct DOM access."
+     },
+     {
+       "id": 28,
+       "title": "AOT Compilation",
+       "question": "What is AOT compilation in Angular?",
+       "options": [
+         "Application Object Template - a design pattern for component creation",
+         "Angular Object Types - TypeScript interfaces for Angular components",
+         "Ahead-Of-Time compilation - compiling templates during build time",
+         "Association Of Types - how Angular connects services to components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "AOT (Ahead-Of-Time) compilation in Angular compiles component templates and Angular code during the build process rather than at runtime in the browser. This contrasts with JIT (Just-In-Time) compilation, which compiles templates in the browser as the application loads. AOT provides several important benefits: 1) Faster rendering - the browser downloads pre-compiled code and can render immediately without waiting for compilation;"
+       }
+      ]
+}

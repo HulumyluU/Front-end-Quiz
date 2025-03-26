@@ -6,6 +6,20 @@
      "description": "Test your React.js knowledge from basics to advanced concepts" 
    },
    {
+      "id": "vue",
+      "title": "Vue.js",
+      "iconType": "image",
+      "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+      "description": "Test your knowledge of Vue.js fundamentals, components, and advanced features"
+    },
+    {
+      "id": "angular",
+      "title": "Angular",
+      "iconType": "image",
+      "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+      "description": "Challenge yourself with Angular concepts, from basics to advanced patterns"
+    },
+   {
      "id": "javascript",
      "title": "JavaScript",
      "iconType": "image",
@@ -20,22 +34,28 @@
      "description": "Explore TypeScript types, interfaces, and advanced features"
    },
    {
+      "id": "html-css",
+      "title": "HTML & CSS",
+      "iconType": "image",
+      "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      "description": "Test your markup and styling skills"
+    },
+   {
      "id": "browser",
      "title": "Browser & DOM",
      "icon": "🌐",
      "description": "Learn about DOM manipulation, event loop, and browser APIs"
    },
    {
-     "id": "html-css",
-     "title": "HTML & CSS",
-     "iconType": "image",
-     "iconSrc": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-     "description": "Test your markup and styling skills"
-   },
-   {
      "id": "security",
      "title": "Front-end Security",
      "icon": "🔒",
      "description": "Learn about secure coding practices"
+   },
+   {
+     "id": "seo",
+     "title": "SEO",
+     "icon": "🔍",
+     "description": "Master search engine optimization techniques for frontend developers"
    }
  ]
