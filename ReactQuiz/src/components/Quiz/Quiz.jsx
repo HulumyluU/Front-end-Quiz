@@ -10,11 +10,13 @@ import browserQuiz from '../../data/browserQuiz.json';
 import htmlCssQuiz from '../../data/htmlCssQuiz.json';
 import securityQuiz from '../../data/securityQuiz.json';
 import angularQuiz from '../../data/angularQuiz.json';
+import vueQuiz from '../../data/vueQuiz.json';
 import ImageWithLoader from './ImageWithLoader'; // animation for loader if img did not pop up immidiatelly
 
 const quizData = {
   react: reactQuiz,
-   angular: angularQuiz,
+  angular: angularQuiz,
+  vue: vueQuiz,
   javascript: javascriptQuiz,
   typescript: typescriptQuiz,
   browser: browserQuiz,

@@ -1,0 +1,369 @@
+{
+   "name": "Vue.js Quiz",
+   "questions": [
+     {
+       "id": 1,
+       "title": "Vue.js Basics",
+       "question": "What is Vue.js?",
+       "options": [
+         "A database management system",
+         "A progressive JavaScript framework for building user interfaces",
+         "A JavaScript testing framework",
+         "A CSS preprocessor"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Vue.js is a progressive JavaScript framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, making it easy to integrate with other libraries or existing projects. Vue is also perfectly capable of powering sophisticated Single-Page Applications (SPAs) when used in combination with modern tooling and supporting libraries. It emphasizes declarative rendering, component-based architecture, and reactivity, making it intuitive and efficient for developers."
+     },
+     {
+       "id": 2,
+       "title": "Vue Instance",
+       "question": "How do you create a Vue instance in Vue 2.x?",
+       "options": [
+         "new Vue.create({})",
+         "Vue.createApp({})",
+         "new Vue({})",
+         "Vue.instance({})"
+       ],
+       "correctAnswer": 2,
+       "explanation": "In Vue 2.x, you create a Vue instance using the 'new Vue()' constructor with an options object. This is the fundamental building block of Vue 2 applications. The options object can contain various properties like 'el' (to specify which DOM element to mount on), 'data' (for reactive data), 'methods' (for functions), 'computed' (for derived values), 'components' (for registering child components), and more. For example: new Vue({ el: '#app', data: { message: 'Hello Vue!' } }). Note that in Vue 3, the syntax changed to Vue.createApp({}).mount('#app')."
+     },
+     {
+       "id": 3,
+       "title": "Vue 3 Composition API",
+       "question": "What is the Composition API in Vue 3?",
+       "options": [
+         "A way to style components",
+         "A testing utility for Vue components",
+         "A new component API alternative to the Options API",
+         "A tool for composing multiple Vue applications"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Composition API is a new feature introduced in Vue 3 that provides an alternative to the Options API for organizing component logic. It consists of a set of functions that allow developers to group code by logical concern rather than by option type. This results in more organized, reusable, and testable code, especially in larger components. The Composition API addresses limitations in the Options API regarding code reuse and organization. It uses functions like 'ref', 'reactive', 'computed', 'watch', and 'onMounted' that can be imported from Vue. The Composition API is used within a 'setup()' function in components, which runs before component creation and provides a context that exposes properties typically found on the component instance."
+     },
+     {
+       "id": 4,
+       "title": "Reactive Data",
+       "question": "How does Vue make data reactive?",
+       "options": [
+         "Using traditional event listeners",
+         "Through manual DOM manipulation",
+         "Using Proxies in Vue 3 and Object.defineProperty in Vue 2",
+         "With regular JavaScript objects that don't need special handling"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Vue makes data reactive through different mechanisms depending on the version. In Vue 2, reactivity is achieved using Object.defineProperty to convert properties into getters/setters that track dependencies and trigger updates when accessed or modified. In Vue 3, the reactivity system was rewritten to use JavaScript Proxies, which offer better performance and allow Vue to detect more types of changes (like property addition/deletion and array index mutations). Both systems create a dependency-tracking system where each component instance has a corresponding watcher instance that records dependencies during rendering. When dependencies change, the watcher triggers a component re-render. This reactivity system is what enables Vue's declarative and reactive user interfaces."
+     },
+     {
+       "id": 5,
+       "title": "Vue Directives",
+       "question": "What directive is used for two-way binding in Vue?",
+       "options": [
+         "v-bind",
+         "v-model",
+         "v-on",
+         "v-sync"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The v-model directive is used for two-way data binding in Vue. It creates a relationship between a form input in the template and a data property in the component, automatically keeping them in sync. When the user updates the input, the data property updates; when the data property changes programmatically, the input updates. Under the hood, v-model is syntactic sugar that combines v-bind (to bind a value to the input) and v-on (to listen for input events). For example, v-model='message' on an input element is equivalent to :value='message' @input='e => message = e.target.value'. v-model works with various form elements, including text inputs, checkboxes, radio buttons, select dropdowns, and textareas. In Vue 3, v-model can also be used for custom components with more flexibility."
+     },
+     {
+       "id": 6,
+       "title": "List Rendering",
+       "question": "Which directive is used for rendering lists in Vue?",
+       "options": [
+         "v-for",
+         "v-list",
+         "v-each",
+         "v-repeat"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The v-for directive is used for rendering lists in Vue. It allows you to iterate through arrays, objects, numbers, or strings to render repeated elements. The syntax is 'v-for=\"item in items\"' where 'items' is the data source and 'item' is an alias for each element. When using v-for, it's recommended to provide a unique 'key' attribute to each rendered element for efficient updates and DOM reuse. For example: '<li v-for=\"(item, index) in items\" :key=\"item.id\">{{ item.name }}</li>'. You can also iterate through objects using the syntax 'v-for=\"(value, key, index) in object\"', where 'value' is the object value, 'key' is the property name, and 'index' is the iteration index."
+     },
+     {
+       "id": 7,
+       "title": "Conditional Rendering",
+       "question": "Which directive is used to conditionally render elements in Vue?",
+       "options": [
+         "v-show and v-if",
+         "v-render and v-condition",
+         "v-display and v-hidden",
+         "v-visible and v-invisible"
+       ],
+       "correctAnswer": 0,
+       "explanation": "Vue provides two main directives for conditional rendering: v-if and v-show. The v-if directive truly adds or removes elements from the DOM based on the expression's truthiness. It supports v-else and v-else-if for multiple conditions. The v-show directive always renders elements but toggles their CSS 'display' property. The key difference is that v-if has higher toggle costs (destroys/recreates elements) but lower initial render costs if condition is false, while v-show has higher initial render costs (always renders) but lower toggle costs (just CSS changes). Use v-if when conditions rarely change and v-show when elements need to toggle frequently. v-if can also be used on <template> elements as a wrapper that won't be rendered in the final HTML."
+     },
+     {
+       "id": 8,
+       "title": "Component Communication",
+       "question": "How do parent components communicate with child components in Vue?",
+       "options": [
+         "Using direct DOM manipulation",
+         "Through global variables only",
+         "Using props for parent-to-child and events for child-to-parent",
+         "Only through Vuex store"
+       ],
+       "correctAnswer": 2,
+       "explanation": "In Vue, parent components communicate with child components primarily through props (for parent-to-child) and custom events (for child-to-parent). Props are attributes that are registered on a component that can be passed data from its parent. For example, a parent would pass data using '<child-component :message=\"parentMessage\"></child-component>' and the child would define a prop with 'props: { message: String }'. For child-to-parent communication, children emit custom events that parents can listen to, such as '$emit(\"update\", data)' in the child and '<child-component @update=\"handleUpdate\"></child-component>' in the parent. Beyond these core mechanisms, Vue applications can use provide/inject for distant descendants, refs for direct access in specific cases, and state management solutions like Vuex or Pinia for complex applications."
+     },
+     {
+       "id": 9,
+       "title": "Vue Router",
+       "question": "What is Vue Router used for?",
+       "options": [
+         "Managing application state",
+         "Handling API requests",
+         "Client-side routing in single-page applications",
+         "Optimizing Vue application performance"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Vue Router is the official routing library for Vue.js that enables client-side routing in single-page applications (SPAs). It allows you to map different components to different URL paths, creating a multi-page-like experience without full page reloads. Vue Router features include: 1) Nested route/view mapping; 2) Modular, component-based router configuration; 3) Route params, query, wildcards support; 4) View transition effects powered by Vue's transition system; 5) Fine-grained navigation control; 6) Links with automatic active CSS classes; 7) HTML5 history mode or hash mode; 8) Customizable scroll behavior; 9) Proper encoding for URLs. Vue Router is a key part of most production Vue applications, working seamlessly with Vue to create sophisticated SPAs with rich navigation capabilities."
+     },
+     {
+       "id": 10,
+       "title": "Vuex",
+       "question": "What is Vuex?",
+       "options": [
+         "A Vue-specific CSS framework",
+         "A state management pattern and library for Vue applications",
+         "A tool for unit testing Vue components",
+         "A Vue compiler that optimizes render functions"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Vuex is a state management pattern and library for Vue.js applications. It serves as a centralized store for all components in an application, with rules ensuring that state can only be mutated in a predictable manner. Vuex has five core concepts: 1) State: the single source of truth that holds application data; 2) Getters: computed properties for the store that can filter or compute derived values from the state; 3) Mutations: synchronous functions that directly modify the state; 4) Actions: functions that commit mutations and can contain asynchronous operations; 5) Modules: a way to split the store into manageable chunks for larger applications. Vuex helps manage shared state across components, ensuring more predictable state changes, easier debugging, and better maintainability in complex applications. In Vue 3, Pinia has emerged as the recommended state management solution with a simpler API."
+     },
+     {
+       "id": 11,
+       "title": "Lifecycle Hooks",
+       "question": "Which lifecycle hook runs after the component is mounted to the DOM?",
+       "options": [
+         "beforeCreate",
+         "created",
+         "beforeMount",
+         "mounted"
+       ],
+       "correctAnswer": 3,
+       "explanation": "The 'mounted' lifecycle hook runs after the component has been mounted to the DOM. At this point, the component's template has been compiled, the virtual DOM has been created and rendered to the actual DOM, and you have full access to the DOM elements. This makes 'mounted' the ideal hook for operations that require direct DOM access, initializing third-party libraries that need DOM elements, adding event listeners to DOM elements, and making API calls that might update the UI. For example, this is where you would initialize a chart library or set up a map component. The full Vue lifecycle sequence is: beforeCreate → created → beforeMount → mounted → beforeUpdate → updated → beforeUnmount → unmounted (with beforeDestroy and destroyed used in Vue 2)."
+     },
+     {
+       "id": 12,
+       "title": "Computed Properties",
+       "question": "What are computed properties in Vue?",
+       "options": [
+         "Properties that compute their values only when called explicitly",
+         "Properties that are cached based on their reactive dependencies",
+         "Special CSS properties that auto-compute responsive values",
+         "Properties that compute server-side data"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Computed properties in Vue are special properties that are cached based on their reactive dependencies. Unlike methods, which run every time they're accessed, computed properties only recalculate when one of their tracked reactive dependencies changes. This caching behavior makes them more efficient for expensive operations. Computed properties are defined using the 'computed' option in Vue components and are accessed like regular data properties. They're ideal for values that need to be derived from other data, such as filtered lists, formatted text, or calculated totals. Computed properties can have getters and setters, though they typically only use getters. In the Composition API, computed properties are created using the 'computed()' function, which returns a reactive ref that updates automatically when dependencies change."
+     },
+     {
+       "id": 13,
+       "title": "Watchers",
+       "question": "What are watchers used for in Vue?",
+       "options": [
+         "To watch DOM elements directly",
+         "To perform side effects in response to data changes",
+         "To speed up Vue application performance",
+         "To track user interactions only"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Watchers in Vue are used to perform side effects in response to data changes. Unlike computed properties, which are used for derived data, watchers are best for operations like API calls, DOM manipulations, or asynchronous operations that need to happen when specific data changes. Watchers are defined using the 'watch' option in Vue components. They receive the new and old values of the watched property and can perform any arbitrary operations. Watchers can watch simple properties, nested properties (using string paths like 'user.name'), or complex expressions using functions. In the Options API, watchers are defined in the 'watch' object, while in the Composition API, the 'watch' function is used. Watchers can be configured with options like 'deep' (to detect nested property changes) and 'immediate' (to run immediately upon creation)."
+     },
+     {
+       "id": 14,
+       "title": "Vue CLI",
+       "question": "What is Vue CLI used for?",
+       "options": [
+         "A command-line tool for quickly creating boilerplate Vue components",
+         "A client-side library for Vue performance optimization",
+         "A complete standard tooling for Vue.js development",
+         "A compiler that converts Vue templates to JavaScript"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Vue CLI (Command Line Interface) is a complete standard tooling system for Vue.js development. It provides a rich set of features including: 1) Project scaffolding through 'vue create' to quickly set up new projects with best practices; 2) A graphical user interface through 'vue ui' for project management; 3) A runtime dependency (@vue/cli-service) that handles webpack configuration, provides commands for development, building, and testing; 4) A plugin system allowing community plugins to modify the internal webpack configuration and inject commands; 5) An extensible preset system for saving and reusing configurations. Vue CLI aims to provide a balance between flexibility and convention, allowing developers to get started quickly with sensible defaults while still offering customization options for more advanced needs. It supports modern JavaScript features, testing, linting, and various CSS preprocessors out of the box."
+     },
+     {
+       "id": 15,
+       "title": "Single-File Components",
+       "question": "What are Single-File Components in Vue?",
+       "options": [
+         "Components that only contain a single method",
+         "Files with the .vue extension that encapsulate template, script, and style",
+         "Components that are restricted to a single instance",
+         "A special type of component that doesn't require compilation"
+       ],
+       "correctAnswer": 1,
+       "explanation": "Single-File Components (SFCs) in Vue are files with the .vue extension that encapsulate a component's template, script, and style in a single file. This format separates and organizes the different concerns of a component while keeping them tightly coupled in the same file. An SFC typically has three main sections: <template> for the HTML markup, <script> for the component definition and logic, and <style> for CSS styles. SFCs provide several benefits: better organization, pre-processors support (like Sass for CSS or TypeScript for JavaScript), component-scoped CSS, hot-reloading during development, and IDE support. SFCs require a build step using tools like Vue CLI, Vite, or webpack with vue-loader to convert them into browser-runnable JavaScript, but they significantly improve the development experience for non-trivial Vue applications."
+     },
+     {
+       "id": 16,
+       "title": "Vue Directives",
+       "question": "What directive is used to bind HTML attributes in Vue?",
+       "options": [
+         "v-attr",
+         "v-bind or : (shorthand)",
+         "v-html-attr",
+         "v-attribute"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The v-bind directive or its shorthand ':' is used to bind HTML attributes in Vue. This directive dynamically binds an attribute to an expression, updating the attribute when the expression changes. For example, v-bind:href=\"url\" or its shorthand :href=\"url\" will set the href attribute of an element to the value of the 'url' data property. If 'url' changes, the href attribute updates automatically. v-bind can be used with any HTML attribute as well as component props. It supports dynamic argument names using square brackets (:[attributeName]) and modifiers like .prop, .camel, and .sync (in Vue 2). The v-bind directive is one of the most frequently used directives in Vue templates, as it's essential for connecting data to the DOM and creating dynamic interfaces."
+     },
+     {
+       "id": 17,
+       "title": "Event Handling",
+       "question": "Which directive is used for event handling in Vue?",
+       "options": [
+         "v-event",
+         "v-handle",
+         "v-on or @ (shorthand)",
+         "v-listen"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The v-on directive or its shorthand '@' is used for event handling in Vue. This directive attaches event listeners to elements. For example, v-on:click=\"handleClick\" or @click=\"handleClick\" will call the 'handleClick' method when the element is clicked. The v-on directive supports most native DOM events (click, input, submit, etc.) as well as custom events emitted by components. It offers modifiers to alter event behavior, like .prevent (prevents default), .stop (stops propagation), .once (triggers only once), .self (only triggers if event.target is the element itself), and key modifiers for keyboard events (.enter, .tab, etc.). The handler value can be a method name, an inline statement, or even a shorthand like @click=\"count++\". Event handling is a fundamental aspect of creating interactive Vue applications."
+     },
+     {
+       "id": 18,
+       "title": "Vue Components",
+       "question": "How do you register a local component in Vue?",
+       "options": [
+         "Using the global Vue.localComponent() method",
+         "Adding it to the 'localComponents' array in Vue config",
+         "Using the 'components' option in the parent component",
+         "Components can only be registered globally"
+       ],
+       "correctAnswer": 2,
+       "explanation": "In Vue, you register a local component using the 'components' option in the parent component. Local registration makes the component available only within the scope of the parent component, not throughout the application. The registration syntax involves providing a key (the component name as it will be used in templates) and a value (the component definition) in the components object. For example: components: { 'my-component': MyComponent }. After registration, you can use the component in the parent's template as <my-component></my-component>. Local registration is often preferred over global registration as it creates more explicit dependency relationships, leads to better code organization, and supports build optimizations like tree-shaking. In Single-File Components, you would typically import the child component and then register it locally."
+     },
+     {
+       "id": 19,
+       "title": "Slot System",
+       "question": "What is the purpose of slots in Vue?",
+       "options": [
+         "To create timed animations in components",
+         "To reserve memory for component data",
+         "To enable content distribution from parent to child components",
+         "To define lazy-loaded components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Slots in Vue provide a content distribution system that enables parent components to pass content to child components. This allows for more flexible and reusable component design. When a child component includes a <slot> element in its template, parent components can inject content into that slot. Vue supports three types of slots: 1) Default slots (<slot></slot>) for when a component has only one content area; 2) Named slots (<slot name=\"header\"></slot>) for components with multiple content areas, accessed using the v-slot directive; 3) Scoped slots, which allow child components to pass data back to the parent's slotted content. Slots are crucial for creating wrapper components like modals, cards, or layout components where the outer structure is consistent but the inner content varies. The slot system promotes component composition by separating the 'what' (content from parent) from the 'how' (presentation in child)."
+     },
+     {
+       "id": 20,
+       "title": "Vue 3 Reactivity",
+       "question": "In Vue 3's Composition API, which function is used to create a reactive object?",
+       "options": [
+         "makeReactive()",
+         "ref()",
+         "reactive()",
+         "createState()"
+       ],
+       "correctAnswer": 2,
+       "explanation": "In Vue 3's Composition API, the reactive() function is used to create a reactive object. When you pass a plain JavaScript object to reactive(), it returns a reactive proxy of the original that tracks property access and mutations, triggering component updates when data changes. For example: const state = reactive({ count: 0 }). Unlike ref(), which wraps a primitive value in a reactive object with a .value property, reactive() creates a proxy of the entire object. The reactive object maintains reactivity even for nested properties (deep reactivity). There are some limitations: reactive() only works on objects and arrays (not primitives), reactive objects cannot be destructured without losing reactivity, and replacing the entire reactive object will break reactivity. Vue 3's reactivity system is based on JavaScript Proxies, which enables more comprehensive and efficient change detection than Vue 2's Object.defineProperty approach."
+     },
+     {
+       "id": 21,
+       "title": "Teleport Component",
+       "question": "What does the Teleport component do in Vue 3?",
+       "options": [
+         "Enables time travel debugging",
+         "Moves component rendering to a web worker",
+         "Renders content in a different place in the DOM",
+         "Allows teleporting data between components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "The Teleport component in Vue 3 allows you to render content in a different place in the DOM tree, outside of the Vue application's DOM hierarchy, while keeping the component's logical hierarchy intact. This is particularly useful for elements that should be visually positioned outside their parent components, such as modals, tooltips, and dropdown menus that need to avoid issues with CSS overflow, z-index, or positioning constraints. Teleport is used with a 'to' prop that specifies a CSS selector of the target element where the content should be rendered. For example: <teleport to=\"body\"> <div class=\"modal\">...</div> </teleport> will render the modal as a direct child of the body element, regardless of where the component is used in the Vue component tree. The content remains reactive and maintains its event handling and component context despite being moved elsewhere in the DOM."
+     },
+     {
+       "id": 22,
+       "title": "Vue Performance",
+       "question": "Which feature helps improve rendering performance in Vue?",
+       "options": [
+         "The v-once directive",
+         "Using v-if instead of v-show for all conditions",
+         "Avoiding computed properties",
+         "Binding to multiple data sources per element"
+       ],
+       "correctAnswer": 0,
+       "explanation": "The v-once directive in Vue helps improve rendering performance by ensuring that the element or component it's applied to is rendered only once and never re-rendered, even if the data changes. This is useful for static content that never needs to update. Other Vue performance optimization techniques include: 1) Using v-show for elements that toggle frequently, and v-if for elements that rarely toggle; 2) Using key attributes on v-for elements to help Vue efficiently reuse DOM elements; 3) Freezing large static objects with Object.freeze() to prevent Vue from making them reactive; 4) Using computed properties instead of complex template expressions; 5) Using functional components for simple presentation components; 6) Virtual list rendering with libraries like vue-virtual-scroller for long lists; 7) Lazy loading components with Vue's dynamic import feature; 8) Properly scoping styles to avoid expensive CSS selectors; 9) Avoiding deeply nested reactive structures."
+     },
+     {
+       "id": 23,
+       "title": "Vue Directives",
+       "question": "What is a custom directive in Vue?",
+       "options": [
+         "A directive imported from a third-party library",
+         "A way to create reusable template code",
+         "A mechanism for direct DOM manipulations",
+         "A directive that only works in custom components"
+       ],
+       "correctAnswer": 2,
+       "explanation": "A custom directive in Vue is a mechanism for direct DOM manipulations when standard directives and components aren't sufficient. Custom directives are perfect for low-level DOM access and are registered using Vue.directive (global) or the directives option (local). They implement lifecycle hooks like mounted and updated that receive the element they're bound to, allowing direct manipulation of DOM elements. Custom directives are useful for focusing inputs automatically, handling custom scrolling behavior, integrating third-party DOM libraries, or implementing specific DOM behaviors not covered by Vue's built-in features. For example, a v-focus directive could automatically focus an input field. While components are preferred for complex features, custom directives excel at reusable behaviors that require direct access to underlying DOM elements."
+     },
+     {
+       "id": 24,
+       "title": "Vue 3 Suspense",
+       "question": "What is the purpose of the Suspense component in Vue 3?",
+       "options": [
+         "To suspend background processes when the user is inactive",
+         "To handle asynchronous operations before rendering content",
+         "To pause animations during heavy computation",
+         "To prevent component updates during form input"
+       ],
+       "correctAnswer": 1,
+       "explanation": "The Suspense component in Vue 3 is designed to handle asynchronous operations before rendering content. It allows components with async setup() functions or async components to indicate to a parent Suspense component that the rendering should wait until the asynchronous operations are complete. Suspense provides two named slots: #default for the content that might take time to load (the async component or component with async setup) and #fallback for displaying loading states while waiting for the async operations to complete. This creates a more organized way to handle loading states without needing to implement loading logic in every component. Suspense is particularly useful for code-splitting, data fetching, or any other asynchronous operations that must complete before a component can render properly. It simplifies the handling of loading states across component hierarchies."
+     },
+     {
+       "id": 25,
+       "title": "Mixins",
+       "question": "What are mixins in Vue?",
+       "options": [
+         "CSS utilities that can be mixed into component styles",
+         "Reusable component template fragments",
+         "Objects containing component options that can be reused across components",
+         "Bundle optimizations that mix multiple components into one file"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Mixins in Vue are reusable pieces of component logic that can be shared across multiple components. They are plain JavaScript objects containing component options (data, methods, lifecycle hooks, etc.) that get merged into the components that use them. When a component uses a mixin, all options from the mixin are 'mixed' into the component's own options. Mixins help with code reuse and composition when you have functionality that needs to be shared across multiple components. For example, you might create a 'pagination' mixin that provides common pagination logic to different components. While mixins are useful, they can cause namespace conflicts and implicit dependencies. In Vue 3, the Composition API provides a more explicit and flexible alternative to mixins through composable functions. Mixins are still supported in Vue 3 for backwards compatibility, but composables are generally recommended for new code."
+     },
+     {
+       "id": 26,
+       "title": "Transitions in Vue",
+       "question": "How are transitions implemented in Vue?",
+       "options": [
+         "Using the v-transition directive",
+         "With the <transition> wrapper component",
+         "Using the transition() method",
+         "Only through custom JavaScript functions"
+       ],
+       "correctAnswer": 1,
+       "explanation": "In Vue, transitions are implemented using the built-in <transition> wrapper component. This component provides a way to apply enter/leave animations when elements are inserted, updated, or removed from the DOM. When an element inside a <transition> component is inserted or removed, Vue automatically adds/removes CSS classes at appropriate timing to trigger animations. The six transition classes are: v-enter-from, v-enter-active, v-enter-to, v-leave-from, v-leave-active, and v-leave-to. Vue also supports JavaScript hooks for more complex animations, allowing you to use animation libraries like GSAP or Anime.js. The <transition> component works with single elements or components, while <transition-group> handles list transitions. Transitions in Vue can be customized with different names, durations, timing functions, and can be configured to handle initial render animations or mode-specific behaviors like 'out-in' or 'in-out'."
+     },
+     {
+       "id": 27,
+       "title": "Vue Router Navigation Guards",
+       "question": "What are navigation guards in Vue Router?",
+       "options": [
+         "Security features that prevent hackers from accessing routes",
+         "Functions that protect routes from being accessed by unauthorized users",
+         "Middleware functions that can control navigation flow",
+         "Event handlers that prevent navigation errors"
+       ],
+       "correctAnswer": 2,
+       "explanation": "Navigation guards in Vue Router are middleware functions that can control the navigation flow by redirecting or canceling navigations. They allow you to perform operations like checking authentication status, validating parameters, loading data, or recording analytics before allowing a navigation to complete or redirecting to a different route. Vue Router provides several types of guards: 1) Global guards (beforeEach, beforeResolve, afterEach) that run for every navigation; 2) Route-specific guards (beforeEnter) defined on route configurations; 3) Component guards (beforeRouteEnter, beforeRouteUpdate, beforeRouteLeave) defined in components. Guards receive the target route, current route, and a next function that must be called to resolve the navigation. Navigation guards are essential for implementing authentication flows, route-level data fetching, preventing users from leaving forms with unsaved changes, and other navigation-related functionality."
+     },
+     {
+       "id": 28,
+       "title": "Vue 3 vs Vue 2",
+       "question": "Which is NOT a major change in Vue 3 compared to Vue 2?",
+       "options": [
+         "Introduction of the Composition API",
+         "Rewritten reactivity system using Proxies",
+         "Virtual DOM rewrite for better performance",
+         "Removal of component templates in favor of render functions"
+       ],
+       "correctAnswer": 3,
+       "explanation": "The removal of component templates in favor of render functions is NOT a major change in Vue 3. In fact, Vue 3 continues to fully support template-based components, which remain the recommended approach for most use cases. The actual major changes in Vue 3 include: 1) Introduction of the Composition API as an alternative to the Options API for organizing component logic; 2) Rewritten reactivity system using JavaScript Proxies instead of Object.defineProperty, allowing for better performance and detection"
+      }
+   ]
+}
